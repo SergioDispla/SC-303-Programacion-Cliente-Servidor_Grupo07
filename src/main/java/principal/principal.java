@@ -1,4 +1,7 @@
 
+/*Proyecto:  Sistema para la administración y control de un taller mecánico de 
+vehículos. Debe contemplar la venta de productos */
+
 package principal;
 
 public class principal {
