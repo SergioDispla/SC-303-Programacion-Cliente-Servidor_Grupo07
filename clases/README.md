@@ -1,7 +1,7 @@
 # Diagramas de clases
 
-#Persona
+# Persona
 
-#Vehiculo
+# Vehiculo
 
-#Reportes
+# Reportes
