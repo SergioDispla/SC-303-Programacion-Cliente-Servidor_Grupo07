@@ -3,12 +3,26 @@ package Taller;
 import java.awt.List;
 import java.util.ArrayList;
 
-public class Cliente {
-    private String nombre;
-    private String direccion;
-    private String telefono;
-    private String correoElectronico;
+enum roles {
+    Cliente, Operador, Administrador;
+}
 
+public class Cliente {
+    private int cedula;
+    private String nombre;
+    private String telefono;
+    private String direccion;
+    private String correoElectronico;
+    private roles rolUsuario;    
+
+    public int getCedula() {
+        return cedula;
+    }
+
+    public void setCedula(int cedula) {
+        this.cedula = cedula;
+    }
+    
     public String getNombre() {
         return nombre;
     }
@@ -41,14 +55,23 @@ public class Cliente {
         this.correoElectronico = correoElectronico;
     }
 
-    public List<Vehiculo> getVehiculos() {
+    public roles getRolUsuario() {
+        return rolUsuario;
+    }
+
+    public void setRolUsuario(roles rolUsuario) {
+        this.rolUsuario = rolUsuario;
+    }
+
+    public <any> getVehiculos() {
         return vehiculos;
     }
 
-    public void setVehiculos(List<Vehiculo> vehiculos) {
+    public void setVehiculos(<any> vehiculos) {
         this.vehiculos = vehiculos;
     }
 
+    
     public Cliente(String nombre, String direccion, String telefono, String correoElectronico, List<Vehiculo> vehiculos) {
         this.nombre = nombre;
         this.direccion = direccion;

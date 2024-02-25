@@ -1,10 +1,11 @@
 package Taller;
 
 public class Vehiculo {
+    private String placa;       
     private String marca;
     private String modelo;
     private int año;
-    private String placa;
+
     private double kilometraje;
     private String estado;
     private Iterable<Vehiculo> vehiculos;
