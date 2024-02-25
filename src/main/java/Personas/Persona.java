@@ -13,7 +13,17 @@ public class Persona {
     private String telefono;
     private String direccion;
     private String correoElectronico;
-    private roles rolUsuario;    
+    protected roles rolUsuario;    
+    
+    public Persona(String cedula, String nombre, String telefono, 
+        String direccion, String correoElectronico, roles rolUsuario) {
+        this.cedula = cedula;
+        this.nombre = nombre;
+        this.telefono = telefono;
+        this.direccion = direccion;
+        this.correoElectronico = correoElectronico;
+        this.rolUsuario = rolUsuario;
+    }    
 
     public String getCedula() {
         return cedula;
@@ -63,14 +73,14 @@ public class Persona {
         this.rolUsuario = rolUsuario;
     }
 
-    public Persona(String cedula, String nombre, String telefono, 
-            String direccion, String correoElectronico, roles rolUsuario) {
-        this.cedula = cedula;
-        this.nombre = nombre;
-        this.telefono = telefono;
-        this.direccion = direccion;
-        this.correoElectronico = correoElectronico;
-        this.rolUsuario = rolUsuario;
+    public void informacionPersona(){
+        System.out.println("Cédula: "+cedula);
+        System.out.println("Nombre: "+nombre);
+        System.out.println("Teléfono: "+telefono);
+        System.out.println("Dirección: "+direccion);
+        System.out.println("Correo Electrónico: "+correoElectronico);
+        System.out.println("Tipo Usuario: "+rolUsuario); 
+        
     }
 
     

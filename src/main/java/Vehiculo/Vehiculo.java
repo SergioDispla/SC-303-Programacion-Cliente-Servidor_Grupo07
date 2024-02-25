@@ -1,4 +1,4 @@
-package Taller;
+package Vehiculo;
 
 public class Vehiculo {
     private String placa;       
