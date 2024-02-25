@@ -1,4 +1,4 @@
-package Taller;
+package Personas;
 
 import java.awt.List;
 import java.util.ArrayList;
