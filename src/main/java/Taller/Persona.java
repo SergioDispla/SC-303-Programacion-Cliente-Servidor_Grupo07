@@ -7,19 +7,19 @@ enum roles {
     Cliente, Operador, Administrador;
 }
 
-public class Cliente {
-    private int cedula;
+public class Persona {
+    private String cedula;
     private String nombre;
     private String telefono;
     private String direccion;
     private String correoElectronico;
     private roles rolUsuario;    
 
-    public int getCedula() {
+    public String getCedula() {
         return cedula;
     }
 
-    public void setCedula(int cedula) {
+    public void setCedula(String cedula) {
         this.cedula = cedula;
     }
     
@@ -63,36 +63,15 @@ public class Cliente {
         this.rolUsuario = rolUsuario;
     }
 
-    public <any> getVehiculos() {
-        return vehiculos;
-    }
-
-    public void setVehiculos(<any> vehiculos) {
-        this.vehiculos = vehiculos;
-    }
-
-    
-    public Cliente(String nombre, String direccion, String telefono, String correoElectronico, List<Vehiculo> vehiculos) {
+    public Persona(String cedula, String nombre, String telefono, 
+            String direccion, String correoElectronico, roles rolUsuario) {
+        this.cedula = cedula;
         this.nombre = nombre;
-        this.direccion = direccion;
         this.telefono = telefono;
+        this.direccion = direccion;
         this.correoElectronico = correoElectronico;
-        this.vehiculos = vehiculos;
+        this.rolUsuario = rolUsuario;
     }
-    private List<Vehiculo> vehiculos;
 
-    public Cliente(String nombre, String direccion, String telefono, String correoElectronico) {
-        this.nombre = nombre;
-        this.direccion = direccion;
-        this.telefono = telefono;
-        this.correoElectronico = correoElectronico;
-        this.vehiculos = new ArrayList<>();
-    }
-    public void impVehiculos() {
-    System.out.println("Vehículos de " + this.nombre + ":");
-    for (Vehiculo vehiculo : this.vehiculos) {
-        System.out.println("- Marca: " + vehiculo.getMarca() + ", Modelo: " + vehiculo.getModelo() + ", Año: " + vehiculo.getAño());
-    }
-}
     
 }
