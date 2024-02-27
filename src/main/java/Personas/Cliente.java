@@ -8,10 +8,10 @@ public class Cliente extends Persona {
 
     
     public Cliente(String cedula, String nombre, String telefono, 
-            String direccion, String correoElectronico, roles rolUsuario, 
+            String direccion, String correoElectronico, Roles rolUsuario, 
             String placaVehiculo, LocalDate fechaRegistro) {
         super(cedula, nombre, telefono, direccion, correoElectronico, 
-                rolUsuario.Cliente);
+                rolUsuario);
         this.placaVehiculo = placaVehiculo;
         this.fechaRegistro = fechaRegistro;
     }
@@ -30,6 +30,14 @@ public class Cliente extends Persona {
 
     public void setFechaRegistro(LocalDate fechaRegistro) {
         this.fechaRegistro = fechaRegistro;
+    }
+
+    public Roles getRolUsuario() {
+        return rolUsuario;
+    }
+
+    public void setRolUsuario(Roles rolUsuario) {
+        this.rolUsuario = rolUsuario;
     }
     
     @Override

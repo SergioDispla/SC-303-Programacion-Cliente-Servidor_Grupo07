@@ -10,8 +10,8 @@ public class Operador extends Persona {
     public Operador(String idEmpleado, LocalDate fechaContratacion, 
             float salario, String cedula, String nombre, 
             String telefono, String direccion, String correoElectronico, 
-            roles rolUsuario) {
-        super(cedula, nombre, telefono, direccion, correoElectronico, rolUsuario.Operador);
+            Roles rolUsuario) {
+        super(cedula, nombre, telefono, direccion, correoElectronico, rolUsuario);
         this.idEmpleado = idEmpleado;
         this.fechaContratacion = fechaContratacion;
         this.salario = salario;
@@ -39,6 +39,14 @@ public class Operador extends Persona {
 
     public void setSalario(float salario) {
         this.salario = salario;
+    }
+
+    public Roles getRolUsuario() {
+        return rolUsuario;
+    }
+
+    public void setRolUsuario(Roles rolUsuario) {
+        this.rolUsuario = rolUsuario;
     }
     
     

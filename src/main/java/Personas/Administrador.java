@@ -5,8 +5,8 @@ public class Administrador extends Persona {
     private String usuario;
     private String contrasena;
 
-    public Administrador(String idEmpleado, String usuario, String contrasena, String cedula, String nombre, String telefono, String direccion, String correoElectronico, roles rolUsuario) {
-        super(cedula, nombre, telefono, direccion, correoElectronico, rolUsuario.Administrador);
+    public Administrador(String idEmpleado, String usuario, String contrasena, String cedula, String nombre, String telefono, String direccion, String correoElectronico, Roles rolUsuario) {
+        super(cedula, nombre, telefono, direccion, correoElectronico, rolUsuario);
         this.idEmpleado = idEmpleado;
         this.usuario = usuario;
         this.contrasena = contrasena;
@@ -36,14 +36,15 @@ public class Administrador extends Persona {
         this.contrasena = contrasena;
     }
 
-    public roles getRolUsuario() {
+    public Roles getRolUsuario() {
         return rolUsuario;
     }
 
-    public void setRolUsuario(roles rolUsuario) {
+    public void setRolUsuario(Roles rolUsuario) {
         this.rolUsuario = rolUsuario;
     }
 
+    
     @Override
     public void informacionPersona(){
         System.out.println("Cédula: "+getCedula());

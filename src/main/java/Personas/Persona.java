@@ -3,20 +3,19 @@ package Personas;
 import java.awt.List;
 import java.util.ArrayList;
 
-enum roles {
-    Cliente, Operador, Administrador;
-}
-
 public class Persona {
+    public enum Roles {
+    Cliente, Operador, Administrador;
+    }
     private String cedula;
     private String nombre;
     private String telefono;
     private String direccion;
     private String correoElectronico;
-    protected roles rolUsuario;    
+    protected Roles rolUsuario;    
     
     public Persona(String cedula, String nombre, String telefono, 
-        String direccion, String correoElectronico, roles rolUsuario) {
+        String direccion, String correoElectronico, Roles rolUsuario) {
         this.cedula = cedula;
         this.nombre = nombre;
         this.telefono = telefono;
@@ -65,11 +64,11 @@ public class Persona {
         this.correoElectronico = correoElectronico;
     }
 
-    public roles getRolUsuario() {
+    public Roles getRolUsuario() {
         return rolUsuario;
     }
 
-    public void setRolUsuario(roles rolUsuario) {
+    public void setRolUsuario(Roles rolUsuario) {
         this.rolUsuario = rolUsuario;
     }
 

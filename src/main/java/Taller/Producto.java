@@ -44,10 +44,10 @@ public class Producto {
         this.cantidadStock = cantidadStock;
     }
     public void informacionProductos() {
-    System.out.println("Nombre: " + this.nombre);
-    System.out.println("Descripción: " + this.descripcion);
-    System.out.println("Precio: " + this.precio);
-    System.out.println("Cantidad disponible: " + this.cantidadStock);
+    System.out.print("Nombre: " + this.nombre);
+    System.out.print(", Descripción: " + this.descripcion);
+    System.out.print(", Precio: " + this.precio);
+    System.out.println(", Cantidad disponible: " + this.cantidadStock);
 }
     
     
