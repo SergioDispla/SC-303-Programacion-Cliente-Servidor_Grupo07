@@ -43,7 +43,7 @@ public class Producto {
         this.precio = precio;
         this.cantidadStock = cantidadStock;
     }
-    public void Informacion() {
+    public void informacionProductos() {
     System.out.println("Nombre: " + this.nombre);
     System.out.println("Descripción: " + this.descripcion);
     System.out.println("Precio: " + this.precio);

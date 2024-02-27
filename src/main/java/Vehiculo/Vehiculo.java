@@ -74,7 +74,7 @@ public class Vehiculo {
     }
     return null;
 }
-    public void InfoVehi() {
+    public void InfoVehiculo() {
     System.out.println("Marca: " + this.marca);
     System.out.println("Modelo: " + this.modelo);
     System.out.println("Año: " + this.año);
