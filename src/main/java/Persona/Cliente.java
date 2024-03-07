@@ -1,21 +1,26 @@
+/*
+Clase hija de la clase persona. Hereda todos los atributos y metodos de la clase persona
+*/
 package Persona;
-
 import java.time.LocalDate;
 
 public class Cliente extends Persona {
+    
+    // Atributos unicos de la clase Cliente
     private String placaVehiculo;
     private LocalDate fechaRegistro;
 
-    
-    public Cliente(String cedula, String nombre, String telefono, 
-            String direccion, String correoElectronico, Roles rolUsuario, 
-            String placaVehiculo, LocalDate fechaRegistro) {
+    //Constructor de la clase Cliente
+    public Cliente(String placaVehiculo, LocalDate fechaRegistro, String cedula,
+            String nombre, String telefono,String direccion, 
+            String correoElectronico, Roles rolUsuario) {
         super(cedula, nombre, telefono, direccion, correoElectronico, 
                 rolUsuario);
         this.placaVehiculo = placaVehiculo;
         this.fechaRegistro = fechaRegistro;
     }
 
+    //Metodos getters and setters
     public String getPlacaVehiculo() {
         return placaVehiculo;
     }
@@ -40,6 +45,8 @@ public class Cliente extends Persona {
         this.rolUsuario = rolUsuario;
     }
     
+    //Metodo de imprimir informacion de los atributos de tipo Cliente. 
+    //Este metodo es sobreescrito ya que es heredado de la clase persona
     @Override
     public void informacionPersona(){
         System.out.println("Cédula: "+getCedula());

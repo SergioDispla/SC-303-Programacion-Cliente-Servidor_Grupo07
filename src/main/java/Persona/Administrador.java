@@ -1,10 +1,16 @@
+/*
+Clase hija de la clase persona. Hereda todos los atributos y metodos de la clase persona
+*/
 package Persona;
-
 public class Administrador extends Persona {
+    
+    // Atributos unicos de la clase Administrador
     private String idEmpleado;
     private String usuario;
     private String contrasena;
 
+    
+    //Constructor de la clase Administrador
     public Administrador(String idEmpleado, String usuario, String contrasena, String cedula, String nombre, String telefono, String direccion, String correoElectronico, Roles rolUsuario) {
         super(cedula, nombre, telefono, direccion, correoElectronico, rolUsuario);
         this.idEmpleado = idEmpleado;
@@ -12,6 +18,8 @@ public class Administrador extends Persona {
         this.contrasena = contrasena;
     }
 
+    
+    //Metodos getters and setters
     public String getIdEmpleado() {
         return idEmpleado;
     }
@@ -45,6 +53,8 @@ public class Administrador extends Persona {
     }
 
     
+    //Metodo de imprimir informacion de los atributos de tipo Administrador. 
+    //Este metodo es sobreescrito ya que es heredado de la clase persona
     @Override
     public void informacionPersona(){
         System.out.println("Cédula: "+getCedula());

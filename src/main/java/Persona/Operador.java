@@ -1,12 +1,17 @@
+/*
+Clase hija de la clase persona. Hereda todos los atributos y metodos de la clase persona
+*/
 package Persona;
-
 import java.time.LocalDate;
 
 public class Operador extends Persona {
+    
+    // Atributos unicos de la clase Operador
     private String idEmpleado;
     private LocalDate fechaContratacion;
     private float salario;
 
+    //Constructor de la clase Operador
     public Operador(String idEmpleado, LocalDate fechaContratacion, 
             float salario, String cedula, String nombre, 
             String telefono, String direccion, String correoElectronico, 
@@ -17,6 +22,7 @@ public class Operador extends Persona {
         this.salario = salario;
     }
 
+    //Metodos getters and setters
     public String getIdEmpleado() {
         return idEmpleado;
     }
@@ -50,6 +56,8 @@ public class Operador extends Persona {
     }
     
     
+    //Metodo de imprimir informacion de los atributos de tipo Operador. 
+    //Este metodo es sobreescrito ya que es heredado de la clase persona
     @Override
     public void informacionPersona(){
         System.out.println("Cédula: "+getCedula());
