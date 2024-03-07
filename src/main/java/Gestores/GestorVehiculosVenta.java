@@ -7,12 +7,14 @@
 * - Un metodo para el registro de vehiculos (guardarlos en un ArrayList)
 * - Registro de la compra realizada (heredada de la interface factura)
 * - Listado de la compra realizada (heredada de la interface factura)
+* 
+* 
+* Nota: Puedes ver como referencia la clase GestorAdministracionProductos
  */
 package Gestores;
 
 import Vehiculo.*;
 import java.util.ArrayList;
-
 
 public class GestorVehiculosVenta {
     ArrayList<Vehiculo> vehiculosVenta = new ArrayList<>();
