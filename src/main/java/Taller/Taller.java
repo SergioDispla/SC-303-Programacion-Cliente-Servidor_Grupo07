@@ -1,11 +1,11 @@
 
 package Taller;
-import Facturacion.Facturacion;
-import static Facturacion.Facturacion.TipoPago.*;
+import Persona.Cliente;
+import Factura.Factura.*;
+import static Factura.Factura.TipoPago.*;
 import java.time.LocalDate;
 import Gestores.*;
-import Personas.*;
-import Personas.Persona.*;
+import Persona.Persona.*;
 
 public class Taller {
 

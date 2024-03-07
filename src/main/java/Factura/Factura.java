@@ -2,10 +2,10 @@
  *
  * @author 
  */
-package Facturacion;
-import Personas.*;
+package Factura;
+import Persona.Cliente;
 
-public interface Facturacion {
+public interface Factura {
     public enum TipoPago {
         TARJETA, EFECTIVO
     }

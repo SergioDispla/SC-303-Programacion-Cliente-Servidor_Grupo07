@@ -3,7 +3,7 @@
  * @author 
  */
 package Gestores;
-import Personas.*;
+import Persona.Cliente;
 import java.util.ArrayList;
 
 

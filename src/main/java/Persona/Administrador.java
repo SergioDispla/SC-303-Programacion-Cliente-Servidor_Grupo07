@@ -1,4 +1,4 @@
-package Personas;
+package Persona;
 
 public class Administrador extends Persona {
     private String idEmpleado;

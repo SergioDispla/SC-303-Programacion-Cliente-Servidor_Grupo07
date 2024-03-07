@@ -3,13 +3,13 @@
  * @author 
  */
 package Gestores;
-import Facturacion.Facturacion;
+import Persona.Cliente;
+import Factura.Factura;
 import Taller.*;
-import Personas.*;
 import java.util.ArrayList;
 
 
-public class GestorAdministracionProductos implements Facturacion {
+public class GestorAdministracionProductos implements Factura {
     private float totalPagado;
     
     ArrayList<Producto> productos = new ArrayList<>();   

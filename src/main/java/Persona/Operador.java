@@ -1,4 +1,4 @@
-package Personas;
+package Persona;
 
 import java.time.LocalDate;
 
