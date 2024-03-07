@@ -30,11 +30,11 @@ public class Taller {
         cliente01.informacionPersona();
         
       
-        
+        //Test GestorAdministracionProducto
         GestorAdministracionProductos productos = new GestorAdministracionProductos();
-        productos.ingresarProducto(new Producto("Cera Meguiars","Cera para vehiculo",2000.00,10));
-        productos.ingresarProducto(new Producto("Spray Meguiars","Spray para vehiculo",3000.00,5));
-        productos.ingresarProducto(new Producto("Paño Meguiars","Paño para vehiculo",4000.00,25));
+        productos.ingresarProducto(new Producto("Producto 01","Descripcion Producto",2000.00,10));
+        productos.ingresarProducto(new Producto("Producto 02","Descripcion Producto",3000.00,5));
+        productos.ingresarProducto(new Producto("Producto 03","Descripcion Producto",4000.00,25));
         productos.listarProductos();
         
         productos.registroCompras(cliente01, 11300, TARJETA);
