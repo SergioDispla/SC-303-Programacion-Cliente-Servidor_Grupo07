@@ -1,4 +1,4 @@
-package Taller;
+package Producto;
 
 public class Producto {
     private String nombre;

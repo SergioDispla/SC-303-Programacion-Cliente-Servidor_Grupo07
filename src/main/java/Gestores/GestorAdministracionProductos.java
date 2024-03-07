@@ -3,6 +3,7 @@
  * @author 
  */
 package Gestores;
+import Producto.Producto;
 import Persona.Cliente;
 import Factura.Factura;
 import Taller.*;

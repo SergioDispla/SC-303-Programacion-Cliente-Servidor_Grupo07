@@ -1,12 +1,21 @@
+/*
+Clase persona: es la clase padre para definir los objectos como clientes, operarios y administradores del taller.
+*/
+
 package Persona;
 
 import java.awt.List;
 import java.util.ArrayList;
 
 public class Persona {
+    
+    // Lista tipo enum para asignar el tipo de usuario
     public enum Roles {
     Cliente, Operador, Administrador;
     }
+    
+    
+    //Atributos generales que tiene una persona
     private String cedula;
     private String nombre;
     private String telefono;
@@ -14,6 +23,8 @@ public class Persona {
     private String correoElectronico;
     protected Roles rolUsuario;    
     
+    
+    //Constructor de la clase persona
     public Persona(String cedula, String nombre, String telefono, 
         String direccion, String correoElectronico, Roles rolUsuario) {
         this.cedula = cedula;
@@ -24,6 +35,8 @@ public class Persona {
         this.rolUsuario = rolUsuario;
     }    
 
+    
+    //Metodos getters and setters 
     public String getCedula() {
         return cedula;
     }
@@ -72,6 +85,8 @@ public class Persona {
         this.rolUsuario = rolUsuario;
     }
 
+    
+    //Metodo para imprimir todos los atributos de un objecto tipo persona (este atributo es sobreescrito en las clases hijas)
     public void informacionPersona(){
         System.out.println("Cédula: "+cedula);
         System.out.println("Nombre: "+nombre);

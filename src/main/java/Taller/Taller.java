@@ -1,5 +1,6 @@
 
 package Taller;
+import Producto.Producto;
 import Persona.Cliente;
 import Factura.Factura.*;
 import static Factura.Factura.TipoPago.*;
