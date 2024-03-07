@@ -1,6 +1,5 @@
-/**
- *
- * @author 
+/*
+ * Clase para el registro de los cliente y sus vehiculos respectivos para el mantenimiento.  
  */
 package Gestores;
 import Persona.Cliente;

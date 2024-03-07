@@ -1,3 +1,6 @@
+/*
+Clase para definir los vehiculos que seran atendidos en el taller como parte del mantenimiento
+*/
 package Vehiculo;
 
 public class Vehiculo {

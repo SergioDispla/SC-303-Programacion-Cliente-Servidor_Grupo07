@@ -1,3 +1,6 @@
+/*
+Clase para definir los productos que se venderan en el taller
+*/
 package Producto;
 
 public class Producto {

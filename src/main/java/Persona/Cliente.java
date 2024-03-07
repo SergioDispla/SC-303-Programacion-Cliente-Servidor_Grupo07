@@ -49,6 +49,7 @@ public class Cliente extends Persona {
     //Este metodo es sobreescrito ya que es heredado de la clase persona
     @Override
     public void informacionPersona(){
+        System.out.println("\n\nInformación del Cliente: ");
         System.out.println("Cédula: "+getCedula());
         System.out.println("Nombre: "+getNombre());
         System.out.println("Teléfono: "+getTelefono());

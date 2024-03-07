@@ -88,6 +88,7 @@ public class Persona {
     
     //Metodo para imprimir todos los atributos de un objecto tipo persona (este atributo es sobreescrito en las clases hijas)
     public void informacionPersona(){
+        System.out.println("\n\nInformación: ");
         System.out.println("Cédula: "+cedula);
         System.out.println("Nombre: "+nombre);
         System.out.println("Teléfono: "+telefono);
