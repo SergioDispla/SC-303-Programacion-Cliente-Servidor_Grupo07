@@ -52,7 +52,6 @@ public class GestorAdministracionProductos implements Factura {
         }
     }
     
-    /*
     public void listarProductos(){
         try {
             // Establecer conexión a la base de datos
@@ -74,9 +73,9 @@ public class GestorAdministracionProductos implements Factura {
                 String nombre = resultado.getString("nombre");
                 String descripcion = resultado.getString("descripcion");
                 float precio = resultado.getFloat("precio");
-                int cantidad_stock = resultado.getString("cant_stock");
+                int cantidad_stock = resultado.getInt("cant_stock");
                 
-                System.out.println("ID Compra: " + id + ", Cliente: " + cliente + ", Total Pagado: " + total_pagado + ", Tipo de Pago: " + tipo_pago);
+                System.out.println("Codigo Producto: " + cod_producto + ", Nombre: " + nombre + ", Descripcion: " + descripcion + ", Precio: " + precio + ", Cantidad en Stock: " + cantidad_stock);
             }
             
             // Cerrar la conexión
@@ -84,7 +83,7 @@ public class GestorAdministracionProductos implements Factura {
         } catch (SQLException e) {
             System.out.println("Error al listar las compras de la base de datos: " + e.getMessage());
         }
-    }*/
+    }
     
     //Metodo sobreescrito de la interface factura - Registra la compra en la base de datos "Taller" en la tabla "RegistroCompras"
     @Override
