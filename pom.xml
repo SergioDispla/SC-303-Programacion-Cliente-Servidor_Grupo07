@@ -5,6 +5,13 @@
     <artifactId>SC-303-Programacion-Cliente-Servidor_Grupo07</artifactId>
     <version>01</version>
     <packaging>jar</packaging>
+    <dependencies>
+        <dependency>
+            <groupId>mysqlconnector</groupId>
+            <artifactId>MySQL</artifactId>
+            <version>8.3</version>
+        </dependency>
+    </dependencies>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>21</maven.compiler.source>

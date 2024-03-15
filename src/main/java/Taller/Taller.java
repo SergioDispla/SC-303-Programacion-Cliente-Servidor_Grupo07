@@ -5,6 +5,7 @@ import Persona.*;
 import static Factura.Factura.TipoPago.*;
 import java.time.LocalDate;
 import Gestores.*;
+import Interfaz.Inicio;
 import Persona.Persona.*;
 
 public class Taller {
@@ -38,8 +39,16 @@ public class Taller {
         productos.listarProductos();
         
         productos.registroCompras(cliente01, 11300, TARJETA);
+        productos.registroCompras(cliente01, 11304, TARJETA);
         productos.listarCompras();
+      
         
+        Inicio frame = new Inicio();
+        frame.setVisible(true);
+    
+    
+    
+    
     }
     
 }
