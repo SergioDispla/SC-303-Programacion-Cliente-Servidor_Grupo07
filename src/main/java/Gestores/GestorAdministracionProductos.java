@@ -16,42 +16,82 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-
 
 public class GestorAdministracionProductos implements Factura {
     
     //Atributo unico de la clase GestorAdministracionProductos
     private float totalPagado;
   
-    
-    //ArrayList para almacenar los productos
-    ArrayList<Producto> productos = new ArrayList<>();   
-    //ArrayList para almacenar las ventas
-    ArrayList<String> ventasProductos = new ArrayList<>();
-    
-    //Metodo para registrar productos
-    public void ingresarProducto(Producto producto){
-        productos.add(producto);
-    }
-    
-    public void listarProductos(){
-        for (Producto producto : productos){
-            producto.informacionProductos();
+    // Método para ingresar un producto a la base de datos
+    public void ingresarProducto(Producto producto) {
+        try {
+            // Establecer conexion a la base de datos
+            //Connection conexion = DriverManager.getConnection(url, usuario, contrasena);
+            Connection conexion = conectar();
+            
+            // Consulta SQL para insertar un producto en la tabla "productos"
+            String consulta = "INSERT INTO productos (codigoProducto, nombre, descripcion, precio, cant_stock) VALUES (?, ?, ?, ?, ?)";
+            
+            // Preparar la declaración SQL
+            PreparedStatement declaracion = conexion.prepareStatement(consulta);
+            declaracion.setInt(1, producto.getCodigoProducto());
+            declaracion.setString(2, producto.getNombre());
+            declaracion.setString(3, producto.getDescripcion());
+            declaracion.setDouble(4, producto.getPrecio());
+            declaracion.setInt(5, producto.getCantidadStock());
+            
+            // Ejecutar la consulta
+            declaracion.executeUpdate();
+            
+            // Cerrar la conexión
+            conexion.close();
+            
+            System.out.println("Producto ingresado correctamente en la base de datos.");
+        } catch (SQLException e) {
+            System.out.println("Error al ingresar el producto en la base de datos: " + e.getMessage());
         }
     }
+    
+    /*
+    public void listarProductos(){
+        try {
+            // Establecer conexión a la base de datos
+            Connection conexion = conectar();
+            
+            // Consulta SQL para seleccionar todos los registros de compras
+            String consulta = "SELECT * FROM productos";
+            
+            // Preparar la declaración SQL
+            PreparedStatement declaracion = conexion.prepareStatement(consulta);
+            
+            // Ejecutar la consulta y obtener el resultado
+            ResultSet resultado = declaracion.executeQuery();
+            
+            // Imprimir los resultados
+            System.out.println("Listado de productos:");
+            while (resultado.next()) {
+                int cod_producto = resultado.getInt("codigoProducto");
+                String nombre = resultado.getString("nombre");
+                String descripcion = resultado.getString("descripcion");
+                float precio = resultado.getFloat("precio");
+                int cantidad_stock = resultado.getString("cant_stock");
+                
+                System.out.println("ID Compra: " + id + ", Cliente: " + cliente + ", Total Pagado: " + total_pagado + ", Tipo de Pago: " + tipo_pago);
+            }
+            
+            // Cerrar la conexión
+            conexion.close();
+        } catch (SQLException e) {
+            System.out.println("Error al listar las compras de la base de datos: " + e.getMessage());
+        }
+    }*/
     
     //Metodo sobreescrito de la interface factura - Registra la compra en la base de datos "Taller" en la tabla "RegistroCompras"
     @Override
     public void registroCompras(Cliente cliente, float totalPagado, TipoPago tipoPago) {
-        // Datos de conexion a la base de datos
-        String url = "jdbc:mysql://localhost:3306/taller";
-        String usuario = "root";
-        String contrasena = "root";
-
         try {
             // Establecer conexión a la base de datos
-            Connection conexion = DriverManager.getConnection(url, usuario, contrasena);
+            Connection conexion = conectar();
             
             // Consulta SQL para insertar la transacción en la tabla de compras
             String consulta = "INSERT INTO registrocompras (Cliente, TotalPagado, TipoPago) VALUES (?, ?, ?)";
@@ -78,14 +118,9 @@ public class GestorAdministracionProductos implements Factura {
     //Metodo sobreescrito de la interface factura
     @Override
     public void listarCompras() {
-        // Datos de conexion a la base de datos
-        String url = "jdbc:mysql://localhost:3306/taller";
-        String usuario = "root";
-        String contrasena = "root";
-
         try {
             // Establecer conexión a la base de datos
-            Connection conexion = DriverManager.getConnection(url, usuario, contrasena);
+            Connection conexion = conectar();
             
             // Consulta SQL para seleccionar todos los registros de compras
             String consulta = "SELECT * FROM registrocompras";
@@ -114,10 +149,15 @@ public class GestorAdministracionProductos implements Factura {
         }
     }
     
-    
-        
+     //Metodo para conectarse a la base de datos
+     public static Connection conectar() throws SQLException {
+        // Datos de conexión a la base de datos
+        String url = "jdbc:mysql://localhost:3306/taller";
+        String usuario = "root";
+        String contrasena = "root";
 
-    
-    
-    
+        // Establecer la conexión y retornarla
+        return DriverManager.getConnection(url, usuario, contrasena);
+    }   
+ 
 }

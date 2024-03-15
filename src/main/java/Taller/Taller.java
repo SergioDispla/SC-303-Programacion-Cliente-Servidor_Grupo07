@@ -33,10 +33,10 @@ public class Taller {
       
         //Test GestorAdministracionProducto
         GestorAdministracionProductos productos = new GestorAdministracionProductos();
-        productos.ingresarProducto(new Producto("Producto 01","Descripcion Producto",2000.00,10));
-        productos.ingresarProducto(new Producto("Producto 02","Descripcion Producto",3000.00,5));
-        productos.ingresarProducto(new Producto("Producto 03","Descripcion Producto",4000.00,25));
-        productos.listarProductos();
+        productos.ingresarProducto(new Producto(123,"Producto 01","Descripcion Producto",2000.00,10));
+        productos.ingresarProducto(new Producto(456,"Producto 02","Descripcion Producto",3000.00,5));
+        productos.ingresarProducto(new Producto(789,"Producto 03","Descripcion Producto",4000.00,25));
+       // productos.listarProductos();
         
         productos.registroCompras(cliente01, 11300, TARJETA);
         productos.registroCompras(cliente01, 11304, TARJETA);

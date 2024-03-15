@@ -13,5 +13,6 @@ CREATE TABLE IF NOT EXISTS productos (
     codigoProducto INT PRIMARY KEY,
     nombre VARCHAR(255),
     descripcion VARCHAR(255),
+    precio float,
     cant_stock INT
 );
