@@ -22,11 +22,10 @@ public class GestorAdministracionProductos implements Factura {
     //Atributo unico de la clase GestorAdministracionProductos
     private float totalPagado;
   
-    // Método para ingresar un producto a la base de datos
+    // Metodo para ingresar un producto a la base de datos
     public void ingresarProducto(Producto producto) {
         try {
             // Establecer conexion a la base de datos
-            //Connection conexion = DriverManager.getConnection(url, usuario, contrasena);
             Connection conexion = conectar();
             
             // Consulta SQL para insertar un producto en la tabla "productos"
@@ -43,7 +42,7 @@ public class GestorAdministracionProductos implements Factura {
             // Ejecutar la consulta
             declaracion.executeUpdate();
             
-            // Cerrar la conexión
+            // Cerrar la conexion
             conexion.close();
             
             System.out.println("Producto ingresado correctamente en la base de datos.");
@@ -54,10 +53,10 @@ public class GestorAdministracionProductos implements Factura {
     
     public void listarProductos(){
         try {
-            // Establecer conexión a la base de datos
+            // Establecer conexion a la base de datos
             Connection conexion = conectar();
             
-            // Consulta SQL para seleccionar todos los registros de compras
+            // Consulta SQL para seleccionar todos los registros de los productos
             String consulta = "SELECT * FROM productos";
             
             // Preparar la declaración SQL
@@ -81,19 +80,19 @@ public class GestorAdministracionProductos implements Factura {
             // Cerrar la conexión
             conexion.close();
         } catch (SQLException e) {
-            System.out.println("Error al listar las compras de la base de datos: " + e.getMessage());
+            System.out.println("Error al listar los productos de la base de datos: " + e.getMessage());
         }
     }
     
     //Metodo sobreescrito de la interface factura - Registra la compra en la base de datos "Taller" en la tabla "RegistroCompras"
     @Override
-    public void registroCompras(Cliente cliente, float totalPagado, TipoPago tipoPago) {
+    public void registroVentas(Cliente cliente, float totalPagado, TipoPago tipoPago) {
         try {
             // Establecer conexión a la base de datos
             Connection conexion = conectar();
             
-            // Consulta SQL para insertar la transacción en la tabla de compras
-            String consulta = "INSERT INTO registrocompras (Cliente, TotalPagado, TipoPago) VALUES (?, ?, ?)";
+            // Consulta SQL para insertar la transaccion en la tabla de "registroventasproductos"
+            String consulta = "INSERT INTO ventasproductos (Cliente, TotalPagado, TipoPago) VALUES (?, ?, ?)";
             
             // Se realiza el armado de la consulta
             PreparedStatement declaracion = conexion.prepareStatement(consulta);
@@ -107,44 +106,44 @@ public class GestorAdministracionProductos implements Factura {
             // Cierra la conexion
             conexion.close();
             
-            System.out.println("Transacción de compra guardada en la base de datos.");
+            System.out.println("Transacción de venta guardada en la base de datos.");
         } catch (SQLException e) {
-            System.out.println("Error al guardar la transacción de compra en la base de datos: " + e.getMessage());
+            System.out.println("Error al guardar la transacción de venta en la base de datos: " + e.getMessage());
         }
     }
 
 
-    //Metodo sobreescrito de la interface factura
+    //Metodo sobreescrito de la interface factura - Lista las compras realizadas que se guardaron en la tabla "registrocompras"
     @Override
-    public void listarCompras() {
+    public void listarVentas() {
         try {
-            // Establecer conexión a la base de datos
+            // Establecer conexion a la base de datos
             Connection conexion = conectar();
             
-            // Consulta SQL para seleccionar todos los registros de compras
-            String consulta = "SELECT * FROM registrocompras";
+            // Consulta SQL para seleccionar todos los registros de ventas de productos
+            String consulta = "SELECT * FROM ventasproductos";
             
-            // Preparar la declaración SQL
+            // Preparar la declaracion SQL
             PreparedStatement declaracion = conexion.prepareStatement(consulta);
             
             // Ejecutar la consulta y obtener el resultado
             ResultSet resultado = declaracion.executeQuery();
             
             // Imprimir los resultados
-            System.out.println("Listado de compras:");
+            System.out.println("Listado de ventas:");
             while (resultado.next()) {
                 int id = resultado.getInt("id");
                 String cliente = resultado.getString("Cliente");
                 float total_pagado = resultado.getFloat("TotalPagado");
                 String tipo_pago = resultado.getString("TipoPago");
                 
-                System.out.println("ID Compra: " + id + ", Cliente: " + cliente + ", Total Pagado: " + total_pagado + ", Tipo de Pago: " + tipo_pago);
+                System.out.println("ID Venta: " + id + ", Cliente: " + cliente + ", Total Pagado: " + total_pagado + ", Tipo de Pago: " + tipo_pago);
             }
             
-            // Cerrar la conexión
+            // Cerrar la conexion
             conexion.close();
         } catch (SQLException e) {
-            System.out.println("Error al listar las compras de la base de datos: " + e.getMessage());
+            System.out.println("Error al listar las ventas de la base de datos: " + e.getMessage());
         }
     }
     
@@ -155,7 +154,7 @@ public class GestorAdministracionProductos implements Factura {
         String usuario = "root";
         String contrasena = "root";
 
-        // Establecer la conexión y retornarla
+        // Establecer la conexion y retornarla
         return DriverManager.getConnection(url, usuario, contrasena);
     }   
  

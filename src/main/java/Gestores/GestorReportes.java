@@ -9,8 +9,25 @@ Clase para crear la reporteria de los distintos modulos
 - Reporte General de mantenimientos o reparaciones realizados por la Compañía
  */
 package Gestores;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
 
 
 public class GestorReportes {
     
+
+    
+    
+    //Metodo para conectarse a la base de datos
+    public static Connection conectar() throws SQLException {
+    // Datos de conexión a la base de datos
+    String url = "jdbc:mysql://localhost:3306/taller";
+    String usuario = "root";
+    String contrasena = "root";
+
+    // Establecer la conexion y retornarla
+    return DriverManager.getConnection(url, usuario, contrasena);
+    } 
 }

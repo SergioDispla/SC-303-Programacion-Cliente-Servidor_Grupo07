@@ -1,5 +1,13 @@
-# Crear tabla registrocompras
-CREATE TABLE IF NOT EXISTS RegistroCompras (
+# Crear tabla registro de ventas de productos
+CREATE TABLE IF NOT EXISTS ventasproductos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    Cliente VARCHAR(255),
+    TotalPagado FLOAT,
+    TipoPago VARCHAR(50)
+);
+
+# Crear tabla registro de ventas de servicios
+CREATE TABLE IF NOT EXISTS ventaservicios (
     id INT AUTO_INCREMENT PRIMARY KEY,
     Cliente VARCHAR(255),
     TotalPagado FLOAT,
@@ -15,4 +23,12 @@ CREATE TABLE IF NOT EXISTS productos (
     descripcion VARCHAR(255),
     precio float,
     cant_stock INT
+);
+
+
+#Crear tabla registro mantenimientos
+CREATE TABLE IF NOT EXISTS registromantenimientos (
+    Cliente VARCHAR(255),
+    PlaceVehiculo VARCHAR(255),
+	Servicio VARCHAR(255)
 );

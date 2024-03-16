@@ -12,9 +12,9 @@ public interface Factura {
     }
     
     //Metodo para registra las compras
-    void registroCompras(Cliente cedulaCliente, float totalPagado, TipoPago tipoPago);
+    void registroVentas(Cliente cedulaCliente, float totalPagado, TipoPago tipoPago);
     
     //Metodo para listar las compras
-    void listarCompras();
+    void listarVentas();
     
 }
