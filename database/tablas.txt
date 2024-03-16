@@ -15,7 +15,6 @@ CREATE TABLE IF NOT EXISTS ventaservicios (
 );
 
 
-
 #Crear tabla productos
 CREATE TABLE IF NOT EXISTS productos (
     codigoProducto INT PRIMARY KEY,
@@ -25,10 +24,31 @@ CREATE TABLE IF NOT EXISTS productos (
     cant_stock INT
 );
 
-
 #Crear tabla registro mantenimientos
 CREATE TABLE IF NOT EXISTS registromantenimientos (
     Cliente VARCHAR(255),
     PlaceVehiculo VARCHAR(255),
 	Servicio VARCHAR(255)
+);
+
+#Crear tabla clientes
+CREATE TABLE clientes (
+    cedula VARCHAR(20) PRIMARY KEY,
+    nombre VARCHAR(100),
+    telefono VARCHAR(20),
+    direccion VARCHAR(100),
+    correoElectronico VARCHAR(100),
+    placaVehiculo VARCHAR(20),
+    fechaRegistro DATE,
+    FOREIGN KEY (placaVehiculo) REFERENCES vehiculos(placa)
+);
+
+#Crear tabla vehiculos
+CREATE TABLE vehiculos (
+    placa VARCHAR(20) PRIMARY KEY,
+    marca VARCHAR(100),
+    modelo VARCHAR(100),
+    año INT,
+    kilometraje DOUBLE,
+    estado VARCHAR(100)
 );
