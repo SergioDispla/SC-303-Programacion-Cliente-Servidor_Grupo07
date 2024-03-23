@@ -6,6 +6,7 @@ import Persona.*;
 import static Factura.Factura.TipoPago.*;
 import java.time.LocalDate;
 import Gestores.*;
+import Interfaz.InterfazVentaProductos;
 import Persona.Persona.*;
 
 public class Taller {
@@ -45,11 +46,15 @@ public class Taller {
        // productos.ingresarProducto(new Producto(456,"Producto 02","Descripcion Producto",3000.00,5));
         //productos.ingresarProducto(new Producto(789,"Producto 03","Descripcion Producto",4000.00,25));
         
-        
-       InterfazAdministracionProductos interfaz = new InterfazAdministracionProductos();
-       interfaz.setVisible(true);
-       //nterfazGrafica interfaz2 = new InterfazGrafica();
-    
+       
+       //Interfaz para la administracion de productos
+       InterfazAdministracionProductos admProdInterfaz = new InterfazAdministracionProductos();
+       admProdInterfaz.setVisible(false);
+       
+       
+       //Interfaz para la venta de productos
+       InterfazVentaProductos ventaProdInterfaz = new InterfazVentaProductos();
+       ventaProdInterfaz.setVisible(true);
     
     }
     
