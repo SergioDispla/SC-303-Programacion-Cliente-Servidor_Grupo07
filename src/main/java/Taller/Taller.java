@@ -1,11 +1,8 @@
 
 package Taller;
 import Interfaz.InterfazAdministracionProductos;
-import Producto.Producto;
 import Persona.*;
-import static Factura.Factura.TipoPago.*;
 import java.time.LocalDate;
-import Gestores.*;
 import Interfaz.InterfazVentaProductos;
 import Persona.Persona.*;
 
@@ -29,24 +26,7 @@ public class Taller {
         //String cedula, String nombre, String telefono, String direccion, String correoElectronico, roles rolUsuario, String placaVehiculo, LocalDate fechaRegistro      
         Cliente cliente01 = new Cliente("AAA-111",LocalDate.of(2024, 2, 24),"333333","Cliente01 Taller","89898989","Heredia","cliente01@taller.cr",Roles.Cliente);        
 
-       
-/*      
-        //Test GestorAdministracionProducto
-        
-        
-        
-        productos.listarProductos();
-        
-        productos.registroVentas(cliente01, 11300, TARJETA);
-        productos.registroVentas(cliente01, 11304, TARJETA);
-        productos.listarVentas();
-*/   
-        //GestorAdministracionProductos productos = new GestorAdministracionProductos();
-        //productos.ingresarProducto(new Producto(123,"Producto 01","Descripcion Producto",2000.00,10));
-       // productos.ingresarProducto(new Producto(456,"Producto 02","Descripcion Producto",3000.00,5));
-        //productos.ingresarProducto(new Producto(789,"Producto 03","Descripcion Producto",4000.00,25));
-        
-       
+      
        //Interfaz para la administracion de productos
        InterfazAdministracionProductos admProdInterfaz = new InterfazAdministracionProductos();
        admProdInterfaz.setVisible(false);
@@ -54,7 +34,7 @@ public class Taller {
        
        //Interfaz para la venta de productos
        InterfazVentaProductos ventaProdInterfaz = new InterfazVentaProductos();
-       ventaProdInterfaz.setVisible(true);
+       ventaProdInterfaz.setVisible(false);
     
     }
     
