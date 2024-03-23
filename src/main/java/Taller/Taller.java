@@ -1,11 +1,11 @@
 
 package Taller;
+import Interfaz.InterfazAdministracionProductos;
 import Producto.Producto;
 import Persona.*;
 import static Factura.Factura.TipoPago.*;
 import java.time.LocalDate;
 import Gestores.*;
-import Interfaz.InterfazGrafica;
 import Persona.Persona.*;
 
 public class Taller {
@@ -31,18 +31,24 @@ public class Taller {
        
 /*      
         //Test GestorAdministracionProducto
-        GestorAdministracionProductos productos = new GestorAdministracionProductos();
         
-        productos.ingresarProducto(new Producto(123,"Producto 01","Descripcion Producto",2000.00,10));
-        productos.ingresarProducto(new Producto(456,"Producto 02","Descripcion Producto",3000.00,5));
-        productos.ingresarProducto(new Producto(789,"Producto 03","Descripcion Producto",4000.00,25));
+        
+        
         productos.listarProductos();
         
         productos.registroVentas(cliente01, 11300, TARJETA);
         productos.registroVentas(cliente01, 11304, TARJETA);
         productos.listarVentas();
 */   
-        //InterfazGrafica interfaz = new InterfazGrafica();
+        //GestorAdministracionProductos productos = new GestorAdministracionProductos();
+        //productos.ingresarProducto(new Producto(123,"Producto 01","Descripcion Producto",2000.00,10));
+       // productos.ingresarProducto(new Producto(456,"Producto 02","Descripcion Producto",3000.00,5));
+        //productos.ingresarProducto(new Producto(789,"Producto 03","Descripcion Producto",4000.00,25));
+        
+        
+       InterfazAdministracionProductos interfaz = new InterfazAdministracionProductos();
+       interfaz.setVisible(true);
+       //nterfazGrafica interfaz2 = new InterfazGrafica();
     
     
     }

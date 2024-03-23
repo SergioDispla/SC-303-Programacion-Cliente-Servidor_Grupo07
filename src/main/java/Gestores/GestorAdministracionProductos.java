@@ -16,11 +16,33 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 public class GestorAdministracionProductos implements Factura {
     
-    //Atributo unico de la clase GestorAdministracionProductos
+    //Atributos de GestorAdministracionProductos
     private float totalPagado;
+    String [] columnasTabla = {"Cod", "Nombre", "Descripcion", "Precio", "Cantidad Stock"};
+    DefaultTableModel productos = new DefaultTableModel();
+
+    public float getTotalPagado() {
+        return totalPagado;
+    }
+
+    public void setTotalPagado(float totalPagado) {
+        this.totalPagado = totalPagado;
+    }
+
+    public DefaultTableModel getProductos() {
+        return productos;
+    }
+
+    public void setProductos(DefaultTableModel productos) {
+        this.productos = productos;
+    }
+    
+
   
     // Metodo para ingresar un producto a la base de datos
     public void ingresarProducto(Producto producto) {
@@ -44,13 +66,16 @@ public class GestorAdministracionProductos implements Factura {
             
             // Cerrar la conexion
             conexion.close();
-            
-            System.out.println("Producto ingresado correctamente en la base de datos.");
+            declaracion.close();
+            JOptionPane.showMessageDialog(null, "Producto ingresado correctamente en la base de datos.");
+            //System.out.println("Producto ingresado correctamente en la base de datos."); //remove this
         } catch (SQLException e) {
-            System.out.println("Error al ingresar el producto en la base de datos: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Error al ingresar el producto en la base de datos: " + e.getMessage());
+            //System.out.println("Error al ingresar el producto en la base de datos: " + e.getMessage());  //remove this
         }
     }
     
+    // Metodo para listar productos de la base de datos
     public void listarProductos(){
         try {
             // Establecer conexion a la base de datos
@@ -64,9 +89,9 @@ public class GestorAdministracionProductos implements Factura {
             
             // Ejecutar la consulta y obtener el resultado
             ResultSet resultado = declaracion.executeQuery();
-            
-            // Imprimir los resultados
-            System.out.println("Listado de productos:");
+                     
+                  
+            //Imprimir los resultados en la tabla
             while (resultado.next()) {
                 int cod_producto = resultado.getInt("codigoProducto");
                 String nombre = resultado.getString("nombre");
@@ -74,11 +99,18 @@ public class GestorAdministracionProductos implements Factura {
                 float precio = resultado.getFloat("precio");
                 int cantidad_stock = resultado.getInt("cant_stock");
                 
-                System.out.println("Codigo Producto: " + cod_producto + ", Nombre: " + nombre + ", Descripcion: " + descripcion + ", Precio: " + precio + ", Cantidad en Stock: " + cantidad_stock);
+                Object [] resultadoConsulta = {cod_producto,nombre,descripcion,precio,cantidad_stock};
+                
+                //Definimos el contenido de la tabla
+                productos.setColumnIdentifiers(columnasTabla);
+                productos.addRow(resultadoConsulta);
+                        
             }
             
             // Cerrar la conexión
             conexion.close();
+            resultado.close();
+            declaracion.close();
         } catch (SQLException e) {
             System.out.println("Error al listar los productos de la base de datos: " + e.getMessage());
         }
@@ -105,6 +137,7 @@ public class GestorAdministracionProductos implements Factura {
             
             // Cierra la conexion
             conexion.close();
+            declaracion.close();
             
             System.out.println("Transacción de venta guardada en la base de datos.");
         } catch (SQLException e) {
