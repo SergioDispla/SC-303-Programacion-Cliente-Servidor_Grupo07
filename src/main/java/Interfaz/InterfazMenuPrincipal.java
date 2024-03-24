@@ -179,7 +179,9 @@ public class InterfazMenuPrincipal extends javax.swing.JFrame {
 
     //Boton para acceder a la subinterfaz de Registro Operadores
     private void botonRegistroOperadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistroOperadoresActionPerformed
-        // TODO add your handling code here:
+       InterfazRegistroOperadores interfaz = new InterfazRegistroOperadores();
+       interfaz.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+       interfaz.setVisible(true);
     }//GEN-LAST:event_botonRegistroOperadoresActionPerformed
 
     //Boton para acceder a la subinterfaz de Registro de Productos
@@ -203,17 +205,23 @@ public class InterfazMenuPrincipal extends javax.swing.JFrame {
 
     //Boton para acceder a la subinterfaz de Registro de Clientes
     private void botonRegistroClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistroClientesActionPerformed
-        // TODO add your handling code here:
+       InterfazRegistroClientes interfaz = new InterfazRegistroClientes();
+       interfaz.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+       interfaz.setVisible(true);
     }//GEN-LAST:event_botonRegistroClientesActionPerformed
 
     //Boton para acceder a la subinterfaz de Reporte de Ventas
     private void botonReporteVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonReporteVentasActionPerformed
-        // TODO add your handling code here:
+       InterfazReportes interfaz = new InterfazReportes();
+       interfaz.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+       interfaz.setVisible(true);
     }//GEN-LAST:event_botonReporteVentasActionPerformed
 
     //Boton para acceder a la subinterfaz de Venta de Vehiculos
     private void botonVentaVehiculosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonVentaVehiculosActionPerformed
-        // TODO add your handling code here:
+       InterfazVentaVehiculos interfaz = new InterfazVentaVehiculos();
+       interfaz.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+       interfaz.setVisible(true);
     }//GEN-LAST:event_botonVentaVehiculosActionPerformed
 
     /**
