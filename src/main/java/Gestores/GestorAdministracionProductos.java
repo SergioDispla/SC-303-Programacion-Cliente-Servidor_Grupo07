@@ -23,8 +23,8 @@ public class GestorAdministracionProductos implements Factura {
     
     //Atributos de GestorAdministracionProductos
     private float totalPagado;
-    String [] columnasTabla = {"Cod", "Nombre", "Descripcion", "Precio", "Cantidad Stock"};
-    DefaultTableModel productos = new DefaultTableModel();
+    DefaultTableModel productosDefaultModel = new DefaultTableModel();
+    
 
     public float getTotalPagado() {
         return totalPagado;
@@ -34,14 +34,13 @@ public class GestorAdministracionProductos implements Factura {
         this.totalPagado = totalPagado;
     }
 
-    public DefaultTableModel getProductos() {
-        return productos;
+    public DefaultTableModel getProductosDefaultModel() {
+        return productosDefaultModel;
     }
 
-    public void setProductos(DefaultTableModel productos) {
-        this.productos = productos;
+    public void setProductosDefaultModel(DefaultTableModel productosDefaultModel) {
+        this.productosDefaultModel = productosDefaultModel;
     }
-    
 
   
     // Metodo para ingresar un producto a la base de datos
@@ -68,10 +67,8 @@ public class GestorAdministracionProductos implements Factura {
             conexion.close();
             declaracion.close();
             JOptionPane.showMessageDialog(null, "Producto ingresado correctamente en la base de datos.");
-            //System.out.println("Producto ingresado correctamente en la base de datos."); //remove this
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Error al ingresar el producto en la base de datos: " + e.getMessage());
-            //System.out.println("Error al ingresar el producto en la base de datos: " + e.getMessage());  //remove this
         }
     }
     
@@ -89,8 +86,7 @@ public class GestorAdministracionProductos implements Factura {
             
             // Ejecutar la consulta y obtener el resultado
             ResultSet resultado = declaracion.executeQuery();
-                     
-                  
+                           
             //Imprimir los resultados en la tabla
             while (resultado.next()) {
                 int cod_producto = resultado.getInt("codigoProducto");
@@ -102,8 +98,9 @@ public class GestorAdministracionProductos implements Factura {
                 Object [] resultadoConsulta = {cod_producto,nombre,descripcion,precio,cantidad_stock};
                 
                 //Definimos el contenido de la tabla
-                productos.setColumnIdentifiers(columnasTabla);
-                productos.addRow(resultadoConsulta);
+                String [] columnasTabla = {"Cod", "Nombre", "Descripcion", "Precio", "Cantidad Stock"};
+                productosDefaultModel.setColumnIdentifiers(columnasTabla);
+                productosDefaultModel.addRow(resultadoConsulta);
                         
             }
             
@@ -112,7 +109,7 @@ public class GestorAdministracionProductos implements Factura {
             resultado.close();
             declaracion.close();
         } catch (SQLException e) {
-            System.out.println("Error al listar los productos de la base de datos: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Error al listar los productos de la base de datos: " + e.getMessage());
         }
     }
     
@@ -139,9 +136,9 @@ public class GestorAdministracionProductos implements Factura {
             conexion.close();
             declaracion.close();
             
-            System.out.println("Transacción de venta guardada en la base de datos.");
+            JOptionPane.showMessageDialog(null, "Transacción de venta guardada en la base de datos.");
         } catch (SQLException e) {
-            System.out.println("Error al guardar la transacción de venta en la base de datos: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Error al guardar la transacción de venta en la base de datos: " + e.getMessage());
         }
     }
 
@@ -176,7 +173,7 @@ public class GestorAdministracionProductos implements Factura {
             // Cerrar la conexion
             conexion.close();
         } catch (SQLException e) {
-            System.out.println("Error al listar las ventas de la base de datos: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Error al listar las ventas de la base de datos: " + e.getMessage());
         }
     }
     

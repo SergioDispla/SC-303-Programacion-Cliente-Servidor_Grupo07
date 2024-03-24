@@ -4,19 +4,28 @@
  */
 package Interfaz;
 import Gestores.GestorAdministracionProductos;
+import static Gestores.GestorAdministracionProductos.conectar;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author sams2
  */
 public class InterfazVentaProductos extends javax.swing.JFrame {
-
+    DefaultTableModel tablaCompras = new DefaultTableModel();
+    String clienteFinal;
+    float subtotal = 0.0f;
+    
     /**
      * Creates new form InterfazVentaProductos
      */
+       
     public InterfazVentaProductos() {
         initComponents();
 
@@ -47,6 +56,7 @@ public class InterfazVentaProductos extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         labelSubtotalCompra = new javax.swing.JLabel();
         labelSubtotalMonto = new javax.swing.JLabel();
+        botonBuscarCliente = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(153, 255, 204));
@@ -114,6 +124,13 @@ public class InterfazVentaProductos extends javax.swing.JFrame {
 
         labelSubtotalMonto.setText("0");
 
+        botonBuscarCliente.setText("Buscar Cliente");
+        botonBuscarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonBuscarClienteActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -121,18 +138,24 @@ public class InterfazVentaProductos extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(labelCodigoProducto, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
-                            .addComponent(labelCedulaCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtCedulaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtCodigoProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(51, 51, 51)
-                                .addComponent(botonIngresarProductos, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(66, 66, 66)
+                                .addGap(14, 14, 14)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(labelCodigoProducto, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
+                                    .addComponent(labelCedulaCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtCedulaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtCodigoProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(51, 51, 51)
+                                        .addComponent(botonIngresarProductos, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(66, 66, 66))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(botonBuscarCliente)
+                                .addGap(164, 164, 164)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(labelListaCompras)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -161,10 +184,13 @@ public class InterfazVentaProductos extends javax.swing.JFrame {
                 .addGap(7, 7, 7)
                 .addComponent(labelInfoCliente)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelCedulaCliente)
-                    .addComponent(txtCedulaCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 67, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(txtCedulaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(botonBuscarCliente)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(66, 66, 66)
@@ -197,10 +223,51 @@ public class InterfazVentaProductos extends javax.swing.JFrame {
           
             
     private void botonIngresarProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonIngresarProductosActionPerformed
-        String cedulaCliente = txtCedulaCliente.getText().trim();
-        String codProducto = txtCodigoProducto.getText().trim();
-  
+
+        String codProducto = txtCodigoProducto.getText().trim();      
         GestorAdministracionProductos productos = new GestorAdministracionProductos();
+        
+        
+        try {
+            // Establecer conexión a la base de datos
+            Connection conexion = conectar();
+            
+            // Consulta SQL para consultar el customer name
+            //String consulta = "SELECT  INTO ventasproductos (Cliente, TotalPagado, TipoPago) VALUES (?, ?, ?)";
+            String consulta = "SELECT codigoProducto,nombre,precio FROM productos where codigoProducto = (?)";
+                        
+            // Preparar la declaracion SQL
+            PreparedStatement declaracion = conexion.prepareStatement(consulta);
+            declaracion.setString(1, codProducto);
+            
+            // Ejecutar la consulta y obtener el resultado
+            ResultSet resultado = declaracion.executeQuery();           
+            
+            //Imprimir los resultados en la tabla
+            while (resultado.next()) {
+                String cod_Producto = resultado.getString("codigoProducto");
+                String nombre_Prod = resultado.getString("nombre");
+                float precio_Prod = resultado.getFloat("precio");
+                
+                Object [] resultadoConsulta = {cod_Producto, nombre_Prod, precio_Prod};
+                
+                //Definimos el contenido de la tabla
+                String [] columnasTabla = {"Cod. Producto", "Nombre", "Precio"};
+                tablaCompras.setColumnIdentifiers(columnasTabla);
+                tablaCompras.addRow(resultadoConsulta);
+                tablaListaCompras.setModel(tablaCompras);
+                
+                // Sumar el precio del producto al subtotal
+                subtotal += precio_Prod;
+            }
+    
+            // Actualizar el texto de la etiqueta labelSubtotalMonto
+            labelSubtotalMonto.setText(String.valueOf(subtotal));
+            
+        } catch (SQLException e) {
+             JOptionPane.showMessageDialog(null, "El cliente no se encuentra registrado " + e.getMessage());
+        }
+        
         
         //productos.registroVentas(cliente01, 11300, TARJETA);
         //productos.registroVentas();
@@ -209,12 +276,60 @@ public class InterfazVentaProductos extends javax.swing.JFrame {
     }//GEN-LAST:event_botonIngresarProductosActionPerformed
 
     private void botonCompletarCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCompletarCompraActionPerformed
+        GestorAdministracionProductos completarCompra = new GestorAdministracionProductos();
 
+        //completarCompra.registroVentas(cliente, subtotal, rootPane);
+        //registroVentas(Cliente cliente, float totalPagado, TipoPago tipoPago)
+        
     }//GEN-LAST:event_botonCompletarCompraActionPerformed
 
     private void txtCedulaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCedulaClienteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCedulaClienteActionPerformed
+
+    private void botonBuscarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBuscarClienteActionPerformed
+        DefaultTableModel tablaClientes = new DefaultTableModel();
+        String cedulaCliente = txtCedulaCliente.getText().trim();
+        try {
+            // Establecer conexión a la base de datos
+            Connection conexion = conectar();
+            
+            // Consulta SQL para consultar el customer name
+            //String consulta = "SELECT  INTO ventasproductos (Cliente, TotalPagado, TipoPago) VALUES (?, ?, ?)";
+            String consulta = "SELECT cedula,nombre,correoElectronico FROM clientes where cedula = (?)";
+            
+            
+            // Preparar la declaracion SQL
+            PreparedStatement declaracion = conexion.prepareStatement(consulta);
+            declaracion.setString(1, cedulaCliente);
+            
+            // Ejecutar la consulta y obtener el resultado
+            ResultSet resultado = declaracion.executeQuery();           
+            
+            //Imprimir los resultados en la tabla
+            while (resultado.next()) {
+                String ced_Cliente = resultado.getString("cedula");
+                String nombre_cliente = resultado.getString("nombre");
+                String correo_Electro = resultado.getString("correoElectronico");  
+                
+                Object [] resultadoConsulta = {ced_Cliente,nombre_cliente, correo_Electro};
+                
+                //Definimos el contenido de la tabla
+                String [] columnasTabla = {"Cedula", "Nombre", "Correo Electronico"};
+                tablaClientes.setColumnIdentifiers(columnasTabla);
+                tablaClientes.addRow(resultadoConsulta);
+                tablaInfoCliente.setModel(tablaClientes);
+                clienteFinal = nombre_cliente;
+            }
+            
+            
+            
+        } catch (SQLException e) {
+             JOptionPane.showMessageDialog(null, "El cliente no se encuentra registrado " + e.getMessage());
+        }
+        
+        
+    }//GEN-LAST:event_botonBuscarClienteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -264,6 +379,7 @@ public class InterfazVentaProductos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botonBuscarCliente;
     private javax.swing.JButton botonCompletarCompra;
     private javax.swing.JButton botonIngresarProductos;
     private javax.swing.JLabel jLabel2;

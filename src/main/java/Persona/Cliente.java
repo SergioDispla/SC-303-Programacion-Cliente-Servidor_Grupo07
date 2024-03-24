@@ -44,6 +44,7 @@ public class Cliente extends Persona {
     public void setRolUsuario(Roles rolUsuario) {
         this.rolUsuario = rolUsuario;
     }
+   
     
     //Metodo de imprimir informacion de los atributos de tipo Cliente. 
     //Este metodo es sobreescrito ya que es heredado de la clase persona

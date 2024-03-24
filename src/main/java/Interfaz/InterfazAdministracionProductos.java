@@ -31,7 +31,7 @@ public class InterfazAdministracionProductos extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        botonIngresarProductos = new javax.swing.JButton();
+        botonCargarArchivo = new javax.swing.JButton();
         botonListarProductos = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaProductos = new javax.swing.JTable();
@@ -46,18 +46,21 @@ public class InterfazAdministracionProductos extends javax.swing.JFrame {
         labelPrecioProducto = new javax.swing.JLabel();
         labelStockProducto = new javax.swing.JLabel();
         labelTituloVentana = new java.awt.Label();
+        botonIngresarProductos1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(153, 255, 204));
 
-        botonIngresarProductos.setText("Ingresar Productos");
-        botonIngresarProductos.addActionListener(new java.awt.event.ActionListener() {
+        botonCargarArchivo.setText("Cargar Archivo");
+        botonCargarArchivo.setToolTipText("Usar esta opcion si desea cargar productos desde un archivo txt");
+        botonCargarArchivo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonIngresarProductosActionPerformed(evt);
+                botonCargarArchivoActionPerformed(evt);
             }
         });
 
         botonListarProductos.setText("Listar Productos");
+        botonListarProductos.setToolTipText("Lista los productos existentes en la base de datos");
         botonListarProductos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonListarProductosActionPerformed(evt);
@@ -90,17 +93,21 @@ public class InterfazAdministracionProductos extends javax.swing.JFrame {
         labelTituloVentana.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         labelTituloVentana.setText("Administracion de Productos");
 
+        botonIngresarProductos1.setText("Ingresar Productos");
+        botonIngresarProductos1.setToolTipText("Ingresa productos manualmente");
+        botonIngresarProductos1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonIngresarProductos1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(65, 65, 65)
-                        .addComponent(botonIngresarProductos, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(14, 14, 14)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
@@ -123,15 +130,23 @@ public class InterfazAdministracionProductos extends javax.swing.JFrame {
                                 .addComponent(labelCodigoProducto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(txtCodigoProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(39, 39, 39)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botonListarProductos, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(39, 39, 39)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(botonCargarArchivo, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(212, 212, 212)
+                        .addComponent(botonListarProductos, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(54, 54, 54))
             .addGroup(layout.createSequentialGroup()
                 .addGap(275, 275, 275)
                 .addComponent(labelTituloVentana, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(75, 75, 75)
+                    .addComponent(botonIngresarProductos1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(734, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -161,18 +176,23 @@ public class InterfazAdministracionProductos extends javax.swing.JFrame {
                             .addComponent(txtStockProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(labelStockProducto)))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botonIngresarProductos)
+                    .addComponent(botonCargarArchivo)
                     .addComponent(botonListarProductos))
-                .addGap(60, 60, 60))
+                .addGap(47, 47, 47))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(527, Short.MAX_VALUE)
+                    .addComponent(botonIngresarProductos1)
+                    .addGap(50, 50, 50)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
           
             
-    private void botonIngresarProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonIngresarProductosActionPerformed
+    private void botonCargarArchivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCargarArchivoActionPerformed
         Integer cod_producto = Integer.parseInt(txtCodigoProducto.getText().trim());
         String nombreProducto = txtNombreProducto.getText().trim();
         String descripcionProducto = txtDescripcionProducto.getText().trim();
@@ -183,7 +203,7 @@ public class InterfazAdministracionProductos extends javax.swing.JFrame {
         productos.ingresarProducto(new Producto(cod_producto,nombreProducto,descripcionProducto,precioProducto,stockProducto));
        
       
-    }//GEN-LAST:event_botonIngresarProductosActionPerformed
+    }//GEN-LAST:event_botonCargarArchivoActionPerformed
 
     private void botonListarProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonListarProductosActionPerformed
        GestorAdministracionProductos productos = new GestorAdministracionProductos();
@@ -194,8 +214,12 @@ public class InterfazAdministracionProductos extends javax.swing.JFrame {
        productos.ingresarProducto(new Producto(789,"Producto 03","Descripcion Producto",4000.00,25));
             
        productos.listarProductos();
-       tablaProductos.setModel(productos.getProductos());
+       tablaProductos.setModel(productos.getProductosDefaultModel());
     }//GEN-LAST:event_botonListarProductosActionPerformed
+
+    private void botonIngresarProductos1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonIngresarProductos1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botonIngresarProductos1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -233,7 +257,8 @@ public class InterfazAdministracionProductos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton botonIngresarProductos;
+    private javax.swing.JButton botonCargarArchivo;
+    private javax.swing.JButton botonIngresarProductos1;
     private javax.swing.JButton botonListarProductos;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel labelCodigoProducto;

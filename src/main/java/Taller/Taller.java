@@ -1,6 +1,7 @@
 
 package Taller;
 import Interfaz.InterfazAdministracionProductos;
+import Interfaz.InterfazMenuPrincipal;
 import Persona.*;
 import java.time.LocalDate;
 import Interfaz.InterfazVentaProductos;
@@ -27,14 +28,9 @@ public class Taller {
         Cliente cliente01 = new Cliente("AAA-111",LocalDate.of(2024, 2, 24),"333333","Cliente01 Taller","89898989","Heredia","cliente01@taller.cr",Roles.Cliente);        
 
       
-       //Interfaz para la administracion de productos
-       InterfazAdministracionProductos admProdInterfaz = new InterfazAdministracionProductos();
-       admProdInterfaz.setVisible(false);
+      InterfazMenuPrincipal interfazPrincipal = new InterfazMenuPrincipal();
+      interfazPrincipal.setVisible(true);
        
-       
-       //Interfaz para la venta de productos
-       InterfazVentaProductos ventaProdInterfaz = new InterfazVentaProductos();
-       ventaProdInterfaz.setVisible(false);
     
     }
     
