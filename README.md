@@ -16,8 +16,8 @@ El tipo de negocio sería un taller mecánico de servicios automotrices con una 
 # Listado y descripción de los 6 módulos a desarrollar en la aplicación.
 
 1. Módulo Gestión de Operarios          
-2. Módulo de Administración de Productos (Taller)                   
-3. Módulo Gestión de los registros de Cliente y vehículo (Taller)
+2. Módulo de Administración de Productos (Venta y Registro de Productos)                   
+3. Módulo Gestión de los Registros de Cliente y Vehículo (Taller)
 4. Modulo Administración de Vehículos de Venta 
 5. Módulo Administración de Vehículos de Taller (Mantenimiento/Reparación).         
 6. Módulo de Reportes
