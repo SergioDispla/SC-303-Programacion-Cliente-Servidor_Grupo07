@@ -1,17 +1,14 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
-package Interfaz;
+Interfaz grafica de administracion de productos
+Esta interfaz debe mostrar la opcion de ingresar, cargar y listar productos
 
-import Gestores.GestorAdministracionProductos;
+Requisitos especiales:
+- La opcion de carga debera permitir seleccionar un archivo txt de la computadora local
+*/
+package Interfaz;
 import Gestores.GestorAdministracionProductos;
 import Producto.Producto;
 
-/**
- *
- * @author sams2
- */
 public class InterfazAdministracionProductos extends javax.swing.JFrame {
 
     /**
@@ -191,34 +188,40 @@ public class InterfazAdministracionProductos extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
           
-            
+    //Boton para cargar un archivo tipo txt con productos        
     private void botonCargarArchivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCargarArchivoActionPerformed
+     
+    }//GEN-LAST:event_botonCargarArchivoActionPerformed
+
+    //Boton para listar productos de la base de datos
+    private void botonListarProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonListarProductosActionPerformed
+       GestorAdministracionProductos productos = new GestorAdministracionProductos();
+       
+       //Precarga de productos - va a ser removido en la version final
+       productos.ingresarProducto(new Producto(123,"Producto 01","Descripcion Producto",2000.00,10));
+       productos.ingresarProducto(new Producto(456,"Producto 02","Descripcion Producto",3000.00,5));
+       productos.ingresarProducto(new Producto(789,"Producto 03","Descripcion Producto",4000.00,25));
+       
+       //Llamada al metodo listar productos de la clase GestorAdministracionProductos - el metodo debe retornar la informacion que ira dentro del DefaultModel
+       productos.listarProductos();
+       
+       //Modifica la tabla de la interfaz grafica para mostrar los productos de la base de datos
+       tablaProductos.setModel(productos.getProductosDefaultModel());
+    }//GEN-LAST:event_botonListarProductosActionPerformed
+
+    //Boton para ingresar productos manualmente
+    private void botonIngresarProductos1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonIngresarProductos1ActionPerformed
+        //Definicion de variables que van a capturar lo que se ingrese en los textfields
         Integer cod_producto = Integer.parseInt(txtCodigoProducto.getText().trim());
         String nombreProducto = txtNombreProducto.getText().trim();
         String descripcionProducto = txtDescripcionProducto.getText().trim();
         float precioProducto = Float.parseFloat(txtPrecioProducto.getText());
         Integer stockProducto = Integer.parseInt(txtStockProducto.getText().trim());
         
+        //Instanciacion de un objecto tipo GestorAdministracionProductos para usar el metodo ingresarProducto()
         GestorAdministracionProductos productos = new GestorAdministracionProductos();
         productos.ingresarProducto(new Producto(cod_producto,nombreProducto,descripcionProducto,precioProducto,stockProducto));
-       
-      
-    }//GEN-LAST:event_botonCargarArchivoActionPerformed
-
-    private void botonListarProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonListarProductosActionPerformed
-       GestorAdministracionProductos productos = new GestorAdministracionProductos();
-       
-       //Precarga de productos
-       productos.ingresarProducto(new Producto(123,"Producto 01","Descripcion Producto",2000.00,10));
-       productos.ingresarProducto(new Producto(456,"Producto 02","Descripcion Producto",3000.00,5));
-       productos.ingresarProducto(new Producto(789,"Producto 03","Descripcion Producto",4000.00,25));
-            
-       productos.listarProductos();
-       tablaProductos.setModel(productos.getProductosDefaultModel());
-    }//GEN-LAST:event_botonListarProductosActionPerformed
-
-    private void botonIngresarProductos1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonIngresarProductos1ActionPerformed
-        // TODO add your handling code here:
+    
     }//GEN-LAST:event_botonIngresarProductos1ActionPerformed
 
     /**
