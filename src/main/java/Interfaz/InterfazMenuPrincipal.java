@@ -39,7 +39,6 @@ public class InterfazMenuPrincipal extends javax.swing.JFrame {
         labelMantenimientos = new javax.swing.JLabel();
         labelVentas = new javax.swing.JLabel();
         botonReporteVentas = new javax.swing.JButton();
-        botonVentaVehiculos = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -100,13 +99,6 @@ public class InterfazMenuPrincipal extends javax.swing.JFrame {
             }
         });
 
-        botonVentaVehiculos.setText("Venta Vehiculos");
-        botonVentaVehiculos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonVentaVehiculosActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -140,8 +132,7 @@ public class InterfazMenuPrincipal extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(botonVentaProductos, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(labelReportes, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(botonReporteVentas, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
-                            .addComponent(botonVentaVehiculos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(botonReporteVentas, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
@@ -165,9 +156,7 @@ public class InterfazMenuPrincipal extends javax.swing.JFrame {
                     .addComponent(botonRegistroProductos))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(botonVentaProductos)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(botonVentaVehiculos)
-                .addGap(55, 55, 55)
+                .addGap(90, 90, 90)
                 .addComponent(labelReportes)
                 .addGap(18, 18, 18)
                 .addComponent(botonReporteVentas)
@@ -179,7 +168,7 @@ public class InterfazMenuPrincipal extends javax.swing.JFrame {
 
     //Boton para acceder a la subinterfaz de Registro Operadores
     private void botonRegistroOperadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistroOperadoresActionPerformed
-       InterfazRegistroOperadores interfaz = new InterfazRegistroOperadores();
+       InterfazRegistroOperarios interfaz = new InterfazRegistroOperarios();
        interfaz.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
        interfaz.setVisible(true);
     }//GEN-LAST:event_botonRegistroOperadoresActionPerformed
@@ -216,13 +205,6 @@ public class InterfazMenuPrincipal extends javax.swing.JFrame {
        interfaz.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
        interfaz.setVisible(true);
     }//GEN-LAST:event_botonReporteVentasActionPerformed
-
-    //Boton para acceder a la subinterfaz de Venta de Vehiculos
-    private void botonVentaVehiculosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonVentaVehiculosActionPerformed
-       InterfazVentaVehiculos interfaz = new InterfazVentaVehiculos();
-       interfaz.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-       interfaz.setVisible(true);
-    }//GEN-LAST:event_botonVentaVehiculosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -266,7 +248,6 @@ public class InterfazMenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton botonRegistroProductos;
     private javax.swing.JButton botonReporteVentas;
     private javax.swing.JButton botonVentaProductos;
-    private javax.swing.JButton botonVentaVehiculos;
     private javax.swing.JLabel labelBienvenida;
     private javax.swing.JLabel labelMantenimientos;
     private javax.swing.JLabel labelRegistros;

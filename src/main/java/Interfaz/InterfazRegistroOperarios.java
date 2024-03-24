@@ -1,11 +1,11 @@
 package Interfaz;
 
-public class InterfazRegistroClientes extends javax.swing.JFrame {
+public class InterfazRegistroOperarios extends javax.swing.JFrame {
 
     /**
      * Creates new form InterfazRegistroClientes
      */
-    public InterfazRegistroClientes() {
+    public InterfazRegistroOperarios() {
         initComponents();
     }
 
@@ -34,16 +34,16 @@ public class InterfazRegistroClientes extends javax.swing.JFrame {
         txtFechaRegistro = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtDireccion = new javax.swing.JTextArea();
-        botonListarCliente = new javax.swing.JButton();
+        botonListarOperadores = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tablaClientes = new javax.swing.JTable();
-        botonRegistrarClientes = new javax.swing.JButton();
+        botonRegistrarOperadores = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         labelTituloVentana.setAlignment(java.awt.Label.CENTER);
         labelTituloVentana.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        labelTituloVentana.setText("Registro Clientes");
+        labelTituloVentana.setText("Registro Operarios");
 
         labelCedula.setText("Cédula:");
 
@@ -63,11 +63,12 @@ public class InterfazRegistroClientes extends javax.swing.JFrame {
         txtDireccion.setRows(5);
         jScrollPane1.setViewportView(txtDireccion);
 
-        botonListarCliente.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        botonListarCliente.setText("Listar Clientes");
-        botonListarCliente.addActionListener(new java.awt.event.ActionListener() {
+        botonListarOperadores.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        botonListarOperadores.setText("Listar Operarios");
+        botonListarOperadores.setActionCommand("Listar Operadores");
+        botonListarOperadores.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonListarClienteActionPerformed(evt);
+                botonListarOperadoresActionPerformed(evt);
             }
         });
 
@@ -81,12 +82,11 @@ public class InterfazRegistroClientes extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(tablaClientes);
 
-        botonRegistrarClientes.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        botonRegistrarClientes.setText("Registrar Cliente");
-        botonRegistrarClientes.setActionCommand("Registrar Cliente");
-        botonRegistrarClientes.addActionListener(new java.awt.event.ActionListener() {
+        botonRegistrarOperadores.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        botonRegistrarOperadores.setText("Registrar Operarios");
+        botonRegistrarOperadores.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonRegistrarClientesActionPerformed(evt);
+                botonRegistrarOperadoresActionPerformed(evt);
             }
         });
 
@@ -94,10 +94,6 @@ public class InterfazRegistroClientes extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(335, 335, 335)
-                .addComponent(labelTituloVentana, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -122,11 +118,18 @@ public class InterfazRegistroClientes extends javax.swing.JFrame {
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(19, 19, 19))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(215, 215, 215)
-                .addComponent(botonRegistrarClientes)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(botonListarCliente)
-                .addGap(179, 179, 179))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(botonListarOperadores)
+                .addGap(185, 185, 185))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(335, 335, 335)
+                .addComponent(labelTituloVentana, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(292, 292, 292)
+                    .addComponent(botonRegistrarOperadores)
+                    .addContainerGap(517, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -169,22 +172,25 @@ public class InterfazRegistroClientes extends javax.swing.JFrame {
                         .addGap(79, 79, 79)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botonListarCliente)
-                    .addComponent(botonRegistrarClientes))
+                .addComponent(botonListarOperadores)
                 .addContainerGap(81, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(490, Short.MAX_VALUE)
+                    .addComponent(botonRegistrarOperadores)
+                    .addGap(83, 83, 83)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void botonListarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonListarClienteActionPerformed
+    private void botonListarOperadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonListarOperadoresActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_botonListarClienteActionPerformed
+    }//GEN-LAST:event_botonListarOperadoresActionPerformed
 
-    private void botonRegistrarClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarClientesActionPerformed
+    private void botonRegistrarOperadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarOperadoresActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_botonRegistrarClientesActionPerformed
+    }//GEN-LAST:event_botonRegistrarOperadoresActionPerformed
 
     /**
      * @param args the command line arguments
@@ -203,27 +209,30 @@ public class InterfazRegistroClientes extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(InterfazRegistroClientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InterfazRegistroOperarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(InterfazRegistroClientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InterfazRegistroOperarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(InterfazRegistroClientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InterfazRegistroOperarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(InterfazRegistroClientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InterfazRegistroOperarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new InterfazRegistroClientes().setVisible(true);
+                new InterfazRegistroOperarios().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton botonListarCliente;
-    private javax.swing.JButton botonRegistrarClientes;
+    private javax.swing.JButton botonListarOperadores;
+    private javax.swing.JButton botonRegistrarOperadores;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel labelCedula;

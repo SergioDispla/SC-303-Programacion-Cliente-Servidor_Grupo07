@@ -131,7 +131,7 @@ public class GestorAdministracionProductos implements Factura {
                 Object [] resultadoConsulta = {cod_producto,nombre,descripcion,precio,cantidad_stock};
                 
                 //Definimos el contenido de la tabla
-                String [] columnasTabla = {"Cod", "Nombre", "Descripcion", "Precio", "Cantidad Stock"};
+                String [] columnasTabla = {"Cod Producto", "Nombre", "Descripcion", "Precio", "Stock"};
                 productosDefaultModel.setColumnIdentifiers(columnasTabla);
                 productosDefaultModel.addRow(resultadoConsulta);
                         
@@ -175,7 +175,7 @@ public class GestorAdministracionProductos implements Factura {
         }
     }
 
-    //Metodo sobreescrito de la interface factura - Lista las compras realizadas que se guardaron en la tabla "registrocompras"
+    //Metodo sobreescrito de la interface factura - Lista las compras realizadas que se guardaron en la tabla "ventasproductos"
     @Override
     public void listarVentas() {
         try {

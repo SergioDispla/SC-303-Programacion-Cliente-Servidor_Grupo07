@@ -70,13 +70,10 @@ public class InterfazRegistroProductos extends javax.swing.JFrame {
 
         tablaProductos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Cod Producto", "Nombre", "Descripcion", "Precio", "Stock"
             }
         ));
         jScrollPane1.setViewportView(tablaProductos);

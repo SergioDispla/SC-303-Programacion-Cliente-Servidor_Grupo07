@@ -78,13 +78,10 @@ public class InterfazVentaProductos extends javax.swing.JFrame {
 
         tablaInfoCliente.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Cédula", "Nombre", "Correo Electrónico"
             }
         ));
         jScrollPane1.setViewportView(tablaInfoCliente);
@@ -98,13 +95,10 @@ public class InterfazVentaProductos extends javax.swing.JFrame {
 
         tablaListaCompras.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Cod. Producto", "Nombre", "Precio"
             }
         ));
         jScrollPane2.setViewportView(tablaListaCompras);

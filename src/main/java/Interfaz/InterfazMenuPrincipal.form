@@ -60,7 +60,6 @@
                           <Component id="botonVentaProductos" alignment="0" max="32767" attributes="0"/>
                           <Component id="labelReportes" alignment="0" min="-2" pref="112" max="-2" attributes="0"/>
                           <Component id="botonReporteVentas" alignment="0" pref="220" max="32767" attributes="0"/>
-                          <Component id="botonVentaVehiculos" alignment="1" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
@@ -92,9 +91,7 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="botonVentaProductos" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="botonVentaVehiculos" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
               <Component id="labelReportes" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="botonReporteVentas" min="-2" max="-2" attributes="0"/>
@@ -190,14 +187,6 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonReporteVentasActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="botonVentaVehiculos">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Venta Vehiculos"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonVentaVehiculosActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
