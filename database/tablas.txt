@@ -48,6 +48,5 @@ CREATE TABLE vehiculos (
     marca VARCHAR(100),
     modelo VARCHAR(100),
     año INT,
-    kilometraje DOUBLE,
-    estado VARCHAR(100)
+    kilometraje INT
 );

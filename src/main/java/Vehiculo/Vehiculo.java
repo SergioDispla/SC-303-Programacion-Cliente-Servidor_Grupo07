@@ -1,5 +1,5 @@
 /*
-Clase para definir los vehiculos que seran atendidos en el taller como parte del mantenimiento
+Clase para definir los vehiculos que seran atendidos en el taller como parte del mantenimiento o reparacion
 */
 package Vehiculo;
 
@@ -11,17 +11,14 @@ public class Vehiculo {
     private String modelo;
     private int año;
     private double kilometraje;
-    private String estado;
-    //private Iterable<Vehiculo> vehiculos;
 
     //Constructor de la clase vehiculo
-    public Vehiculo(String marca, String modelo, int año, String placa, double kilometraje, String estado) {
+    public Vehiculo(String marca, String modelo, int año, String placa, double kilometraje) {
         this.marca = marca;
         this.modelo = modelo;
         this.año = año;
         this.placa = placa;
         this.kilometraje = kilometraje;
-        this.estado = estado;
     }    
 
     //Metodos getters and setters
@@ -65,15 +62,6 @@ public class Vehiculo {
         this.kilometraje = kilometraje;
     }
 
-    public String getEstado() {
-        return estado;
-    }
-    
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
-
-
     //Metodo para imprimir la informacion del objeto tipo vehiculo
     public void InfoVehiculo() {
     System.out.println("Marca: " + this.marca);
@@ -81,7 +69,6 @@ public class Vehiculo {
     System.out.println("Año: " + this.año);
     System.out.println("Placa: " + this.placa);
     System.out.println("Kilometraje: " + this.kilometraje);
-    System.out.println("Estado: " + this.estado);
     }   
     
     //Metodo para buscar la placa del vehiculo - pendiente validarlo bien xD

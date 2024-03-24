@@ -13,7 +13,6 @@ import Persona.Operario;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import Persona.Cliente;
 import Producto.Producto;
@@ -77,7 +76,6 @@ public class GestorReportes {
             System.out.println("Año: " + vehiculo.getAño());
             System.out.println("Placa: " + vehiculo.getPlaca());
             System.out.println("Kilometraje: " + vehiculo.getKilometraje());
-            System.out.println("Estado: " + vehiculo.getEstado());
         }
         System.out.println("------------------------------");
         System.out.println("Fin del reporte");

@@ -216,7 +216,7 @@ public class GestorAdministracionProductos implements Factura {
         String usuario = "root";
         String contrasena = "root";
 
-        // Establecer la conexion y retornarla
+        //Establece la conexion y la retorna
         return DriverManager.getConnection(url, usuario, contrasena);
     }   
  

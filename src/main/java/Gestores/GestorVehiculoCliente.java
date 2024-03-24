@@ -25,7 +25,7 @@ public class GestorVehiculoCliente {
             // Consulta SQL para insertar un cliente en la tabla "clientes"
             String consultaCliente = "INSERT INTO clientes (cedula, nombre, telefono, direccion, correoElectronico, placaVehiculo, fechaRegistro) VALUES (?, ?, ?, ?, ?, ?, ?)";
             
-            // Preparar la declaración SQL para cliente
+            // Prepara la declaracion SQL para insertar el cliente
             PreparedStatement declaracionCliente = conexion.prepareStatement(consultaCliente);
             declaracionCliente.setString(1, cliente.getCedula());
             declaracionCliente.setString(2, cliente.getNombre());
@@ -39,16 +39,16 @@ public class GestorVehiculoCliente {
             declaracionCliente.executeUpdate();
             
             // Consulta SQL para insertar un vehículo en la tabla "vehiculos"
-            String consultaVehiculo = "INSERT INTO vehiculos (placa, marca, modelo, año, kilometraje, estado) VALUES (?, ?, ?, ?, ?, ?)";
+            String consultaVehiculo = "INSERT INTO vehiculos (placa, marca, modelo, año, kilometraje) VALUES (?, ?, ?, ?, ?)";
             
-            // Preparar la declaración SQL para vehículo
+            // Preparar la declaracin SQL para insertar el vehiculo
             PreparedStatement declaracionVehiculo = conexion.prepareStatement(consultaVehiculo);
             declaracionVehiculo.setString(1, vehiculo.getPlaca());
             declaracionVehiculo.setString(2, vehiculo.getMarca());
             declaracionVehiculo.setString(3, vehiculo.getModelo());
             declaracionVehiculo.setInt(4, vehiculo.getAño());
             declaracionVehiculo.setDouble(5, vehiculo.getKilometraje());
-            declaracionVehiculo.setString(6, vehiculo.getEstado());
+
             
             // Ejecutar la consulta para vehículo
             declaracionVehiculo.executeUpdate();
@@ -69,7 +69,7 @@ public class GestorVehiculoCliente {
         String usuario = "root";
         String contrasena = "root";
 
-        // Establecer la conexion y retornarla
+        // Establece la conexion y la retorna
         return DriverManager.getConnection(url, usuario, contrasena);
     }
     

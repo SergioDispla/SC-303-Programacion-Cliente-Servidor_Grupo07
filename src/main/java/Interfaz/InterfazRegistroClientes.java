@@ -1,5 +1,8 @@
 package Interfaz;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 public class InterfazRegistroClientes extends javax.swing.JFrame {
 
     /**
@@ -26,14 +29,14 @@ public class InterfazRegistroClientes extends javax.swing.JFrame {
         labelCorreo = new javax.swing.JLabel();
         labelPlacaVehiculo = new javax.swing.JLabel();
         labelFechaRegistro = new javax.swing.JLabel();
-        txtCedula = new javax.swing.JTextField();
-        txtNombre = new javax.swing.JTextField();
-        txtTelefono = new javax.swing.JTextField();
-        txtCorreoElectronico = new javax.swing.JTextField();
-        txtPlacaVehiculo = new javax.swing.JTextField();
-        txtFechaRegistro = new javax.swing.JTextField();
+        txtCedulaCliente = new javax.swing.JTextField();
+        txtNombreCliente = new javax.swing.JTextField();
+        txtTelefonoCliente = new javax.swing.JTextField();
+        txtCorreoElectronicoCliente = new javax.swing.JTextField();
+        txtPlacaVehiculoCliente = new javax.swing.JTextField();
+        txtFechaRegistroCliente = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        txtDireccion = new javax.swing.JTextArea();
+        txtDireccionCliente = new javax.swing.JTextArea();
         botonListarCliente = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tablaClientes = new javax.swing.JTable();
@@ -59,9 +62,9 @@ public class InterfazRegistroClientes extends javax.swing.JFrame {
 
         labelFechaRegistro.setText("Fecha Registro:");
 
-        txtDireccion.setColumns(20);
-        txtDireccion.setRows(5);
-        jScrollPane1.setViewportView(txtDireccion);
+        txtDireccionCliente.setColumns(20);
+        txtDireccionCliente.setRows(5);
+        jScrollPane1.setViewportView(txtDireccionCliente);
 
         botonListarCliente.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         botonListarCliente.setText("Listar Clientes");
@@ -83,7 +86,6 @@ public class InterfazRegistroClientes extends javax.swing.JFrame {
 
         botonRegistrarClientes.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         botonRegistrarClientes.setText("Registrar Cliente");
-        botonRegistrarClientes.setActionCommand("Registrar Cliente");
         botonRegistrarClientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonRegistrarClientesActionPerformed(evt);
@@ -110,14 +112,14 @@ public class InterfazRegistroClientes extends javax.swing.JFrame {
                     .addComponent(labelFechaRegistro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtFechaRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtFechaRegistroCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jScrollPane1)
-                        .addComponent(txtCorreoElectronico, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(txtPlacaVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtCorreoElectronicoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtNombreCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtCedulaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtTelefonoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtPlacaVehiculoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(19, 19, 19))
@@ -152,19 +154,19 @@ public class InterfazRegistroClientes extends javax.swing.JFrame {
                                 .addGap(37, 37, 37)
                                 .addComponent(labelFechaRegistro))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtCedulaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(23, 23, 23)
-                                .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtNombreCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(25, 25, 25)
-                                .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtTelefonoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(37, 37, 37)
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(txtCorreoElectronico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtCorreoElectronicoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(31, 31, 31)
-                                .addComponent(txtPlacaVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtPlacaVehiculoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(31, 31, 31)
-                                .addComponent(txtFechaRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(txtFechaRegistroCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(79, 79, 79)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -183,7 +185,17 @@ public class InterfazRegistroClientes extends javax.swing.JFrame {
     }//GEN-LAST:event_botonListarClienteActionPerformed
 
     private void botonRegistrarClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarClientesActionPerformed
-        // TODO add your handling code here:
+        //Definicion de variables que van a capturar lo que se ingrese en los textfields
+        String ced_cliente = txtCedulaCliente.getText().trim();
+        String nombreCliente = txtNombreCliente.getText().trim(); //telefono, direccion, correo, placa, fecha
+        String telefonoCliente = txtTelefonoCliente.getText().trim();
+        String direccionCliente = txtDireccionCliente.getText();
+        String correoCliente = txtCorreoElectronicoCliente.getText().trim();
+        String placaVehiculo = txtPlacaVehiculoCliente.getText().trim();
+        LocalDate fechaRegistro = LocalDate.parse(txtFechaRegistroCliente.getText().trim(), DateTimeFormatter.ISO_LOCAL_DATE);
+        
+        //Instanciacion de un objecto tipo GestorAdministracionProductos para usar el metodo ingresarProducto()
+        
     }//GEN-LAST:event_botonRegistrarClientesActionPerformed
 
     /**
@@ -235,12 +247,12 @@ public class InterfazRegistroClientes extends javax.swing.JFrame {
     private javax.swing.JLabel labelTelefono;
     private java.awt.Label labelTituloVentana;
     private javax.swing.JTable tablaClientes;
-    private javax.swing.JTextField txtCedula;
-    private javax.swing.JTextField txtCorreoElectronico;
-    private javax.swing.JTextArea txtDireccion;
-    private javax.swing.JTextField txtFechaRegistro;
-    private javax.swing.JTextField txtNombre;
-    private javax.swing.JTextField txtPlacaVehiculo;
-    private javax.swing.JTextField txtTelefono;
+    private javax.swing.JTextField txtCedulaCliente;
+    private javax.swing.JTextField txtCorreoElectronicoCliente;
+    private javax.swing.JTextArea txtDireccionCliente;
+    private javax.swing.JTextField txtFechaRegistroCliente;
+    private javax.swing.JTextField txtNombreCliente;
+    private javax.swing.JTextField txtPlacaVehiculoCliente;
+    private javax.swing.JTextField txtTelefonoCliente;
     // End of variables declaration//GEN-END:variables
 }
