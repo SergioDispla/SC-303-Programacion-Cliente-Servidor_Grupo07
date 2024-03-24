@@ -29,3 +29,8 @@ El tipo de negocio sería un taller mecánico de servicios automotrices con una 
 * Reporte Detallado de Vehículos
 * Reporte de Ventas de Productos
 * Reporte General de mantenimientos o reparaciones realizados por la Compañía
+
+
+# Requisitos: 
+* Base de datos MySQL con nombre "taller"
+* Tablas SQL: Revisar el txt https://github.com/SergioDispla/SC-303-Programacion-Cliente-Servidor_Grupo07/tree/main/database que contiene el codigo a usar para crear las tablas

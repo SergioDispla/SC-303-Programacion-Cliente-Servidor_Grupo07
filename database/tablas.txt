@@ -39,8 +39,7 @@ CREATE TABLE clientes (
     direccion VARCHAR(100),
     correoElectronico VARCHAR(100),
     placaVehiculo VARCHAR(20),
-    fechaRegistro DATE,
-    FOREIGN KEY (placaVehiculo) REFERENCES vehiculos(placa)
+    fechaRegistro DATE
 );
 
 #Crear tabla vehiculos
