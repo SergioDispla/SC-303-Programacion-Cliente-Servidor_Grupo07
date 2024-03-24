@@ -9,12 +9,12 @@ package Interfaz;
 import Gestores.GestorAdministracionProductos;
 import Producto.Producto;
 
-public class InterfazAdministracionProductos extends javax.swing.JFrame {
+public class InterfazRegistroProductos extends javax.swing.JFrame {
 
     /**
-     * Creates new form InterfazAdministracionProductos
+     * Creates new form InterfazRegistroProductos
      */
-    public InterfazAdministracionProductos() {
+    public InterfazRegistroProductos() {
         initComponents();
 
     }
@@ -241,20 +241,20 @@ public class InterfazAdministracionProductos extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(InterfazAdministracionProductos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InterfazRegistroProductos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(InterfazAdministracionProductos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InterfazRegistroProductos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(InterfazAdministracionProductos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InterfazRegistroProductos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(InterfazAdministracionProductos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InterfazRegistroProductos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new InterfazAdministracionProductos().setVisible(true);
+                new InterfazRegistroProductos().setVisible(true);
             }
         });
     }

@@ -1,10 +1,8 @@
 
 package Taller;
-import Interfaz.InterfazAdministracionProductos;
 import Interfaz.InterfazMenuPrincipal;
 import Persona.*;
 import java.time.LocalDate;
-import Interfaz.InterfazVentaProductos;
 import Persona.Persona.*;
 
 public class Taller {
