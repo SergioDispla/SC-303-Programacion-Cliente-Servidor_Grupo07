@@ -1,14 +1,14 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+Interfaz grafica principal
+Esta interfaz debera mostrar las siguientes opciones:
+- Registros (clientes, operadores, productos)
+- Mantenimientos (Vehiculo - Cliente)
+- Ventas (Productos, Vehiculos)
+- Reportes (TBD)
  */
 package Interfaz;
 import javax.swing.JFrame;
 
-/**
- *
- * @author sams2
- */
 public class InterfazMenuPrincipal extends javax.swing.JFrame {
 
     /**
@@ -177,34 +177,41 @@ public class InterfazMenuPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //Boton para acceder a la subinterfaz de Registro Operadores
     private void botonRegistroOperadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistroOperadoresActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_botonRegistroOperadoresActionPerformed
 
+    //Boton para acceder a la subinterfaz de Registro de Productos
     private void botonRegistroProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistroProductosActionPerformed
        InterfazAdministracionProductos interfaz = new InterfazAdministracionProductos();
        interfaz.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
        interfaz.setVisible(true);
     }//GEN-LAST:event_botonRegistroProductosActionPerformed
 
+    //Boton para acceder a la subinterfaz de Venta de Productos
     private void botonVentaProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonVentaProductosActionPerformed
         InterfazVentaProductos interfaz = new InterfazVentaProductos();
         interfaz.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         interfaz.setVisible(true);
     }//GEN-LAST:event_botonVentaProductosActionPerformed
 
+    //Boton para acceder a la subinterfaz de Mantenimiento Vehiculos
     private void botonMantenimientoVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonMantenimientoVehiculoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_botonMantenimientoVehiculoActionPerformed
 
+    //Boton para acceder a la subinterfaz de Registro de Clientes
     private void botonRegistroClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistroClientesActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_botonRegistroClientesActionPerformed
 
+    //Boton para acceder a la subinterfaz de Reporte de Ventas
     private void botonReporteVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonReporteVentasActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_botonReporteVentasActionPerformed
 
+    //Boton para acceder a la subinterfaz de Venta de Vehiculos
     private void botonVentaVehiculosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonVentaVehiculosActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_botonVentaVehiculosActionPerformed
