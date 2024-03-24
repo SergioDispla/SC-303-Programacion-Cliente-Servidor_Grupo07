@@ -11,6 +11,9 @@ package Gestores;
 import Producto.Producto;
 import Persona.Cliente;
 import Factura.Factura;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -25,7 +28,7 @@ public class GestorAdministracionProductos implements Factura {
     private float totalPagado;
     DefaultTableModel productosDefaultModel = new DefaultTableModel();
     
-
+    //Getters and Setters
     public float getTotalPagado() {
         return totalPagado;
     }
@@ -42,7 +45,6 @@ public class GestorAdministracionProductos implements Factura {
         this.productosDefaultModel = productosDefaultModel;
     }
 
-  
     // Metodo para ingresar un producto a la base de datos
     public void ingresarProducto(Producto producto) {
         try {
@@ -66,9 +68,40 @@ public class GestorAdministracionProductos implements Factura {
             // Cerrar la conexion
             conexion.close();
             declaracion.close();
-            JOptionPane.showMessageDialog(null, "Producto ingresado correctamente en la base de datos.");
+            
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Error al ingresar el producto en la base de datos: " + e.getMessage());
+        }
+        
+    }
+    
+    //Metodo para cargar un archivo a la base de datos
+    public void cargarArchivo(File archivo) {
+        // Se utiliza el metodo BufferedReader para leer línea por línea del archivo
+        try (BufferedReader br = new BufferedReader(new FileReader(archivo))) {
+            
+            //Se procesa cada linea del archivo
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                
+                //Se crea un array tipo object para almacenar el valor de cada columna
+                Object[] columnasArchivo = linea.split(",");
+
+                //Se inserta el valor de cada columna en el array 
+                int codigoProducto = Integer.parseInt((String) columnasArchivo[0]);
+                String nombreProducto = (String) columnasArchivo[1];
+                String descripcionProducto = (String) columnasArchivo[2];
+                float precioProducto = Float.parseFloat((String) columnasArchivo[3]);
+                int cantidadProducto = Integer.parseInt((String) columnasArchivo[4]);
+                
+                //Se llama al metodo de insertar productos y se le pasan las variables
+                ingresarProducto(new Producto(codigoProducto,nombreProducto,descripcionProducto,precioProducto,cantidadProducto));
+                
+            }
+        JOptionPane.showMessageDialog(null, "Productos ingresados correctamente en la base de datos");
+        } catch (Exception  e) {
+            JOptionPane.showMessageDialog(null, "No se seleccionó ningún archivo - Error: "+ e.getMessage());
+            
         }
     }
     
@@ -109,11 +142,11 @@ public class GestorAdministracionProductos implements Factura {
             resultado.close();
             declaracion.close();
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Error al listar los productos de la base de datos: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Error al listar los productos de la base de datos - Error: " + e.getMessage());
         }
     }
     
-    //Metodo sobreescrito de la interface factura - Registra la compra en la base de datos "Taller" en la tabla "RegistroCompras"
+    //Metodo sobreescrito de la interface factura - Registra la compra en la base de datos "Taller" en la tabla "ventasproductos"
     @Override
     public void registroVentas(Cliente cliente, float totalPagado, TipoPago tipoPago) {
         try {
@@ -138,10 +171,9 @@ public class GestorAdministracionProductos implements Factura {
             
             JOptionPane.showMessageDialog(null, "Transacción de venta guardada en la base de datos.");
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Error al guardar la transacción de venta en la base de datos: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Error al guardar la transacción de venta en la base de datos - Error " + e.getMessage());
         }
     }
-
 
     //Metodo sobreescrito de la interface factura - Lista las compras realizadas que se guardaron en la tabla "registrocompras"
     @Override
@@ -173,7 +205,7 @@ public class GestorAdministracionProductos implements Factura {
             // Cerrar la conexion
             conexion.close();
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Error al listar las ventas de la base de datos: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Error al listar las ventas de la base de datos - Error: " + e.getMessage());
         }
     }
     

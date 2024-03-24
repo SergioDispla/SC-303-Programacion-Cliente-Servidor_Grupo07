@@ -8,6 +8,9 @@ Requisitos especiales:
 package Interfaz;
 import Gestores.GestorAdministracionProductos;
 import Producto.Producto;
+import java.io.File;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 
 public class InterfazRegistroProductos extends javax.swing.JFrame {
 
@@ -28,6 +31,7 @@ public class InterfazRegistroProductos extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jFileChooser1 = new javax.swing.JFileChooser();
         botonCargarArchivo = new javax.swing.JButton();
         botonListarProductos = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -190,7 +194,15 @@ public class InterfazRegistroProductos extends javax.swing.JFrame {
           
     //Boton para cargar un archivo tipo txt con productos        
     private void botonCargarArchivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCargarArchivoActionPerformed
-     
+        GestorAdministracionProductos productos = new GestorAdministracionProductos();
+        
+        //Se crean las variables que almacenan el objeto tipo file
+        JFileChooser chooser = new JFileChooser();
+        chooser.showOpenDialog(null);
+        File f = chooser.getSelectedFile();
+        
+        //Se llama al metodo cargarArchivo y se le pasa el archivo a cargar
+        productos.cargarArchivo(f);
     }//GEN-LAST:event_botonCargarArchivoActionPerformed
 
     //Boton para listar productos de la base de datos
@@ -198,9 +210,9 @@ public class InterfazRegistroProductos extends javax.swing.JFrame {
        GestorAdministracionProductos productos = new GestorAdministracionProductos();
        
        //Precarga de productos - va a ser removido en la version final
-       productos.ingresarProducto(new Producto(123,"Producto 01","Descripcion Producto",2000.00,10));
-       productos.ingresarProducto(new Producto(456,"Producto 02","Descripcion Producto",3000.00,5));
-       productos.ingresarProducto(new Producto(789,"Producto 03","Descripcion Producto",4000.00,25));
+       //productos.ingresarProducto(new Producto(123,"Producto 01","Descripcion Producto",2000.00,10));
+       //productos.ingresarProducto(new Producto(456,"Producto 02","Descripcion Producto",3000.00,5));
+       //productos.ingresarProducto(new Producto(789,"Producto 03","Descripcion Producto",4000.00,25));
        
        //Llamada al metodo listar productos de la clase GestorAdministracionProductos - el metodo debe retornar la informacion que ira dentro del DefaultModel
        productos.listarProductos();
@@ -221,7 +233,16 @@ public class InterfazRegistroProductos extends javax.swing.JFrame {
         //Instanciacion de un objecto tipo GestorAdministracionProductos para usar el metodo ingresarProducto()
         GestorAdministracionProductos productos = new GestorAdministracionProductos();
         productos.ingresarProducto(new Producto(cod_producto,nombreProducto,descripcionProducto,precioProducto,stockProducto));
-    
+        
+        //Notificacion de la correcta insercion de los datos
+        JOptionPane.showMessageDialog(null, "Productos ingresados correctamente en la base de datos");
+        
+        //Limpiado de labels
+        txtCodigoProducto.setText("");
+        txtNombreProducto.setText("");
+        txtDescripcionProducto.setText("");
+        txtPrecioProducto.setText("");
+        txtStockProducto.setText("");      
     }//GEN-LAST:event_botonIngresarProductos1ActionPerformed
 
     /**
@@ -263,6 +284,7 @@ public class InterfazRegistroProductos extends javax.swing.JFrame {
     private javax.swing.JButton botonCargarArchivo;
     private javax.swing.JButton botonIngresarProductos1;
     private javax.swing.JButton botonListarProductos;
+    private javax.swing.JFileChooser jFileChooser1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel labelCodigoProducto;
     private javax.swing.JLabel labelDescripcionProducto;
