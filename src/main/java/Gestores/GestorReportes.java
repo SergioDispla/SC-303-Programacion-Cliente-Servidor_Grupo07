@@ -9,9 +9,6 @@ Clase para crear la reporteria de los distintos modulos
 - Reporte General de mantenimientos o reparaciones realizados por la Compañía
  */
 package Gestores;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
 import Persona.Operador;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -32,8 +29,8 @@ public class GestorReportes {
         ArrayList<Operador> operadores = new ArrayList<>();
 
         // Creamos objetos de tipo Operador y los agregamos a la lista
-        operadores.add(new Operador("001", LocalDate.of(2020, 5, 15), 2500, "123456789", "Juan Perez", "1234567890", "Calle 123", "juan@example.com", Persona.Roles.Operador));
-        operadores.add(new Operador("002", LocalDate.of(2019, 8, 20), 2800, "987654321", "María López", "0987654321", "Avenida 456", "maria@example.com", Persona.Roles.Operador));
+        //operadores.add(new Operador("001", LocalDate.of(2020, 5, 15), 2500, "123456789", "Juan Perez", "1234567890", "Calle 123", "juan@example.com", Persona.Roles.Operador));
+       // operadores.add(new Operador("002", LocalDate.of(2019, 8, 20), 2800, "987654321", "María López", "0987654321", "Avenida 456", "maria@example.com", Persona.Roles.Operador));
         // Agrega más operadores si es necesario
 
         // Imprimimos el reporte de operarios
