@@ -23,7 +23,7 @@ public class GestorVehiculoCliente {
             Connection conexion = conectar();
             
             // Consulta SQL para insertar un cliente en la tabla "clientes"
-            String consultaCliente = "INSERT INTO clientes (cedula, nombre, telefono, direccion, correoElectronico, placaVehiculo, fechaRegistro) VALUES (?, ?, ?, ?, ?, ?, ?)";
+            String consultaCliente = "INSERT INTO clientes (cedula, nombre, telefono, direccion, correoElectronico, fechaRegistro) VALUES (?, ?, ?, ?, ?, ?)";
             
             // Prepara la declaracion SQL para insertar el cliente
             PreparedStatement declaracionCliente = conexion.prepareStatement(consultaCliente);
@@ -32,14 +32,13 @@ public class GestorVehiculoCliente {
             declaracionCliente.setString(3, cliente.getTelefono());
             declaracionCliente.setString(4, cliente.getDireccion());
             declaracionCliente.setString(5, cliente.getCorreoElectronico());
-            declaracionCliente.setString(6, vehiculo.getPlaca());
-            declaracionCliente.setDate(7, java.sql.Date.valueOf(cliente.getFechaRegistro()));
+            declaracionCliente.setDate(6, java.sql.Date.valueOf(cliente.getFechaRegistro()));
             
             // Ejecutar la consulta para cliente
             declaracionCliente.executeUpdate();
             
             // Consulta SQL para insertar un vehículo en la tabla "vehiculos"
-            String consultaVehiculo = "INSERT INTO vehiculos (placa, marca, modelo, año, kilometraje) VALUES (?, ?, ?, ?, ?)";
+            String consultaVehiculo = "INSERT INTO vehiculos (placa, marca, modelo, año, kilometraje, cedulaCliente) VALUES (?, ?, ?, ?, ?, ?)";
             
             // Preparar la declaracin SQL para insertar el vehiculo
             PreparedStatement declaracionVehiculo = conexion.prepareStatement(consultaVehiculo);
@@ -47,7 +46,8 @@ public class GestorVehiculoCliente {
             declaracionVehiculo.setString(2, vehiculo.getMarca());
             declaracionVehiculo.setString(3, vehiculo.getModelo());
             declaracionVehiculo.setInt(4, vehiculo.getAño());
-            declaracionVehiculo.setDouble(5, vehiculo.getKilometraje());
+            declaracionVehiculo.setInt(5, vehiculo.getKilometraje());
+            declaracionVehiculo.setString(6, vehiculo.getCedulaCliente());
 
             
             // Ejecutar la consulta para vehículo

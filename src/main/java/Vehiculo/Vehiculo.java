@@ -10,15 +10,17 @@ public class Vehiculo {
     private String marca;
     private String modelo;
     private int año;
-    private double kilometraje;
+    private int kilometraje;
+    private String cedulaCliente;
 
     //Constructor de la clase vehiculo
-    public Vehiculo(String marca, String modelo, int año, String placa, double kilometraje) {
+    public Vehiculo(String placa, String marca, String modelo, int año, int kilometraje, String cedulaCliente) {
         this.marca = marca;
         this.modelo = modelo;
         this.año = año;
         this.placa = placa;
         this.kilometraje = kilometraje;
+        this.cedulaCliente = cedulaCliente;
     }    
 
     //Metodos getters and setters
@@ -54,21 +56,31 @@ public class Vehiculo {
         this.placa = placa;
     }
 
-    public double getKilometraje() {
+    public int getKilometraje() {
         return kilometraje;
     }
 
-    public void setKilometraje(double kilometraje) {
+    public void setKilometraje(int kilometraje) {
         this.kilometraje = kilometraje;
     }
 
+    public String getCedulaCliente() {
+        return cedulaCliente;
+    }
+
+    public void setCedulaCliente(String cedulaCliente) {
+        this.cedulaCliente = cedulaCliente;
+    }
+
+    
     //Metodo para imprimir la informacion del objeto tipo vehiculo
     public void InfoVehiculo() {
-    System.out.println("Marca: " + this.marca);
-    System.out.println("Modelo: " + this.modelo);
-    System.out.println("Año: " + this.año);
-    System.out.println("Placa: " + this.placa);
-    System.out.println("Kilometraje: " + this.kilometraje);
+        System.out.println("Marca: " + this.marca);
+        System.out.println("Modelo: " + this.modelo);
+        System.out.println("Año: " + this.año);
+        System.out.println("Placa: " + this.placa);
+        System.out.println("Kilometraje: " + this.kilometraje);
+        System.out.println("Cedula Cliente asociada: " + this.cedulaCliente);
     }   
     
     //Metodo para buscar la placa del vehiculo - pendiente validarlo bien xD

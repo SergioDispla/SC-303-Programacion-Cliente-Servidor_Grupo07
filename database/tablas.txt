@@ -48,5 +48,15 @@ CREATE TABLE vehiculos (
     modelo VARCHAR(100),
     año INT,
     kilometraje INT,
-	cedula VARCHAR(20)
+	cedula VARCHAR(20),
+	FOREIGN KEY (cedula) REFERENCES clientes(cedula)
 );
+
+#Ejemplos de insercion de datos en las tablas
+#Tabla clientes
+#INSERT INTO clientes (cedula, nombre, telefono, direccion, correoElectronico, fechaRegistro) 
+#VALUES ('123456789', 'Sergio Monge', '89898989', 'San Jose', 'sergio@gmail.com', '2024-03-14');
+
+#Tabla vehiculos
+#INSERT INTO vehiculos (placa, marca, modelo, año, kilometraje, cedula)
+#VALUES ('ABC123', 'Toyota', 'Corolla', 2020, 50000, '123456789');
