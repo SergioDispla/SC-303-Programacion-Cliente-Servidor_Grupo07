@@ -24,39 +24,58 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="labelNombreProducto" max="32767" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="txtNombreProducto" min="-2" pref="280" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="labelMarcaVehiculo" max="32767" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="txtMarcaVehiculo" min="-2" pref="280" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="labelModeloVehiculo" pref="136" max="32767" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="txtModeloVehiculo" min="-2" pref="280" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="labelYearVehiculo" max="32767" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="txtYearVehiculo" min="-2" pref="280" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="labelKilometrajeVehiculo" max="32767" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="txtKilometrajeVehiculo" min="-2" pref="280" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="labelPlacaVehiculo" max="32767" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="txtPlacaVehiculo" min="-2" pref="280" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="117" max="-2" attributes="0"/>
+                      <Component id="labelTituloVentana" min="-2" pref="222" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <Component id="labelDescripcionProducto" pref="136" max="32767" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="txtDescripcionProducto" min="-2" pref="280" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Component id="botonRegresar" min="-2" pref="162" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <Component id="labelPrecioProducto" max="32767" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="txtPrecioProducto" min="-2" pref="280" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="labelStockProducto" max="32767" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="txtStockProducto" min="-2" pref="280" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="labelCodigoProducto" max="32767" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="txtCodigoProducto" min="-2" pref="280" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                      <Component id="labelCedulaCliente" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="txtCedulaCliente" min="-2" pref="280" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="117" max="-2" attributes="0"/>
-              <Component id="labelTituloVentana" min="-2" pref="222" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="138" max="-2" attributes="0"/>
+              <Component id="botonRegistrarVehiculo" min="-2" pref="162" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -67,30 +86,39 @@
               <Component id="labelTituloVentana" min="-2" pref="39" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txtCodigoProducto" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="labelCodigoProducto" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtPlacaVehiculo" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="labelPlacaVehiculo" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txtNombreProducto" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="labelNombreProducto" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtMarcaVehiculo" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="labelMarcaVehiculo" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txtDescripcionProducto" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="labelDescripcionProducto" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtModeloVehiculo" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="labelModeloVehiculo" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txtPrecioProducto" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="labelPrecioProducto" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtYearVehiculo" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="labelYearVehiculo" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txtStockProducto" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="labelStockProducto" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtKilometrajeVehiculo" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="labelKilometrajeVehiculo" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="0" pref="258" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="txtCedulaCliente" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="labelCedulaCliente" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+              <Component id="botonRegistrarVehiculo" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="100" max="32767" attributes="0"/>
+              <Component id="botonRegresar" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -104,40 +132,65 @@
         <Property name="text" type="java.lang.String" value="Registro Vehiculo"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="labelDescripcionProducto">
+    <Component class="javax.swing.JLabel" name="labelModeloVehiculo">
       <Properties>
         <Property name="text" type="java.lang.String" value="Modelo:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="labelCodigoProducto">
+    <Component class="javax.swing.JLabel" name="labelPlacaVehiculo">
       <Properties>
         <Property name="text" type="java.lang.String" value="Placa:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="labelNombreProducto">
+    <Component class="javax.swing.JLabel" name="labelMarcaVehiculo">
       <Properties>
         <Property name="text" type="java.lang.String" value="Marca:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="labelPrecioProducto">
+    <Component class="javax.swing.JLabel" name="labelYearVehiculo">
       <Properties>
         <Property name="text" type="java.lang.String" value="A&#xf1;o:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="labelStockProducto">
+    <Component class="javax.swing.JLabel" name="labelKilometrajeVehiculo">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Cantidad Stock"/>
+        <Property name="text" type="java.lang.String" value="Kilometraje"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtNombreProducto">
+    <Component class="javax.swing.JTextField" name="txtMarcaVehiculo">
     </Component>
-    <Component class="javax.swing.JTextField" name="txtCodigoProducto">
+    <Component class="javax.swing.JTextField" name="txtPlacaVehiculo">
     </Component>
-    <Component class="javax.swing.JTextField" name="txtDescripcionProducto">
+    <Component class="javax.swing.JTextField" name="txtModeloVehiculo">
     </Component>
-    <Component class="javax.swing.JTextField" name="txtPrecioProducto">
+    <Component class="javax.swing.JTextField" name="txtYearVehiculo">
     </Component>
-    <Component class="javax.swing.JTextField" name="txtStockProducto">
+    <Component class="javax.swing.JTextField" name="txtKilometrajeVehiculo">
+    </Component>
+    <Component class="javax.swing.JButton" name="botonRegistrarVehiculo">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Registrar Vehiculo"/>
+        <Property name="toolTipText" type="java.lang.String" value="Ingresa productos manualmente"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonRegistrarVehiculoActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="botonRegresar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Regresar"/>
+        <Property name="toolTipText" type="java.lang.String" value="Ingresa productos manualmente"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonRegresarActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="labelCedulaCliente">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Ced. Cliente Asociado"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtCedulaCliente">
     </Component>
   </SubComponents>
 </Form>

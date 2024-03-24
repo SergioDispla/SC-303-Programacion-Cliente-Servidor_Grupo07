@@ -12,10 +12,9 @@ public class Operario extends Persona {
     private float salario;
 
     //Constructor de la clase Operario
-    public Operario(String idEmpleado, LocalDate fechaContratacion, 
-            float salario, String cedula, String nombre, 
+    public Operario(String idEmpleado, String cedula, String nombre, 
             String telefono, String direccion, String correoElectronico, 
-            Roles rolUsuario) {
+            Roles rolUsuario, float salario, LocalDate fechaContratacion) {
         super(cedula, nombre, telefono, direccion, correoElectronico, rolUsuario);
         this.idEmpleado = idEmpleado;
         this.fechaContratacion = fechaContratacion;
@@ -47,10 +46,12 @@ public class Operario extends Persona {
         this.salario = salario;
     }
 
+    @Override
     public Roles getRolUsuario() {
         return rolUsuario;
     }
 
+    @Override
     public void setRolUsuario(Roles rolUsuario) {
         this.rolUsuario = rolUsuario;
     }

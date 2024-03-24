@@ -6,29 +6,19 @@ import java.time.LocalDate;
 
 public class Cliente extends Persona {
     
-    // Atributos unicos de la clase Cliente
-    private String placaVehiculo;
+    // Atributo unicos de la clase Cliente
     private LocalDate fechaRegistro;
 
     //Constructor de la clase Cliente
-    public Cliente(String placaVehiculo, LocalDate fechaRegistro, String cedula,
+    public Cliente(String cedula,
             String nombre, String telefono,String direccion, 
-            String correoElectronico, Roles rolUsuario) {
+            String correoElectronico, Roles rolUsuario, LocalDate fechaRegistro) {
         super(cedula, nombre, telefono, direccion, correoElectronico, 
                 rolUsuario);
-        this.placaVehiculo = placaVehiculo;
         this.fechaRegistro = fechaRegistro;
     }
 
     //Metodos getters and setters
-    public String getPlacaVehiculo() {
-        return placaVehiculo;
-    }
-
-    public void setPlacaVehiculo(String placaVehiculo) {
-        this.placaVehiculo = placaVehiculo;
-    }
-
     public LocalDate getFechaRegistro() {
         return fechaRegistro;
     }
@@ -56,7 +46,6 @@ public class Cliente extends Persona {
         System.out.println("Teléfono: "+getTelefono());
         System.out.println("Dirección: "+getDireccion());
         System.out.println("Correo Electrónico: "+getCorreoElectronico());
-        System.out.println("Placa de Vehiculos asociados: "+placaVehiculo);
         System.out.println("Fecha de Registro Cliente: "+fechaRegistro);
         System.out.println("Tipo Usuario: "+getRolUsuario()); 
         

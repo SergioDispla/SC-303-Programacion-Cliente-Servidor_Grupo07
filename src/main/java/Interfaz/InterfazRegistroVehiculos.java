@@ -4,6 +4,10 @@
  */
 package Interfaz;
 
+import Gestores.GestorVehiculoCliente;
+import Persona.Cliente;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author sams2
@@ -27,63 +31,99 @@ public class InterfazRegistroVehiculos extends javax.swing.JFrame {
     private void initComponents() {
 
         labelTituloVentana = new java.awt.Label();
-        labelDescripcionProducto = new javax.swing.JLabel();
-        labelCodigoProducto = new javax.swing.JLabel();
-        labelNombreProducto = new javax.swing.JLabel();
-        labelPrecioProducto = new javax.swing.JLabel();
-        labelStockProducto = new javax.swing.JLabel();
-        txtNombreProducto = new javax.swing.JTextField();
-        txtCodigoProducto = new javax.swing.JTextField();
-        txtDescripcionProducto = new javax.swing.JTextField();
-        txtPrecioProducto = new javax.swing.JTextField();
-        txtStockProducto = new javax.swing.JTextField();
+        labelModeloVehiculo = new javax.swing.JLabel();
+        labelPlacaVehiculo = new javax.swing.JLabel();
+        labelMarcaVehiculo = new javax.swing.JLabel();
+        labelYearVehiculo = new javax.swing.JLabel();
+        labelKilometrajeVehiculo = new javax.swing.JLabel();
+        txtMarcaVehiculo = new javax.swing.JTextField();
+        txtPlacaVehiculo = new javax.swing.JTextField();
+        txtModeloVehiculo = new javax.swing.JTextField();
+        txtYearVehiculo = new javax.swing.JTextField();
+        txtKilometrajeVehiculo = new javax.swing.JTextField();
+        botonRegistrarVehiculo = new javax.swing.JButton();
+        botonRegresar = new javax.swing.JButton();
+        labelCedulaCliente = new javax.swing.JLabel();
+        txtCedulaCliente = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         labelTituloVentana.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         labelTituloVentana.setText("Registro Vehiculo");
 
-        labelDescripcionProducto.setText("Modelo:");
+        labelModeloVehiculo.setText("Modelo:");
 
-        labelCodigoProducto.setText("Placa:");
+        labelPlacaVehiculo.setText("Placa:");
 
-        labelNombreProducto.setText("Marca:");
+        labelMarcaVehiculo.setText("Marca:");
 
-        labelPrecioProducto.setText("Año:");
+        labelYearVehiculo.setText("Año:");
 
-        labelStockProducto.setText("Cantidad Stock");
+        labelKilometrajeVehiculo.setText("Kilometraje");
+
+        botonRegistrarVehiculo.setText("Registrar Vehiculo");
+        botonRegistrarVehiculo.setToolTipText("Ingresa productos manualmente");
+        botonRegistrarVehiculo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonRegistrarVehiculoActionPerformed(evt);
+            }
+        });
+
+        botonRegresar.setText("Regresar");
+        botonRegresar.setToolTipText("Ingresa productos manualmente");
+        botonRegresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonRegresarActionPerformed(evt);
+            }
+        });
+
+        labelCedulaCliente.setText("Ced. Cliente Asociado");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(labelNombreProducto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(txtNombreProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(labelMarcaVehiculo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtMarcaVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(labelModeloVehiculo, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtModeloVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(labelYearVehiculo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtYearVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(labelKilometrajeVehiculo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtKilometrajeVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(labelPlacaVehiculo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtPlacaVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(labelDescripcionProducto, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
+                        .addGap(117, 117, 117)
+                        .addComponent(labelTituloVentana, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(botonRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(txtDescripcionProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(labelPrecioProducto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtPrecioProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(labelStockProducto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtStockProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(labelCodigoProducto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtCodigoProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(labelCedulaCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtCedulaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(117, 117, 117)
-                .addComponent(labelTituloVentana, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(138, 138, 138)
+                .addComponent(botonRegistrarVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -92,29 +132,64 @@ public class InterfazRegistroVehiculos extends javax.swing.JFrame {
                 .addComponent(labelTituloVentana, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtCodigoProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelCodigoProducto))
+                    .addComponent(txtPlacaVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelPlacaVehiculo))
                 .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtNombreProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelNombreProducto))
+                    .addComponent(txtMarcaVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelMarcaVehiculo))
                 .addGap(45, 45, 45)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtDescripcionProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelDescripcionProducto))
+                    .addComponent(txtModeloVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelModeloVehiculo))
                 .addGap(47, 47, 47)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtPrecioProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelPrecioProducto))
+                    .addComponent(txtYearVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelYearVehiculo))
                 .addGap(39, 39, 39)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtStockProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelStockProducto))
-                .addGap(0, 258, Short.MAX_VALUE))
+                    .addComponent(txtKilometrajeVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelKilometrajeVehiculo))
+                .addGap(35, 35, 35)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtCedulaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelCedulaCliente))
+                .addGap(40, 40, 40)
+                .addComponent(botonRegistrarVehiculo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
+                .addComponent(botonRegresar)
+                .addGap(15, 15, 15))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void botonRegistrarVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarVehiculoActionPerformed
+        //Definicion de variables que van a capturar lo que se ingrese en los textfields
+        String placaVehiculo = txtPlacaVehiculo.getText().trim();
+        String marcaVehiculo = txtMarcaVehiculo.getText().trim();
+        String modeloVehiculo = txtModeloVehiculo.getText().trim();
+        Integer yearVehiculo = Integer.parseInt(txtYearVehiculo.getText());
+        Integer kilometrajeVehiculo = Integer.parseInt(txtKilometrajeVehiculo.getText().trim());
+        
+        //Instanciacion de un objecto tipo GestorVehiculoCliente para usar el metodo registrarClienteVehiculo()
+        GestorVehiculoCliente cliente = new GestorVehiculoCliente();
+        //cliente.registrarClienteVehiculo(new Cliente());
+
+        //Notificacion de la correcta insercion de los datos
+        JOptionPane.showMessageDialog(null, "Cliente ingresado correctamente en la base de datos");
+
+        //Limpiado de labels
+        txtPlacaVehiculo.setText("");
+        txtMarcaVehiculo.setText("");
+        txtModeloVehiculo.setText("");
+        txtYearVehiculo.setText("");
+        txtKilometrajeVehiculo.setText("");
+    }//GEN-LAST:event_botonRegistrarVehiculoActionPerformed
+
+    private void botonRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegresarActionPerformed
+
+    }//GEN-LAST:event_botonRegresarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -152,16 +227,20 @@ public class InterfazRegistroVehiculos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel labelCodigoProducto;
-    private javax.swing.JLabel labelDescripcionProducto;
-    private javax.swing.JLabel labelNombreProducto;
-    private javax.swing.JLabel labelPrecioProducto;
-    private javax.swing.JLabel labelStockProducto;
+    private javax.swing.JButton botonRegistrarVehiculo;
+    private javax.swing.JButton botonRegresar;
+    private javax.swing.JLabel labelCedulaCliente;
+    private javax.swing.JLabel labelKilometrajeVehiculo;
+    private javax.swing.JLabel labelMarcaVehiculo;
+    private javax.swing.JLabel labelModeloVehiculo;
+    private javax.swing.JLabel labelPlacaVehiculo;
     private java.awt.Label labelTituloVentana;
-    private javax.swing.JTextField txtCodigoProducto;
-    private javax.swing.JTextField txtDescripcionProducto;
-    private javax.swing.JTextField txtNombreProducto;
-    private javax.swing.JTextField txtPrecioProducto;
-    private javax.swing.JTextField txtStockProducto;
+    private javax.swing.JLabel labelYearVehiculo;
+    private javax.swing.JTextField txtCedulaCliente;
+    private javax.swing.JTextField txtKilometrajeVehiculo;
+    private javax.swing.JTextField txtMarcaVehiculo;
+    private javax.swing.JTextField txtModeloVehiculo;
+    private javax.swing.JTextField txtPlacaVehiculo;
+    private javax.swing.JTextField txtYearVehiculo;
     // End of variables declaration//GEN-END:variables
 }

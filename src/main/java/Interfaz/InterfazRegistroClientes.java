@@ -27,13 +27,11 @@ public class InterfazRegistroClientes extends javax.swing.JFrame {
         labelTelefono = new javax.swing.JLabel();
         labelDireccion = new javax.swing.JLabel();
         labelCorreo = new javax.swing.JLabel();
-        labelPlacaVehiculo = new javax.swing.JLabel();
         labelFechaRegistro = new javax.swing.JLabel();
         txtCedulaCliente = new javax.swing.JTextField();
         txtNombreCliente = new javax.swing.JTextField();
         txtTelefonoCliente = new javax.swing.JTextField();
         txtCorreoElectronicoCliente = new javax.swing.JTextField();
-        txtPlacaVehiculoCliente = new javax.swing.JTextField();
         txtFechaRegistroCliente = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtDireccionCliente = new javax.swing.JTextArea();
@@ -57,8 +55,6 @@ public class InterfazRegistroClientes extends javax.swing.JFrame {
         labelDireccion.setText("Dirección:");
 
         labelCorreo.setText("Correo Electrónico:");
-
-        labelPlacaVehiculo.setText("Placa Vehículo:");
 
         labelFechaRegistro.setText("Fecha Registro:");
 
@@ -103,7 +99,6 @@ public class InterfazRegistroClientes extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(labelPlacaVehiculo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(labelCorreo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(labelDireccion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(labelTelefono, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -118,13 +113,12 @@ public class InterfazRegistroClientes extends javax.swing.JFrame {
                         .addComponent(txtCorreoElectronicoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(txtNombreCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(txtCedulaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtTelefonoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(txtPlacaVehiculoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtTelefonoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(19, 19, 19))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(215, 215, 215)
+                .addGap(214, 214, 214)
                 .addComponent(botonRegistrarClientes)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(botonListarCliente)
@@ -147,12 +141,7 @@ public class InterfazRegistroClientes extends javax.swing.JFrame {
                                 .addComponent(labelTelefono)
                                 .addGap(40, 40, 40)
                                 .addComponent(labelDireccion)
-                                .addGap(91, 91, 91)
-                                .addComponent(labelCorreo)
-                                .addGap(37, 37, 37)
-                                .addComponent(labelPlacaVehiculo)
-                                .addGap(37, 37, 37)
-                                .addComponent(labelFechaRegistro))
+                                .addGap(243, 243, 243))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(txtCedulaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(23, 23, 23)
@@ -160,17 +149,22 @@ public class InterfazRegistroClientes extends javax.swing.JFrame {
                                 .addGap(25, 25, 25)
                                 .addComponent(txtTelefonoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(37, 37, 37)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtCorreoElectronicoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(31, 31, 31)
-                                .addComponent(txtPlacaVehiculoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(31, 31, 31)
-                                .addComponent(txtFechaRegistroCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(124, 124, 124))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(79, 79, 79)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(30, 30, 30)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(labelCorreo)
+                                .addGap(30, 30, 30)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(labelFechaRegistro)
+                                    .addComponent(txtFechaRegistroCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(txtCorreoElectronicoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(52, 52, 52))
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(30, 30, 30)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botonListarCliente)
                     .addComponent(botonRegistrarClientes))
@@ -191,7 +185,6 @@ public class InterfazRegistroClientes extends javax.swing.JFrame {
         String telefonoCliente = txtTelefonoCliente.getText().trim();
         String direccionCliente = txtDireccionCliente.getText();
         String correoCliente = txtCorreoElectronicoCliente.getText().trim();
-        String placaVehiculo = txtPlacaVehiculoCliente.getText().trim();
         LocalDate fechaRegistro = LocalDate.parse(txtFechaRegistroCliente.getText().trim(), DateTimeFormatter.ISO_LOCAL_DATE);
         
         //Instanciacion de un objecto tipo GestorAdministracionProductos para usar el metodo ingresarProducto()
@@ -243,7 +236,6 @@ public class InterfazRegistroClientes extends javax.swing.JFrame {
     private javax.swing.JLabel labelDireccion;
     private javax.swing.JLabel labelFechaRegistro;
     private javax.swing.JLabel labelNombre;
-    private javax.swing.JLabel labelPlacaVehiculo;
     private javax.swing.JLabel labelTelefono;
     private java.awt.Label labelTituloVentana;
     private javax.swing.JTable tablaClientes;
@@ -252,7 +244,6 @@ public class InterfazRegistroClientes extends javax.swing.JFrame {
     private javax.swing.JTextArea txtDireccionCliente;
     private javax.swing.JTextField txtFechaRegistroCliente;
     private javax.swing.JTextField txtNombreCliente;
-    private javax.swing.JTextField txtPlacaVehiculoCliente;
     private javax.swing.JTextField txtTelefonoCliente;
     // End of variables declaration//GEN-END:variables
 }

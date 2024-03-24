@@ -48,13 +48,13 @@ public class GestorReportes {
             cliente.informacionPersona(); // Imprimir información del cliente
             
             // Buscar el vehículo asociado al cliente por su placa
-            Vehiculo vehiculoAsociado = buscarVehiculoPorPlaca(cliente.getPlacaVehiculo(), vehiculos);
+            /*Vehiculo vehiculoAsociado = buscarVehiculoPorPlaca(cliente.getPlacaVehiculo(), vehiculos);
             if (vehiculoAsociado != null) {
                 System.out.println("\nInformación del Vehículo:");
                 vehiculoAsociado.InfoVehiculo(); // Imprimir información del vehículo asociado al cliente
             } else {
                 System.out.println("No se encontró información del vehículo asociado al cliente.");
-            }
+            }*/
         }
     }
 

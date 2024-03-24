@@ -38,7 +38,6 @@ CREATE TABLE clientes (
     telefono VARCHAR(20),
     direccion VARCHAR(100),
     correoElectronico VARCHAR(100),
-    placaVehiculo VARCHAR(20),
     fechaRegistro DATE
 );
 
@@ -48,5 +47,6 @@ CREATE TABLE vehiculos (
     marca VARCHAR(100),
     modelo VARCHAR(100),
     año INT,
-    kilometraje INT
+    kilometraje INT,
+	cedula VARCHAR(20)
 );
