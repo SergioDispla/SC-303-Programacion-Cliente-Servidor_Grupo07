@@ -16,9 +16,9 @@ public class Taller {
         //Constructor: String idEmpleado, String usuario, String contrasena, String cedula, String nombre, String telefono, String direccion, String correoElectronico, Roles rolUsuario
        Administrador admin01 = new Administrador("0001","admin","admin123","1111111","Administrador01 Taller","89898989","Heredia","admin01@talle.cr",Roles.Administrador);
 
-        //Test Clase Operador 
+        //Test Clase Operario 
         //Constructor: String idEmpleado, LocalDate fechaContratacion, float salario, String cedula, String nombre, String telefono, String direccion, String correoElectronico, Roles rolUsuario
-        Operador operador01 = new Operador("0002",LocalDate.of(2024, 2, 24),100000,"222222","Operador01 Taller","89898989","Heredia","cliente01@talle.cr",Roles.Operador);        
+        Operario operador01 = new Operario("0002",LocalDate.of(2024, 2, 24),100000,"222222","Operador01 Taller","89898989","Heredia","cliente01@talle.cr",Roles.Operador);        
 
         
         //Test Clase Cliente 

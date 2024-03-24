@@ -9,7 +9,7 @@ Clase para crear la reporteria de los distintos modulos
 - Reporte General de mantenimientos o reparaciones realizados por la Compañía
  */
 package Gestores;
-import Persona.Operador;
+import Persona.Operario;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -26,16 +26,16 @@ public class GestorReportes {
     // Método estático para generar el reporte de operarios
     public static void generarReporteOperarios() {
         // Creamos una lista para almacenar los operadores
-        ArrayList<Operador> operadores = new ArrayList<>();
+        ArrayList<Operario> operadores = new ArrayList<>();
 
-        // Creamos objetos de tipo Operador y los agregamos a la lista
-        //operadores.add(new Operador("001", LocalDate.of(2020, 5, 15), 2500, "123456789", "Juan Perez", "1234567890", "Calle 123", "juan@example.com", Persona.Roles.Operador));
-       // operadores.add(new Operador("002", LocalDate.of(2019, 8, 20), 2800, "987654321", "María López", "0987654321", "Avenida 456", "maria@example.com", Persona.Roles.Operador));
+        // Creamos objetos de tipo Operario y los agregamos a la lista
+        //operadores.add(new Operario("001", LocalDate.of(2020, 5, 15), 2500, "123456789", "Juan Perez", "1234567890", "Calle 123", "juan@example.com", Persona.Roles.Operario));
+       // operadores.add(new Operario("002", LocalDate.of(2019, 8, 20), 2800, "987654321", "María López", "0987654321", "Avenida 456", "maria@example.com", Persona.Roles.Operario));
         // Agrega más operadores si es necesario
 
         // Imprimimos el reporte de operarios
         System.out.println("Reporte de Operarios:");
-        for (Operador operador : operadores) {
+        for (Operario operador : operadores) {
             operador.informacionPersona();
         }
     }

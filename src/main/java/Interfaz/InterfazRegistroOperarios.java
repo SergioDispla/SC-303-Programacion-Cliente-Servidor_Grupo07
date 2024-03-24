@@ -36,7 +36,7 @@ public class InterfazRegistroOperarios extends javax.swing.JFrame {
         txtDireccion = new javax.swing.JTextArea();
         botonListarOperadores = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        tablaClientes = new javax.swing.JTable();
+        tablaOperarios = new javax.swing.JTable();
         botonRegistrarOperadores = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -45,19 +45,19 @@ public class InterfazRegistroOperarios extends javax.swing.JFrame {
         labelTituloVentana.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         labelTituloVentana.setText("Registro Operarios");
 
-        labelCedula.setText("Cédula:");
+        labelCedula.setText("Id Empleado");
 
-        labelNombre.setText("Nombre Completo:");
+        labelNombre.setText("Cédula:");
 
-        labelTelefono.setText("Teléfono:");
+        labelTelefono.setText("Nombre:");
 
         labelDireccion.setText("Dirección:");
 
         labelCorreo.setText("Correo Electrónico:");
 
-        labelPlacaVehiculo.setText("Placa Vehículo:");
+        labelPlacaVehiculo.setText("Salario");
 
-        labelFechaRegistro.setText("Fecha Registro:");
+        labelFechaRegistro.setText("Fecha Contratación:");
 
         txtDireccion.setColumns(20);
         txtDireccion.setRows(5);
@@ -72,15 +72,15 @@ public class InterfazRegistroOperarios extends javax.swing.JFrame {
             }
         });
 
-        tablaClientes.setModel(new javax.swing.table.DefaultTableModel(
+        tablaOperarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Cédula", "Nombre", "Correo Electrónico", "Placa Vehículo"
+                "Id Empleado", "Nombre"
             }
         ));
-        jScrollPane2.setViewportView(tablaClientes);
+        jScrollPane2.setViewportView(tablaOperarios);
 
         botonRegistrarOperadores.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         botonRegistrarOperadores.setText("Registrar Operarios");
@@ -118,18 +118,15 @@ public class InterfazRegistroOperarios extends javax.swing.JFrame {
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(19, 19, 19))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(201, 201, 201)
+                .addComponent(botonRegistrarOperadores)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(botonListarOperadores)
                 .addGap(185, 185, 185))
             .addGroup(layout.createSequentialGroup()
                 .addGap(335, 335, 335)
                 .addComponent(labelTituloVentana, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(292, 292, 292)
-                    .addComponent(botonRegistrarOperadores)
-                    .addContainerGap(517, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -172,13 +169,10 @@ public class InterfazRegistroOperarios extends javax.swing.JFrame {
                         .addGap(79, 79, 79)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(30, 30, 30)
-                .addComponent(botonListarOperadores)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botonListarOperadores)
+                    .addComponent(botonRegistrarOperadores))
                 .addContainerGap(81, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(490, Short.MAX_VALUE)
-                    .addComponent(botonRegistrarOperadores)
-                    .addGap(83, 83, 83)))
         );
 
         pack();
@@ -243,7 +237,7 @@ public class InterfazRegistroOperarios extends javax.swing.JFrame {
     private javax.swing.JLabel labelPlacaVehiculo;
     private javax.swing.JLabel labelTelefono;
     private java.awt.Label labelTituloVentana;
-    private javax.swing.JTable tablaClientes;
+    private javax.swing.JTable tablaOperarios;
     private javax.swing.JTextField txtCedula;
     private javax.swing.JTextField txtCorreoElectronico;
     private javax.swing.JTextArea txtDireccion;

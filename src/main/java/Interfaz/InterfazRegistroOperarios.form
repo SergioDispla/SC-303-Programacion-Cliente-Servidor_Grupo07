@@ -51,6 +51,8 @@
               <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
+              <EmptySpace min="-2" pref="201" max="-2" attributes="0"/>
+              <Component id="botonRegistrarOperadores" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
               <Component id="botonListarOperadores" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="185" max="-2" attributes="0"/>
@@ -59,13 +61,6 @@
               <EmptySpace min="-2" pref="335" max="-2" attributes="0"/>
               <Component id="labelTituloVentana" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
-          </Group>
-          <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="292" max="-2" attributes="0"/>
-                  <Component id="botonRegistrarOperadores" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="517" max="32767" attributes="0"/>
-              </Group>
           </Group>
       </Group>
     </DimensionLayout>
@@ -116,15 +111,11 @@
                   </Group>
               </Group>
               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-              <Component id="botonListarOperadores" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="81" max="32767" attributes="0"/>
-          </Group>
-          <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="490" max="32767" attributes="0"/>
-                  <Component id="botonRegistrarOperadores" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="83" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="botonListarOperadores" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="botonRegistrarOperadores" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
+              <EmptySpace pref="81" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -141,17 +132,17 @@
     </Component>
     <Component class="javax.swing.JLabel" name="labelCedula">
       <Properties>
-        <Property name="text" type="java.lang.String" value="C&#xe9;dula:"/>
+        <Property name="text" type="java.lang.String" value="Id Empleado"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="labelNombre">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Nombre Completo:"/>
+        <Property name="text" type="java.lang.String" value="C&#xe9;dula:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="labelTelefono">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Tel&#xe9;fono:"/>
+        <Property name="text" type="java.lang.String" value="Nombre:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="labelDireccion">
@@ -166,12 +157,12 @@
     </Component>
     <Component class="javax.swing.JLabel" name="labelPlacaVehiculo">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Placa Veh&#xed;culo:"/>
+        <Property name="text" type="java.lang.String" value="Salario"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="labelFechaRegistro">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Fecha Registro:"/>
+        <Property name="text" type="java.lang.String" value="Fecha Contrataci&#xf3;n:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtCedula">
@@ -220,28 +211,16 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTable" name="tablaClientes">
+        <Component class="javax.swing.JTable" name="tablaOperarios">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="4" rowCount="0">
-                <Column editable="true" title="C&#xe9;dula" type="java.lang.Object"/>
+              <Table columnCount="2" rowCount="0">
+                <Column editable="true" title="Id Empleado" type="java.lang.Object"/>
                 <Column editable="true" title="Nombre" type="java.lang.Object"/>
-                <Column editable="true" title="Correo Electr&#xf3;nico" type="java.lang.Object"/>
-                <Column editable="true" title="Placa Veh&#xed;culo" type="java.lang.Object"/>
               </Table>
             </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
               <TableColumnModel selectionModel="0">
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                  <Title/>
-                  <Editor/>
-                  <Renderer/>
-                </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                  <Title/>
-                  <Editor/>
-                  <Renderer/>
-                </Column>
                 <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                   <Title/>
                   <Editor/>

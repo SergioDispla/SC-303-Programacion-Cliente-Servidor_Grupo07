@@ -10,11 +10,11 @@ Sugiero que esta clase utilice las siguientes clases:
 
  */
 package Gestores;
-import Persona.Operador;
+import Persona.Operario;
 import java.util.ArrayList;
 
 public class GestorOperarios {
     
-    ArrayList<Operador> operadores = new ArrayList<>();
+    ArrayList<Operario> operarios = new ArrayList<>();
     
 }

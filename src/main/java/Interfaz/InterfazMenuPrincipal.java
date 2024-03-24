@@ -45,7 +45,7 @@ public class InterfazMenuPrincipal extends javax.swing.JFrame {
         labelBienvenida.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         labelBienvenida.setText("Bienvenido a Lubri-Fast");
 
-        botonRegistroOperadores.setText("Registro Operadores");
+        botonRegistroOperadores.setText("Registro Operarios");
         botonRegistroOperadores.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonRegistroOperadoresActionPerformed(evt);
