@@ -32,5 +32,6 @@ El tipo de negocio sería un taller mecánico de servicios automotrices con una 
 
 
 # Requisitos: 
+* Libreria JDatePicker 
 * Base de datos MySQL con nombre "taller"
 * Tablas SQL: Revisar el txt https://github.com/SergioDispla/SC-303-Programacion-Cliente-Servidor_Grupo07/tree/main/database que contiene el codigo a usar para crear las tablas
