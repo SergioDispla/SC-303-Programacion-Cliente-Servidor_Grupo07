@@ -36,15 +36,13 @@
                           <Component id="labelFechaRegistro" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="txtFechaRegistroCliente" alignment="0" min="-2" pref="303" max="-2" attributes="0"/>
-                          <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txtCorreoElectronicoCliente" alignment="0" min="-2" pref="303" max="-2" attributes="0"/>
-                              <Component id="txtNombreCliente" alignment="0" min="-2" pref="303" max="-2" attributes="0"/>
-                              <Component id="txtCedulaCliente" alignment="0" min="-2" pref="303" max="-2" attributes="0"/>
-                              <Component id="txtTelefonoCliente" alignment="0" min="-2" pref="303" max="-2" attributes="0"/>
-                          </Group>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtCorreoElectronicoCliente" alignment="0" pref="303" max="32767" attributes="0"/>
+                          <Component id="txtNombreCliente" alignment="0" pref="303" max="32767" attributes="0"/>
+                          <Component id="txtCedulaCliente" alignment="0" pref="303" max="32767" attributes="0"/>
+                          <Component id="txtTelefonoCliente" alignment="0" pref="303" max="32767" attributes="0"/>
+                          <Component id="calendarFechaRegistro" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -98,8 +96,8 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="labelTituloVentana" min="-2" pref="39" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Group type="102" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
                       <Component id="labelCedula" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                       <Component id="labelNombre" min="-2" max="-2" attributes="0"/>
@@ -107,73 +105,66 @@
                       <Component id="labelTelefono" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                       <Component id="labelDireccion" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="txtCedulaCliente" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-                              <Component id="txtNombreCliente" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                              <Component id="txtTelefonoCliente" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                              <Component id="jScrollPane1" min="-2" pref="138" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="309" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Component id="labelCorreo" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="labelFechaRegistro" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="txtFechaRegistroCliente" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Component id="txtCorreoElectronicoCliente" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="txtCedulaCliente" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                      <Component id="txtNombreCliente" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="txtTelefonoCliente" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                      <Component id="jScrollPane1" min="-2" pref="138" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="309" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="labelCorreo" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                              <Component id="labelFechaRegistro" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="txtPlacaVehiculo" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="labelPlacaVehiculo" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="txtMarcaVehiculo" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="labelMarcaVehiculo" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="txtModeloVehiculo" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="labelModeloVehiculo" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="txtYearVehiculo" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="labelYearVehiculo" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="txtKilometrajeVehiculo" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="labelKilometrajeVehiculo" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="labelCedulaCliente" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtCedulaCliente1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="txtCorreoElectronicoCliente" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="calendarFechaRegistro" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="59" max="32767" attributes="0"/>
-                      <Component id="botonRegistrarClientes" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="txtPlacaVehiculo" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelPlacaVehiculo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="txtMarcaVehiculo" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelMarcaVehiculo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="txtModeloVehiculo" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelModeloVehiculo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="txtYearVehiculo" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelYearVehiculo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="txtKilometrajeVehiculo" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelKilometrajeVehiculo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="labelCedulaCliente" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtCedulaCliente1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
               </Group>
+              <EmptySpace pref="59" max="32767" attributes="0"/>
+              <Component id="botonRegistrarClientes" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -225,8 +216,6 @@
     <Component class="javax.swing.JTextField" name="txtTelefonoCliente">
     </Component>
     <Component class="javax.swing.JTextField" name="txtCorreoElectronicoCliente">
-    </Component>
-    <Component class="javax.swing.JTextField" name="txtFechaRegistroCliente">
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
       <AuxValues>
@@ -295,6 +284,8 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtCedulaCliente1">
+    </Component>
+    <Component class="com.toedter.calendar.JDateChooser" name="calendarFechaRegistro">
     </Component>
   </SubComponents>
 </Form>

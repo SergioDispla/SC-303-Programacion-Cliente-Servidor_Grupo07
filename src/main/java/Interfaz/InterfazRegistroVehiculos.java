@@ -2,7 +2,6 @@
 package Interfaz;
 import Persona.Cliente;
 import Vehiculo.Vehiculo;
-import javax.swing.JOptionPane;
 
 public class InterfazRegistroVehiculos extends javax.swing.JFrame {
     private Cliente clienteAsociado;

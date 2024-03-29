@@ -16,7 +16,7 @@ public class Taller {
        Administrador admin01 = new Administrador("0001","admin","admin123","1111111","Administrador01 Taller","89898989","Heredia","admin01@talle.cr",Roles.Administrador);
 
         //Test Clase Operario 
-        Operario operador01 = new Operario("0002","222222","Operador01 Taller","89898989","Heredia","cliente01@talle.cr",Roles.Operador,100000,LocalDate.of(2024, 2, 24));        
+        Operario operador01 = new Operario("0002","222222","Operador01 Taller","89898989","Heredia","cliente01@talle.cr",Roles.Operario,100000,LocalDate.of(2024, 2, 24));        
 
         
         //Test Clase Cliente 

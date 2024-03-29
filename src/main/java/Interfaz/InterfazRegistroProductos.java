@@ -204,14 +204,8 @@ public class InterfazRegistroProductos extends javax.swing.JFrame {
 
     //Boton para listar productos de la base de datos
     private void botonListarProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonListarProductosActionPerformed
+       //Instanciamos un objeto tipo GestorAdministracionProductos para poder usar el metodo listarProductos()
        GestorAdministracionProductos productos = new GestorAdministracionProductos();
-       
-       //Precarga de productos - va a ser removido en la version final
-       //productos.ingresarProducto(new Producto(123,"Producto 01","Descripcion Producto",2000.00,10));
-       //productos.ingresarProducto(new Producto(456,"Producto 02","Descripcion Producto",3000.00,5));
-       //productos.ingresarProducto(new Producto(789,"Producto 03","Descripcion Producto",4000.00,25));
-       
-       //Llamada al metodo listar productos de la clase GestorAdministracionProductos - el metodo debe retornar la informacion que ira dentro del DefaultModel
        productos.listarProductos();
        
        //Modifica la tabla de la interfaz grafica para mostrar los productos de la base de datos
@@ -227,7 +221,7 @@ public class InterfazRegistroProductos extends javax.swing.JFrame {
         float precioProducto = Float.parseFloat(txtPrecioProducto.getText());
         Integer stockProducto = Integer.parseInt(txtStockProducto.getText().trim());
         
-        //Instanciacion de un objecto tipo GestorAdministracionProductos para usar el metodo ingresarProducto()
+        //Instanciacion de un objeto tipo GestorAdministracionProductos para usar el metodo ingresarProducto()
         GestorAdministracionProductos productos = new GestorAdministracionProductos();
         productos.ingresarProducto(new Producto(cod_producto,nombreProducto,descripcionProducto,precioProducto,stockProducto));
         

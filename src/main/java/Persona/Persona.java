@@ -11,7 +11,7 @@ public class Persona {
     
     // Lista tipo enum para asignar el tipo de usuario
     public enum Roles {
-    Cliente, Operador, Administrador;
+    Cliente, Operario, Administrador;
     }
     
     
