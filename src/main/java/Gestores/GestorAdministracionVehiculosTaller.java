@@ -8,9 +8,7 @@ Esta clase va utilizar las siguientes clases:
 -
 */
 package Gestores;
-import java.util.List;
 import Factura.Factura;
-import static Gestores.GestorAdministracionProductos.conectar;
 import Vehiculo.*;
 import Persona.Cliente;
 import Servicio.ServicioMecanico;

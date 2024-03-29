@@ -52,6 +52,19 @@ CREATE TABLE vehiculos (
 	FOREIGN KEY (cedula) REFERENCES clientes(cedula)
 );
 
+#Crear tabla operarios
+CREATE TABLE operarios (
+	idEmpleado VARCHAR(20) PRIMARY KEY,
+    cedula VARCHAR(20), 
+    nombre VARCHAR(100),
+    telefono VARCHAR(20),
+    direccion VARCHAR(100),
+    correoElectronico VARCHAR(100),
+	salario float,
+    fechaContratacion DATE
+);
+
+
 #Ejemplos de insercion de datos en las tablas
 #Tabla clientes
 #INSERT INTO clientes (cedula, nombre, telefono, direccion, correoElectronico, fechaRegistro) 
@@ -60,3 +73,7 @@ CREATE TABLE vehiculos (
 #Tabla vehiculos
 #INSERT INTO vehiculos (placa, marca, modelo, año, kilometraje, cedula)
 #VALUES ('ABC123', 'Toyota', 'Corolla', 2020, 50000, '123456789');
+
+#Tabla operarios
+#INSERT INTO operarios (idEmpleado, cedula, nombre, telefono, direccion, correoElectronico, salario, fechaContratacion) 
+#VALUES ('1001','123456789', 'Sergio Monge', '89898989', 'San Jose', 'sergio@gmail.com', '2000','2024-03-14');

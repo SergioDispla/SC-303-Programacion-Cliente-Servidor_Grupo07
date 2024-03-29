@@ -66,7 +66,7 @@ public class InterfazMenuPrincipal extends javax.swing.JFrame {
             }
         });
 
-        botonMantenimientoVehiculo.setText("Mantenimiento Vehiculos");
+        botonMantenimientoVehiculo.setText("Servicios Mecánicos");
         botonMantenimientoVehiculo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonMantenimientoVehiculoActionPerformed(evt);
@@ -87,7 +87,7 @@ public class InterfazMenuPrincipal extends javax.swing.JFrame {
         labelReportes.setText("Reportes");
 
         labelMantenimientos.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        labelMantenimientos.setText("Mantenimientos");
+        labelMantenimientos.setText("Servicios");
 
         labelVentas.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         labelVentas.setText("Ventas");
@@ -189,7 +189,9 @@ public class InterfazMenuPrincipal extends javax.swing.JFrame {
 
     //Boton para acceder a la subinterfaz de Mantenimiento Vehiculos
     private void botonMantenimientoVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonMantenimientoVehiculoActionPerformed
-        // TODO add your handling code here:
+        InterfazServiciosMecanicos interfaz = new InterfazServiciosMecanicos();
+        interfaz.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        interfaz.setVisible(true);
     }//GEN-LAST:event_botonMantenimientoVehiculoActionPerformed
 
     //Boton para acceder a la subinterfaz de Registro de Clientes

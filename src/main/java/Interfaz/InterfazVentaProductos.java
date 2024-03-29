@@ -278,11 +278,9 @@ public class InterfazVentaProductos extends javax.swing.JFrame {
             // Establecer conexión a la base de datos
             Connection conexion = conectar();
             
-            // Consulta SQL para consultar el customer name
-            //String consulta = "SELECT  INTO ventasproductos (Cliente, TotalPagado, TipoPago) VALUES (?, ?, ?)";
+            // Consulta SQL para consultar datos del cliente
             String consulta = "SELECT cedula,nombre,correoElectronico FROM clientes where cedula = (?)";
-            
-            
+              
             // Preparar la declaracion SQL
             PreparedStatement declaracion = conexion.prepareStatement(consulta);
             declaracion.setString(1, cedulaCliente);

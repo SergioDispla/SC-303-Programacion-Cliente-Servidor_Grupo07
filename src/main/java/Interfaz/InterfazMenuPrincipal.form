@@ -135,7 +135,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="botonMantenimientoVehiculo">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Mantenimiento Vehiculos"/>
+        <Property name="text" type="java.lang.String" value="Servicios Mec&#xe1;nicos"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonMantenimientoVehiculoActionPerformed"/>
@@ -170,7 +170,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Mantenimientos"/>
+        <Property name="text" type="java.lang.String" value="Servicios"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="labelVentas">
