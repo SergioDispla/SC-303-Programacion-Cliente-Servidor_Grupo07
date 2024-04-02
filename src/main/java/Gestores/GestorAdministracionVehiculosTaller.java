@@ -12,8 +12,8 @@ import Factura.Factura;
 import Vehiculo.*;
 import Persona.Cliente;
 import Servicio.ServicioMecanico;
+import Taller.ConectarDB;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -24,7 +24,8 @@ public class GestorAdministracionVehiculosTaller implements Factura {
     public void registroVentas(Cliente cliente, float totalPagado, TipoPago tipoPago) {
         try {
             // Establecer conexión a la base de datos
-            Connection conexion = conectar();
+            ConectarDB connect = new ConectarDB();
+            Connection conexion = connect.conectarDB();
             
             // Consulta SQL para insertar la transaccion en la tabla de "registroventas"
             String consulta = "INSERT INTO registroventaservicios (Cliente, TotalPagado, TipoPago) VALUES (?, ?, ?)";
@@ -51,7 +52,8 @@ public class GestorAdministracionVehiculosTaller implements Factura {
     public void listarVentas() {
             try {
             // Establecer conexion a la base de datos
-            Connection conexion = conectar();
+            ConectarDB connect = new ConectarDB();
+            Connection conexion = connect.conectarDB();
             
             // Consulta SQL para seleccionar todos los registros de ventas
             String consulta = "SELECT * FROM registroventas";
@@ -85,7 +87,8 @@ public class GestorAdministracionVehiculosTaller implements Factura {
         // Implementacion para asociar un cliente, un vehículo y un servicio mecánico al mantenimiento  
         try {
                 // Establecer conexión a la base de datos
-                Connection conexion = conectar();
+                ConectarDB connect = new ConectarDB();
+                Connection conexion = connect.conectarDB();
 
                 // Consulta SQL para insertar la transaccion en la tabla de "registromantenimiento"
                 String consulta = "INSERT INTO registromantenimientos (Cliente, VehiculoPlaca, Servicio) VALUES (?, ?, ?)";
@@ -111,16 +114,5 @@ public class GestorAdministracionVehiculosTaller implements Factura {
     
     }
 
-    
-    //Metodo para conectarse a la base de datos
-    public static Connection conectar() throws SQLException {
-        // Datos de conexión a la base de datos
-        String url = "jdbc:mysql://localhost:3306/taller";
-        String usuario = "root";
-        String contrasena = "root";
-
-        // Establecer la conexión y retornarla
-        return DriverManager.getConnection(url, usuario, contrasena);
-    }        
     
 }

@@ -7,11 +7,12 @@ Esta clase debera hacer lo siguiente:
  */
 package Gestores;
 import Persona.Cliente;
+import Taller.ConectarDB;
 import Vehiculo.Vehiculo;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 
 public class GestorVehiculoCliente {
@@ -20,7 +21,8 @@ public class GestorVehiculoCliente {
     public void registrarClienteVehiculo(Cliente cliente, Vehiculo vehiculo) {
         try {
             // Establecer conexion a la base de datos
-            Connection conexion = conectar();
+            ConectarDB connect = new ConectarDB();
+            Connection conexion = connect.conectarDB();
             
             // Consulta SQL para insertar un cliente en la tabla "clientes"
             String consultaCliente = "INSERT INTO clientes (cedula, nombre, telefono, direccion, correoElectronico, fechaRegistro) VALUES (?, ?, ?, ?, ?, ?)";
@@ -38,7 +40,7 @@ public class GestorVehiculoCliente {
             declaracionCliente.executeUpdate();
             
             // Consulta SQL para insertar un vehículo en la tabla "vehiculos"
-            String consultaVehiculo = "INSERT INTO vehiculos (placa, marca, modelo, año, kilometraje, cedulaCliente) VALUES (?, ?, ?, ?, ?, ?)";
+            String consultaVehiculo = "INSERT INTO vehiculos (placa, marca, modelo, año, kilometraje, cedula) VALUES (?, ?, ?, ?, ?, ?)";
             
             // Preparar la declaracin SQL para insertar el vehiculo
             PreparedStatement declaracionVehiculo = conexion.prepareStatement(consultaVehiculo);
@@ -55,22 +57,13 @@ public class GestorVehiculoCliente {
             
             // Cerrar la conexión
             conexion.close();
-            
-            System.out.println("Cliente y vehículo registrados correctamente en la base de datos.");
+    
+            JOptionPane.showMessageDialog(null, "Cliente y vehículo registrados correctamente en la base de datos");
         } catch (SQLException e) {
             System.out.println("Error al registrar cliente y vehículo en la base de datos: " + e.getMessage());
         }
     }
     
-     //Metodo para conectarse a la base de datos
-     public static Connection conectar() throws SQLException {
-        // Datos de conexión a la base de datos
-        String url = "jdbc:mysql://localhost:3306/taller";
-        String usuario = "root";
-        String contrasena = "root";
-
-        // Establece la conexion y la retorna
-        return DriverManager.getConnection(url, usuario, contrasena);
-    }
+    
     
 }

@@ -4,9 +4,8 @@
  */
 package Interfaz;
 import Gestores.GestorAdministracionProductos;
-import static Gestores.GestorAdministracionProductos.conectar;
+import Taller.ConectarDB;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -86,6 +85,8 @@ public class InterfazVentaProductos extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tablaInfoCliente);
 
+        txtCodigoProducto.setText("1111");
+
         labelCedulaCliente.setText("Cedula Cliente");
 
         labelCodigoProducto.setText("Codigo Producto");
@@ -118,6 +119,8 @@ public class InterfazVentaProductos extends javax.swing.JFrame {
             }
         });
 
+        txtCedulaCliente.setText("987654321");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -142,7 +145,7 @@ public class InterfazVentaProductos extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(botonBuscarCliente)
-                                .addGap(164, 164, 164)))
+                                .addGap(168, 168, 168)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(labelListaCompras)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -213,48 +216,52 @@ public class InterfazVentaProductos extends javax.swing.JFrame {
     private void botonIngresarProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonIngresarProductosActionPerformed
          //Variable que capturan los valores ingresados en los text fields
         String codProducto = txtCodigoProducto.getText().trim();  
-                
-        try {
-            // Establecer conexion a la base de datos
-            Connection conexion = conectar();
-            
-            // String Consulta SQL para consultar el producto y cargarlo en la tabla
-            String consulta = "SELECT codigoProducto,nombre,precio FROM productos where codigoProducto = (?)";
-                        
-            // Preparar la declaracion SQL
-            PreparedStatement declaracion = conexion.prepareStatement(consulta);
-            declaracion.setString(1, codProducto);
-            
-            // Ejecutar la consulta y obtener el resultado
-            ResultSet resultado = declaracion.executeQuery();           
-            
-            //Imprimir los resultados en la tabla
-            while (resultado.next()) {
-                String cod_Producto = resultado.getString("codigoProducto");
-                String nombre_Prod = resultado.getString("nombre");
-                float precio_Prod = resultado.getFloat("precio");
-                
-                //Se crea un array tipo objecto para guardar los resultados
-                Object [] resultadoConsulta = {cod_Producto, nombre_Prod, precio_Prod};
-                
-                //Definimos el contenido de la tabla
-                String [] columnasTabla = {"Cod. Producto", "Nombre", "Precio"};
-                tablaCompras.setColumnIdentifiers(columnasTabla);
-                
-                //Cargamos la tabla con el array tipo objeto que contiene los resultados de la consulta SQL
-                tablaCompras.addRow(resultadoConsulta);
-                tablaListaCompras.setModel(tablaCompras);
-                
-                //Sumar el precio del producto al subtotal
-                subtotal += precio_Prod;
+        if (txtCedulaCliente.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Debe ingresar la cédeula del cliente primero");
+        } else {       
+            try {
+                // Establecer conexion a la base de datos
+                ConectarDB connect = new ConectarDB();
+                Connection conexion = connect.conectarDB();
+
+                // String Consulta SQL para consultar el producto y cargarlo en la tabla
+                String consulta = "SELECT codigoProducto,nombre,precio FROM productos where codigoProducto = (?)";
+
+                // Preparar la declaracion SQL
+                PreparedStatement declaracion = conexion.prepareStatement(consulta);
+                declaracion.setString(1, codProducto);
+
+                // Ejecutar la consulta y obtener el resultado
+                ResultSet resultado = declaracion.executeQuery();           
+
+                //Imprimir los resultados en la tabla
+                while (resultado.next()) {
+                    String cod_Producto = resultado.getString("codigoProducto");
+                    String nombre_Prod = resultado.getString("nombre");
+                    float precio_Prod = resultado.getFloat("precio");
+
+                    //Se crea un array tipo objecto para guardar los resultados
+                    Object [] resultadoConsulta = {cod_Producto, nombre_Prod, precio_Prod};
+
+                    //Definimos el contenido de la tabla
+                    String [] columnasTabla = {"Cod. Producto", "Nombre", "Precio"};
+                    tablaCompras.setColumnIdentifiers(columnasTabla);
+
+                    //Cargamos la tabla con el array tipo objeto que contiene los resultados de la consulta SQL
+                    tablaCompras.addRow(resultadoConsulta);
+                    tablaListaCompras.setModel(tablaCompras);
+
+                    //Sumar el precio del producto al subtotal
+                    subtotal += precio_Prod;
+                }
+
+                // Actualizar el texto de la etiqueta labelSubtotalMonto para mostrar la cantidad parcial a pagar
+                labelSubtotalMonto.setText(String.valueOf(subtotal));
+
+            } catch (SQLException e) {
+                 JOptionPane.showMessageDialog(null, "El cliente no se encuentra registrado " + e.getMessage());
             }
-    
-            // Actualizar el texto de la etiqueta labelSubtotalMonto para mostrar la cantidad parcial a pagar
-            labelSubtotalMonto.setText(String.valueOf(subtotal));
-            
-        } catch (SQLException e) {
-             JOptionPane.showMessageDialog(null, "El cliente no se encuentra registrado " + e.getMessage());
-        }          
+        }    
     }//GEN-LAST:event_botonIngresarProductosActionPerformed
 
     //Boton para completar la compra
@@ -276,7 +283,8 @@ public class InterfazVentaProductos extends javax.swing.JFrame {
         String cedulaCliente = txtCedulaCliente.getText().trim();
         try {
             // Establecer conexión a la base de datos
-            Connection conexion = conectar();
+            ConectarDB connect = new ConectarDB();
+            Connection conexion = connect.conectarDB();
             
             // Consulta SQL para consultar datos del cliente
             String consulta = "SELECT cedula,nombre,correoElectronico FROM clientes where cedula = (?)";
@@ -350,17 +358,6 @@ public class InterfazVentaProductos extends javax.swing.JFrame {
                 new InterfazVentaProductos().setVisible(true);
             }
         });
-    }
-    
-    //Metodo para conectarse a la base de datos
-    public static Connection conectar() throws SQLException {
-        // Datos de conexión a la base de datos
-        String url = "jdbc:mysql://localhost:3306/taller";
-        String usuario = "root";
-        String contrasena = "root";
-
-        // Establecer la conexion y retornarla
-        return DriverManager.getConnection(url, usuario, contrasena);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

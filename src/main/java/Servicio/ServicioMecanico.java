@@ -11,10 +11,16 @@ public class ServicioMecanico {
     //Atributos de un servicio mecanico
     private String nombre;
     private float precio;
-
+    
+    // Lista estatica para almacenar los servicios mecanicos disponibles en el taller
+    public static final List<ServicioMecanico> SERVICIOS_MECANICOS = new ArrayList<>();
+    
     public ServicioMecanico(String nombre, float precio) {
         this.nombre = nombre;
         this.precio = precio;
+    }
+    
+    public ServicioMecanico() {
     }
 
     public String getNombre() {
@@ -25,9 +31,7 @@ public class ServicioMecanico {
         return precio;
     }
        
-    // Lista estatica para almacenar los servicios mecanicos disponibles en el taller
-    private static final List<ServicioMecanico> SERVICIOS_MECANICOS = new ArrayList<>();
-
+    
     // Inicializacion estatica de los servicios mecanicos disponibles
     static {
         SERVICIOS_MECANICOS.add(new ServicioMecanico("Cambio de aceite", 25000)); //Numero 0

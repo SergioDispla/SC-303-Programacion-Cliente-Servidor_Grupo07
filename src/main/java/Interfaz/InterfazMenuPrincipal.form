@@ -183,7 +183,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="botonReporteVentas">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Reporte Ventas Productos"/>
+        <Property name="text" type="java.lang.String" value="Reportes"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonReporteVentasActionPerformed"/>

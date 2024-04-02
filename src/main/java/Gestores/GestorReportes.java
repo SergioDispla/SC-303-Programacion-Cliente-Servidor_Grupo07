@@ -10,9 +10,6 @@ Clase para crear la reporteria de los distintos modulos
  */
 package Gestores;
 import Persona.Operario;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import Persona.Cliente;
 import Producto.Producto;
@@ -106,16 +103,5 @@ public class GestorReportes {
         }
         
         return reporte.toString();
-    }
-     
-    //Metodo para conectarse a la base de datos
-    public static Connection conectar() throws SQLException {
-    // Datos de conexión a la base de datos
-    String url = "jdbc:mysql://localhost:3306/taller";
-    String usuario = "root";
-    String contrasena = "root";
-
-    // Establecer la conexion y retornarla
-    return DriverManager.getConnection(url, usuario, contrasena);
     } 
 }

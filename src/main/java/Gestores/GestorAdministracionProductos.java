@@ -11,11 +11,11 @@ package Gestores;
 import Producto.Producto;
 import Persona.Cliente;
 import Factura.Factura;
+import Taller.ConectarDB;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -49,7 +49,8 @@ public class GestorAdministracionProductos implements Factura {
     public void ingresarProducto(Producto producto) {
         try {
             // Establecer conexion a la base de datos
-            Connection conexion = conectar();
+            ConectarDB connect = new ConectarDB();
+            Connection conexion = connect.conectarDB();
             
             // Consulta SQL para insertar un producto en la tabla "productos"
             String consulta = "INSERT INTO productos (codigoProducto, nombre, descripcion, precio, cant_stock) VALUES (?, ?, ?, ?, ?)";
@@ -109,12 +110,15 @@ public class GestorAdministracionProductos implements Factura {
     public void listarProductos(){
         try {
             // Establecer conexion a la base de datos
-            Connection conexion = conectar();
+            ConectarDB connect = new ConectarDB();
+            Connection conexion = connect.conectarDB();
+
+            //Connection conexion = conectar();
             
-            // Consulta SQL para seleccionar todos los registros de los productos
+            //Consulta SQL para seleccionar todos los registros de los productos
             String consulta = "SELECT * FROM productos";
             
-            // Preparar la declaración SQL
+            //Preparar la declaracion SQL
             PreparedStatement declaracion = conexion.prepareStatement(consulta);
             
             // Ejecutar la consulta y obtener el resultado
@@ -151,7 +155,8 @@ public class GestorAdministracionProductos implements Factura {
     public void registroVentas(Cliente cliente, float totalPagado, TipoPago tipoPago) {
         try {
             // Establecer conexión a la base de datos
-            Connection conexion = conectar();
+            ConectarDB connect = new ConectarDB();
+            Connection conexion = connect.conectarDB();
             
             // Consulta SQL para insertar la transaccion en la tabla de "registroventasproductos"
             String consulta = "INSERT INTO ventasproductos (Cliente, TotalPagado, TipoPago) VALUES (?, ?, ?)";
@@ -180,7 +185,8 @@ public class GestorAdministracionProductos implements Factura {
     public void listarVentas() {
         try {
             // Establecer conexion a la base de datos
-            Connection conexion = conectar();
+            ConectarDB connect = new ConectarDB();
+            Connection conexion = connect.conectarDB();
             
             // Consulta SQL para seleccionar todos los registros de ventas de productos
             String consulta = "SELECT * FROM ventasproductos";
@@ -210,7 +216,7 @@ public class GestorAdministracionProductos implements Factura {
     }
     
      //Metodo para conectarse a la base de datos
-     public static Connection conectar() throws SQLException {
+     /*public static Connection conectar() throws SQLException {
         // Datos de conexión a la base de datos
         String url = "jdbc:mysql://localhost:3306/taller";
         String usuario = "root";
@@ -218,6 +224,6 @@ public class GestorAdministracionProductos implements Factura {
 
         //Establece la conexion y la retorna
         return DriverManager.getConnection(url, usuario, contrasena);
-    }   
+    }  */ 
  
 }

@@ -92,7 +92,7 @@ public class InterfazMenuPrincipal extends javax.swing.JFrame {
         labelVentas.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         labelVentas.setText("Ventas");
 
-        botonReporteVentas.setText("Reporte Ventas Productos");
+        botonReporteVentas.setText("Reportes");
         botonReporteVentas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonReporteVentasActionPerformed(evt);
