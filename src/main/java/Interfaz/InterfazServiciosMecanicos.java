@@ -295,14 +295,14 @@ import javax.swing.table.DefaultTableModel;
 
     private void validacionOperario(){       
         try {
-            String id_Empleado = JOptionPane.showInputDialog("Ingrese su ID de Empleado (usar 1001 para este demo");
+            String id_Empleado = JOptionPane.showInputDialog("Ingrese su ID de Empleado");
             
             // Establecer conexión a la base de datos
             ConectarDB connect = new ConectarDB();
             Connection conexion = connect.conectarDB();
             
             // Consulta SQL para insertar la transaccion en la tabla de "registromantenimiento"
-            String consulta = "SELECT nombre FROM operarios WHERE idEmpleado = (?)";
+            String consulta = "SELECT nombre FROM operarios WHERE id_operario = (?)";
 
             //Preparar la declaracion SQL
             PreparedStatement declaracion = conexion.prepareStatement(consulta);

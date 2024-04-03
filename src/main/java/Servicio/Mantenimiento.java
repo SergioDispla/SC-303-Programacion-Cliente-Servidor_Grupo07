@@ -2,15 +2,15 @@
 package Servicio;
 
 import Persona.Operario;
-import Persona.Persona;
+import java.time.LocalDate;
 
-/*
-//public class Mantenimiento extends Persona  {
+
+public class Mantenimiento {
     
-    private String descripcion;
-    private String fecha;
-    private String horaInicio;
-    private String horaFinal;
+    private ServicioMecanico servicios;
+    private LocalDate fecha;
+    private LocalDate horaInicio;
+    private LocalDate horaFinal;
     private Operario operarioAsignado;
     private String estado;
 
@@ -18,4 +18,4 @@ import Persona.Persona;
 
 
    
-}*/
+}
