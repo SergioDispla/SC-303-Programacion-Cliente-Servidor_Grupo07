@@ -11,6 +11,7 @@ package Gestores;
 import Factura.Factura;
 import Vehiculo.*;
 import Persona.Cliente;
+import Persona.Operario;
 import Servicio.ServicioMecanico;
 import Taller.ConectarDB;
 import java.sql.Connection;
@@ -28,11 +29,11 @@ public class GestorAdministracionVehiculosTaller implements Factura {
             Connection conexion = connect.conectarDB();
             
             // Consulta SQL para insertar la transaccion en la tabla de "registroventas"
-            String consulta = "INSERT INTO registroventaservicios (Cliente, TotalPagado, TipoPago) VALUES (?, ?, ?)";
+            String consulta = "INSERT INTO ventaservicios (cedula, totalpagado, tipopago) VALUES (?, ?, ?)";
             
             // Se realiza el armado de la consulta
             PreparedStatement declaracion = conexion.prepareStatement(consulta);
-            declaracion.setString(1, cliente.getNombre()); 
+            declaracion.setString(1, cliente.getCedula()); 
             declaracion.setFloat(2, totalPagado);
             declaracion.setString(3, tipoPago.toString());
             
@@ -56,7 +57,7 @@ public class GestorAdministracionVehiculosTaller implements Factura {
             Connection conexion = connect.conectarDB();
             
             // Consulta SQL para seleccionar todos los registros de ventas
-            String consulta = "SELECT * FROM registroventas";
+            String consulta = "SELECT * FROM ventaservicios";
             
             // Preparar la declaracion SQL
             PreparedStatement declaracion = conexion.prepareStatement(consulta);
@@ -68,11 +69,11 @@ public class GestorAdministracionVehiculosTaller implements Factura {
             System.out.println("Listado de ventas:");
             while (resultado.next()) {
                 int id = resultado.getInt("id");
-                String cliente = resultado.getString("Cliente");
-                float total_pagado = resultado.getFloat("TotalPagado");
-                String tipo_pago = resultado.getString("TipoPago");
+                String cedula_cliente = resultado.getString("cedula");
+                float total_pagado = resultado.getFloat("totalpagado");
+                String tipo_pago = resultado.getString("tipopago");
                 
-                System.out.println("ID Venta: " + id + ", Cliente: " + cliente + ", Total Pagado: " + total_pagado + ", Tipo de Pago: " + tipo_pago);
+                System.out.println("ID Venta: " + id + ", Cedula: " + cedula_cliente + ", Total Pagado: " + total_pagado + ", Tipo de Pago: " + tipo_pago);
             }
             
             // Cerrar la conexión
@@ -83,7 +84,7 @@ public class GestorAdministracionVehiculosTaller implements Factura {
         
            }
     
-    public void asociarClienteVehiculoYServicio(Cliente cliente, Vehiculo vehiculo, ServicioMecanico servicio) {       
+    public void asociarClienteVehiculoYServicio(Cliente cliente, Vehiculo vehiculo, ServicioMecanico servicio, Operario operario) {       
         // Implementacion para asociar un cliente, un vehículo y un servicio mecánico al mantenimiento  
         try {
                 // Establecer conexión a la base de datos
@@ -91,13 +92,14 @@ public class GestorAdministracionVehiculosTaller implements Factura {
                 Connection conexion = connect.conectarDB();
 
                 // Consulta SQL para insertar la transaccion en la tabla de "registromantenimiento"
-                String consulta = "INSERT INTO registromantenimientos (Cliente, VehiculoPlaca, Servicio) VALUES (?, ?, ?)";
+                String consulta = "INSERT INTO registromantenimientos (cedula, placa, servicio, id_operario) VALUES (?, ?, ?,?)";
 
                 // Se realiza el armado de la consulta
                 PreparedStatement declaracion = conexion.prepareStatement(consulta);
                 declaracion.setString(1, cliente.getNombre()); 
                 declaracion.setString(2, vehiculo.getPlaca());
                 declaracion.setString(3, servicio.toString());
+                declaracion.setString(4, operario.getIdEmpleado());
 
                 // Ejecuta la insercion
                 declaracion.executeUpdate();
@@ -109,7 +111,8 @@ public class GestorAdministracionVehiculosTaller implements Factura {
             } catch (SQLException e) {
                 System.out.println("Error al guardar la transacción de venta en la base de datos: " + e.getMessage());
             }
-        System.out.println("Cliente: " + cliente.getNombre() + ", Vehículo: " + vehiculo.getPlaca() + ", Servicio: " + servicio);
+        System.out.println("Cliente: " + cliente.getNombre() + ", Vehículo: " + 
+                vehiculo.getPlaca() + ", Servicio: " + servicio + ", Operario ID: " + operario.getIdEmpleado());
   
     
     }

@@ -225,7 +225,7 @@ public class InterfazVentaProductos extends javax.swing.JFrame {
                 Connection conexion = connect.conectarDB();
 
                 // String Consulta SQL para consultar el producto y cargarlo en la tabla
-                String consulta = "SELECT codigoProducto,nombre,precio FROM productos where codigoProducto = (?)";
+                String consulta = "SELECT codigo,nombre,precio FROM productos where codigo = (?)";
 
                 // Preparar la declaracion SQL
                 PreparedStatement declaracion = conexion.prepareStatement(consulta);
@@ -236,7 +236,7 @@ public class InterfazVentaProductos extends javax.swing.JFrame {
 
                 //Imprimir los resultados en la tabla
                 while (resultado.next()) {
-                    String cod_Producto = resultado.getString("codigoProducto");
+                    String cod_Producto = resultado.getString("codigo");
                     String nombre_Prod = resultado.getString("nombre");
                     float precio_Prod = resultado.getFloat("precio");
 

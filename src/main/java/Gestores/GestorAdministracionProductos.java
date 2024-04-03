@@ -53,7 +53,7 @@ public class GestorAdministracionProductos implements Factura {
             Connection conexion = connect.conectarDB();
             
             // Consulta SQL para insertar un producto en la tabla "productos"
-            String consulta = "INSERT INTO productos (codigoProducto, nombre, descripcion, precio, cant_stock) VALUES (?, ?, ?, ?, ?)";
+            String consulta = "INSERT INTO productos (codigo, nombre, descripcion, precio, cant_stock) VALUES (?, ?, ?, ?, ?)";
             
             // Preparar la declaración SQL
             PreparedStatement declaracion = conexion.prepareStatement(consulta);
@@ -126,7 +126,7 @@ public class GestorAdministracionProductos implements Factura {
                            
             //Imprimir los resultados en la tabla
             while (resultado.next()) {
-                int cod_producto = resultado.getInt("codigoProducto");
+                int cod_producto = resultado.getInt("codigo");
                 String nombre = resultado.getString("nombre");
                 String descripcion = resultado.getString("descripcion");
                 float precio = resultado.getFloat("precio");
@@ -159,11 +159,11 @@ public class GestorAdministracionProductos implements Factura {
             Connection conexion = connect.conectarDB();
             
             // Consulta SQL para insertar la transaccion en la tabla de "registroventasproductos"
-            String consulta = "INSERT INTO ventasproductos (Cliente, TotalPagado, TipoPago) VALUES (?, ?, ?)";
+            String consulta = "INSERT INTO ventaproductos (cedula, totalpagado, tipopago) VALUES (?, ?, ?)";
             
             // Se realiza el armado de la consulta
             PreparedStatement declaracion = conexion.prepareStatement(consulta);
-            declaracion.setString(1, cliente.getNombre()); 
+            declaracion.setString(1, cliente.getCedula()); 
             declaracion.setFloat(2, totalPagado);
             declaracion.setString(3, tipoPago.toString());
             
@@ -189,7 +189,7 @@ public class GestorAdministracionProductos implements Factura {
             Connection conexion = connect.conectarDB();
             
             // Consulta SQL para seleccionar todos los registros de ventas de productos
-            String consulta = "SELECT * FROM ventasproductos";
+            String consulta = "SELECT * FROM ventaproductos";
             
             // Preparar la declaracion SQL
             PreparedStatement declaracion = conexion.prepareStatement(consulta);
@@ -201,11 +201,11 @@ public class GestorAdministracionProductos implements Factura {
             System.out.println("Listado de ventas:");
             while (resultado.next()) {
                 int id = resultado.getInt("id");
-                String cliente = resultado.getString("Cliente");
-                float total_pagado = resultado.getFloat("TotalPagado");
-                String tipo_pago = resultado.getString("TipoPago");
+                String cedula_cliente = resultado.getString("cedula");
+                float total_pagado = resultado.getFloat("totalpagado");
+                String tipo_pago = resultado.getString("tipopago");
                 
-                System.out.println("ID Venta: " + id + ", Cliente: " + cliente + ", Total Pagado: " + total_pagado + ", Tipo de Pago: " + tipo_pago);
+                System.out.println("ID Venta: " + id + ", Cedula: " + cedula_cliente + ", Total Pagado: " + total_pagado + ", Tipo de Pago: " + tipo_pago);
             }
             
             // Cerrar la conexion
