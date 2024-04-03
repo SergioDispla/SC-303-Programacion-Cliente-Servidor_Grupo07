@@ -214,16 +214,5 @@ public class GestorAdministracionProductos implements Factura {
             JOptionPane.showMessageDialog(null, "Error al listar las ventas de la base de datos - Error: " + e.getMessage());
         }
     }
-    
-     //Metodo para conectarse a la base de datos
-     /*public static Connection conectar() throws SQLException {
-        // Datos de conexión a la base de datos
-        String url = "jdbc:mysql://localhost:3306/taller";
-        String usuario = "root";
-        String contrasena = "root";
-
-        //Establece la conexion y la retorna
-        return DriverManager.getConnection(url, usuario, contrasena);
-    }  */ 
  
 }
