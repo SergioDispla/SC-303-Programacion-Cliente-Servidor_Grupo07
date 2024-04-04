@@ -1,17 +1,19 @@
 
 package Interfaz;
+import Gestores.GestorVehiculoCliente;
 import Persona.Cliente;
 import Vehiculo.Vehiculo;
 
 public class InterfazRegistroVehiculos extends javax.swing.JFrame {
-    private Cliente clienteAsociado;
+    private String clienteAsociado;
 
     /**
      * Creates new form InterfazRegistroVehiculos
      */
     public InterfazRegistroVehiculos(Cliente cliente) {
         initComponents();
-
+        clienteAsociado = cliente.getCedula();
+        txtCedulaCliente.setText(clienteAsociado);
     }
 
     /**
@@ -38,7 +40,6 @@ public class InterfazRegistroVehiculos extends javax.swing.JFrame {
         botonRegresar = new javax.swing.JButton();
         labelCedulaCliente = new javax.swing.JLabel();
         txtCedulaCliente = new javax.swing.JTextField();
-        labelCedulaRegistrada = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -73,8 +74,6 @@ public class InterfazRegistroVehiculos extends javax.swing.JFrame {
 
         labelCedulaCliente.setText("Ced. Cliente Asociado");
 
-        labelCedulaRegistrada.setText("<>");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -93,10 +92,6 @@ public class InterfazRegistroVehiculos extends javax.swing.JFrame {
                                 .addGap(138, 138, 138)
                                 .addComponent(botonRegistrarVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtCedulaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(67, 67, 67))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -123,7 +118,7 @@ public class InterfazRegistroVehiculos extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(labelCedulaCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(labelCedulaRegistrada, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(txtCedulaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -150,15 +145,13 @@ public class InterfazRegistroVehiculos extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtKilometrajeVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelKilometrajeVehiculo))
-                .addGap(38, 38, 38)
+                .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelCedulaCliente)
-                    .addComponent(labelCedulaRegistrada))
-                .addGap(40, 40, 40)
+                    .addComponent(txtCedulaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(37, 37, 37)
                 .addComponent(botonRegistrarVehiculo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
-                .addComponent(txtCedulaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 103, Short.MAX_VALUE)
                 .addComponent(botonRegresar)
                 .addGap(15, 15, 15))
         );
@@ -173,14 +166,17 @@ public class InterfazRegistroVehiculos extends javax.swing.JFrame {
         String modeloVehiculo = txtModeloVehiculo.getText().trim();
         Integer yearVehiculo = Integer.parseInt(txtYearVehiculo.getText());
         Integer kilometrajeVehiculo = Integer.parseInt(txtKilometrajeVehiculo.getText().trim());
-        String cedulaCliente = clienteAsociado.getCedula();
+        String cedulaCliente = clienteAsociado;
 
         //Mostramos el label del cliente que va ir asociado a este vehiculo
         txtCedulaCliente.setText(cedulaCliente);
         
-        //Instanciacion de un objecto tipo Vehiculo
+        //Instanciacion de un objeto tipo Vehiculo
         Vehiculo vehiculo = new Vehiculo(placaVehiculo,marcaVehiculo,modeloVehiculo,yearVehiculo,kilometrajeVehiculo,cedulaCliente);
 
+        //Instanciacion de un objeto tipo GestorVehiculoCliente para usar el metodo registrar Vehiculo
+        GestorVehiculoCliente cliente_vehiculo = new GestorVehiculoCliente();
+        cliente_vehiculo.registrarVehiculo(vehiculo);
         
         //Limpiado de labels
         txtPlacaVehiculo.setText("");
@@ -189,10 +185,12 @@ public class InterfazRegistroVehiculos extends javax.swing.JFrame {
         txtYearVehiculo.setText("");
         txtKilometrajeVehiculo.setText("");
         
+        
+        
     }//GEN-LAST:event_botonRegistrarVehiculoActionPerformed
 
     private void botonRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegresarActionPerformed
-
+     
     }//GEN-LAST:event_botonRegresarActionPerformed
 
     /**
@@ -239,7 +237,6 @@ public class InterfazRegistroVehiculos extends javax.swing.JFrame {
     private javax.swing.JButton botonRegistrarVehiculo;
     private javax.swing.JButton botonRegresar;
     private javax.swing.JLabel labelCedulaCliente;
-    private javax.swing.JLabel labelCedulaRegistrada;
     private javax.swing.JLabel labelKilometrajeVehiculo;
     private javax.swing.JLabel labelMarcaVehiculo;
     private javax.swing.JLabel labelModeloVehiculo;

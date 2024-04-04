@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS registromantenimientos (
 
 #Crear tabla clientes
 CREATE TABLE clientes (
-    cedula VARCHAR(20) PRIMARY KEY,
+    cedula VARCHAR(20),
     nombre VARCHAR(100),
     telefono VARCHAR(20),
     direccion VARCHAR(100),
@@ -52,8 +52,7 @@ CREATE TABLE vehiculos (
     modelo VARCHAR(100),
     año INT,
     kilometraje INT,
-	cedula VARCHAR(20),
-	FOREIGN KEY (cedula) REFERENCES clientes(cedula)
+	cedula VARCHAR(20)
 );
 
 #Crear tabla operarios

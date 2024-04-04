@@ -192,7 +192,7 @@ public class InterfazMenuPrincipal extends javax.swing.JFrame {
 
     //Boton para acceder a la subinterfaz de Registro de Clientes
     private void botonRegistroClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistroClientesActionPerformed
-       InterfazRegistroClienteVehiculo interfaz = new InterfazRegistroClienteVehiculo();
+       InterfazAdministracionClienteVehiculo interfaz = new InterfazAdministracionClienteVehiculo();
        interfaz.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
        interfaz.setVisible(true);
     }//GEN-LAST:event_botonRegistroClientesActionPerformed

@@ -28,7 +28,7 @@ public class GestorAdministracionProductos implements Factura {
     private float totalPagado;
     DefaultTableModel productosDefaultModel = new DefaultTableModel();
     
-    //Getters and Setters
+    //Getters and Setters para leer el modelo en otras clases
     public float getTotalPagado() {
         return totalPagado;
     }
@@ -112,8 +112,6 @@ public class GestorAdministracionProductos implements Factura {
             // Establecer conexion a la base de datos
             ConectarDB connect = new ConectarDB();
             Connection conexion = connect.conectarDB();
-
-            //Connection conexion = conectar();
             
             //Consulta SQL para seleccionar todos los registros de los productos
             String consulta = "SELECT * FROM productos";
@@ -150,14 +148,12 @@ public class GestorAdministracionProductos implements Factura {
         }
     }
     
-    
+    //Metodo para eliminar productos de la base de datos
     public void eliminarProductos(int codigoProducto){
         try {
             // Establecer conexion a la base de datos
             ConectarDB connect = new ConectarDB();
             Connection conexion = connect.conectarDB();
-
-            //Connection conexion = conectar();
             
             //Consulta SQL para seleccionar todos los registros de los productos
             String consulta = "DELETE FROM productos where codigo = (?)";
@@ -176,8 +172,7 @@ public class GestorAdministracionProductos implements Factura {
             JOptionPane.showMessageDialog(null, "Error al eliminar los productos de la base de datos - Error: " + e.getMessage());
         }
     } 
-            
-    
+               
     //Metodo sobreescrito de la interface factura - Registra la compra en la base de datos "Taller" en la tabla "ventasproductos"
     @Override
     public void registroVentas(Cliente cliente, float totalPagado, TipoPago tipoPago) {
