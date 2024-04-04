@@ -4,9 +4,6 @@ Clase persona: es la clase padre para definir los objectos como clientes, operar
 
 package Persona;
 
-import java.awt.List;
-import java.util.ArrayList;
-
 public class Persona {
     
     // Lista tipo enum para asignar el tipo de usuario

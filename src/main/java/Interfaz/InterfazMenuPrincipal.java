@@ -175,7 +175,7 @@ public class InterfazMenuPrincipal extends javax.swing.JFrame {
 
     //Boton para acceder a la subinterfaz de Registro de Productos
     private void botonRegistroProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistroProductosActionPerformed
-       InterfazRegistroProductos interfaz = new InterfazRegistroProductos();
+       InterfazAdministracionProductos interfaz = new InterfazAdministracionProductos();
        interfaz.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
        interfaz.setVisible(true);
     }//GEN-LAST:event_botonRegistroProductosActionPerformed

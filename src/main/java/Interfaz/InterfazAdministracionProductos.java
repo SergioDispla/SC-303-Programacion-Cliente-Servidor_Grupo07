@@ -1,6 +1,6 @@
 /*
 Interfaz grafica de administracion de productos
-Esta interfaz debe mostrar la opcion de ingresar, cargar y listar productos
+Esta interfaz debe mostrar la opcion de ingresar, cargar, listar y eliminar productos
 
 Requisitos especiales:
 - La opcion de carga debera permitir seleccionar un archivo txt de la computadora local
@@ -12,12 +12,12 @@ import java.io.File;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
-public class InterfazRegistroProductos extends javax.swing.JFrame {
+public class InterfazAdministracionProductos extends javax.swing.JFrame {
 
     /**
      * Creates new form InterfazRegistroProductos
      */
-    public InterfazRegistroProductos() {
+    public InterfazAdministracionProductos() {
         initComponents();
 
     }
@@ -48,6 +48,7 @@ public class InterfazRegistroProductos extends javax.swing.JFrame {
         labelStockProducto = new javax.swing.JLabel();
         labelTituloVentana = new java.awt.Label();
         botonIngresarProductos1 = new javax.swing.JButton();
+        botonEliminarProductos = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(153, 255, 204));
@@ -99,6 +100,14 @@ public class InterfazRegistroProductos extends javax.swing.JFrame {
             }
         });
 
+        botonEliminarProductos.setText("Eliminar Productos");
+        botonEliminarProductos.setToolTipText("Elimina productos de la base de datos");
+        botonEliminarProductos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonEliminarProductosActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -127,24 +136,25 @@ public class InterfazRegistroProductos extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(labelCodigoProducto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtCodigoProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(39, 39, 39)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtCodigoProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(botonCargarArchivo, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(212, 212, 212)
-                        .addComponent(botonListarProductos, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(36, 36, 36)
+                        .addComponent(botonIngresarProductos1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(botonCargarArchivo, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(39, 39, 39)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(41, 41, 41)
+                        .addComponent(botonListarProductos, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(48, 48, 48)
+                        .addComponent(botonEliminarProductos, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(54, 54, 54))
             .addGroup(layout.createSequentialGroup()
                 .addGap(275, 275, 275)
                 .addComponent(labelTituloVentana, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(75, 75, 75)
-                    .addComponent(botonIngresarProductos1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(734, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -177,13 +187,10 @@ public class InterfazRegistroProductos extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botonCargarArchivo)
-                    .addComponent(botonListarProductos))
-                .addGap(47, 47, 47))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(527, Short.MAX_VALUE)
+                    .addComponent(botonListarProductos)
                     .addComponent(botonIngresarProductos1)
-                    .addGap(50, 50, 50)))
+                    .addComponent(botonEliminarProductos))
+                .addGap(47, 47, 47))
         );
 
         pack();
@@ -236,6 +243,30 @@ public class InterfazRegistroProductos extends javax.swing.JFrame {
         txtStockProducto.setText("");      
     }//GEN-LAST:event_botonIngresarProductos1ActionPerformed
 
+    //Boton para eliminar productos manualmente
+    private void botonEliminarProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEliminarProductosActionPerformed
+        //Instanciacion de un objeto tipo GestorAdministracionProductos para usar el metodo eliminarProductos()
+        GestorAdministracionProductos productos = new GestorAdministracionProductos();        
+
+        //Capturamos el item seleccionado en la tabla
+        int filaSeleccionada = tablaProductos.getSelectedRow();
+        
+        if (filaSeleccionada >= 0){
+            //Obtenemos el codigo del producto del item seleccionado
+            int codigoProducto = (int) tablaProductos.getValueAt(filaSeleccionada, 0);   
+                
+            //Llamamos al metodo eliminarProductos y le pasamos el codigo de producto
+            productos.eliminarProductos(codigoProducto);
+                
+            //Actualizamos la tabla para que refleje el nuevo contenido actualizado
+            productos.listarProductos();
+            tablaProductos.setModel(productos.getProductosDefaultModel());
+                
+        } else {
+                JOptionPane.showMessageDialog(null, "Seleccione al menos un producto");
+        }  
+    }//GEN-LAST:event_botonEliminarProductosActionPerformed
+ 
     /**
      * @param args the command line arguments
      */
@@ -253,26 +284,28 @@ public class InterfazRegistroProductos extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(InterfazRegistroProductos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InterfazAdministracionProductos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(InterfazRegistroProductos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InterfazAdministracionProductos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(InterfazRegistroProductos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InterfazAdministracionProductos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(InterfazRegistroProductos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InterfazAdministracionProductos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new InterfazRegistroProductos().setVisible(true);
+                new InterfazAdministracionProductos().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonCargarArchivo;
+    private javax.swing.JButton botonEliminarProductos;
     private javax.swing.JButton botonIngresarProductos1;
     private javax.swing.JButton botonListarProductos;
     private javax.swing.JFileChooser jFileChooser1;

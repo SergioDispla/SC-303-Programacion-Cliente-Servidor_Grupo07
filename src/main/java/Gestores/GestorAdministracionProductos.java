@@ -150,6 +150,34 @@ public class GestorAdministracionProductos implements Factura {
         }
     }
     
+    
+    public void eliminarProductos(int codigoProducto){
+        try {
+            // Establecer conexion a la base de datos
+            ConectarDB connect = new ConectarDB();
+            Connection conexion = connect.conectarDB();
+
+            //Connection conexion = conectar();
+            
+            //Consulta SQL para seleccionar todos los registros de los productos
+            String consulta = "DELETE FROM productos where codigo = (?)";
+            
+            //Preparar la declaracion SQL
+            PreparedStatement  declaracion = conexion.prepareStatement(consulta);
+            declaracion.setInt(1, codigoProducto); 
+            
+            // Ejecutar la consulta y obtener el resultado
+            declaracion.executeUpdate();
+            
+            //Notificamos al usuario sobre la elminacion del producto
+            JOptionPane.showMessageDialog(null, "Producto eliminado");
+               
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error al eliminar los productos de la base de datos - Error: " + e.getMessage());
+        }
+    } 
+            
+    
     //Metodo sobreescrito de la interface factura - Registra la compra en la base de datos "Taller" en la tabla "ventasproductos"
     @Override
     public void registroVentas(Cliente cliente, float totalPagado, TipoPago tipoPago) {
