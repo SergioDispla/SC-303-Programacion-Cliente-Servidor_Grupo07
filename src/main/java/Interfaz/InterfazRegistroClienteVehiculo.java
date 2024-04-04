@@ -126,7 +126,7 @@ public class InterfazRegistroClienteVehiculo extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(txtMarcaVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(labelModeloVehiculo, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
+                                .addComponent(labelModeloVehiculo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGap(18, 18, 18)
                                 .addComponent(txtModeloVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -142,15 +142,17 @@ public class InterfazRegistroClienteVehiculo extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(txtPlacaVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(labelCedulaCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(labelCedulaCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtCedulaCliente1, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(335, 335, 335)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(botonRegistrarClientes)
-                            .addComponent(labelTituloVentana, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(labelTituloVentana, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(47, 47, 47))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(408, 408, 408)
+                .addComponent(botonRegistrarClientes)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -210,24 +212,25 @@ public class InterfazRegistroClienteVehiculo extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(labelCedulaCliente)
                             .addComponent(txtCedulaCliente1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                 .addComponent(botonRegistrarClientes)
-                .addGap(52, 52, 52))
+                .addGap(74, 74, 74))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //Boton para registrar un cliente y su vehiculo
     private void botonRegistrarClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarClientesActionPerformed
         //Definicion de variables que van a capturar lo que se ingrese en los textfields
         String ced_cliente = txtCedulaCliente.getText().trim();
-        String nombreCliente = txtNombreCliente.getText().trim(); //telefono, direccion, correo, placa, fecha
+        String nombreCliente = txtNombreCliente.getText().trim(); 
         String telefonoCliente = txtTelefonoCliente.getText().trim();
         String direccionCliente = txtDireccionCliente.getText();
         String correoCliente = txtCorreoElectronicoCliente.getText().trim();
         LocalDate fechaRegistro = convertirDatetoLocalDate(calendarFechaRegistro.getDate());
         
-        //Instanciacion de un objeto tipo Cliente
+        //Instanciacion de un objeto tipo Cliente con las variables anteriormente capturadas
         Cliente cliente = new Cliente(ced_cliente,nombreCliente,telefonoCliente,direccionCliente,correoCliente,Persona.Roles.Cliente,fechaRegistro);
         
         //Definicion de variables que van a capturar lo que se ingrese en los textfields
@@ -238,7 +241,7 @@ public class InterfazRegistroClienteVehiculo extends javax.swing.JFrame {
         Integer kilometrajeVehiculo = Integer.valueOf(txtKilometrajeVehiculo.getText().trim());
         String cedulaCliente = cliente.getCedula();
 
-        //Instanciacion de un objeto tipo Vehiculo
+        //Instanciacion de un objeto tipo Vehiculo con las variables anteriormente capturadas
         Vehiculo vehiculo = new Vehiculo(placaVehiculo,marcaVehiculo,modeloVehiculo,yearVehiculo,kilometrajeVehiculo,cedulaCliente);
        
         //Instanciacion de un objecto tipo GestorVehiculoCliente para usar el metodo registrarClienteVehiculo
@@ -254,6 +257,7 @@ public class InterfazRegistroClienteVehiculo extends javax.swing.JFrame {
         
     }//GEN-LAST:event_botonRegistrarClientesActionPerformed
 
+    //Metodo para convertir un Date a LocalDate
     public LocalDate convertirDatetoLocalDate(Date date) {
         return date.toInstant()
         .atZone(ZoneId.systemDefault())

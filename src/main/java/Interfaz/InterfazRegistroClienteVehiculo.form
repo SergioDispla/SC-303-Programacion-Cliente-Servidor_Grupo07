@@ -52,7 +52,7 @@
                               <Component id="txtMarcaVehiculo" min="-2" pref="280" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
-                              <Component id="labelModeloVehiculo" pref="136" max="32767" attributes="0"/>
+                              <Component id="labelModeloVehiculo" max="32767" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="txtModeloVehiculo" min="-2" pref="280" max="-2" attributes="0"/>
                           </Group>
@@ -72,7 +72,7 @@
                               <Component id="txtPlacaVehiculo" min="-2" pref="280" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
-                              <Component id="labelCedulaCliente" max="32767" attributes="0"/>
+                              <Component id="labelCedulaCliente" pref="148" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="txtCedulaCliente1" min="-2" pref="280" max="-2" attributes="0"/>
                           </Group>
@@ -80,13 +80,15 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="335" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="botonRegistrarClientes" min="-2" max="-2" attributes="0"/>
-                          <Component id="labelTituloVentana" min="-2" pref="210" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="labelTituloVentana" min="-2" pref="210" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="408" max="-2" attributes="0"/>
+              <Component id="botonRegistrarClientes" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -162,9 +164,9 @@
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="59" max="32767" attributes="0"/>
+              <EmptySpace pref="37" max="32767" attributes="0"/>
               <Component id="botonRegistrarClientes" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
