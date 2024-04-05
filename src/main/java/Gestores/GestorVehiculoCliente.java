@@ -55,11 +55,8 @@ public class GestorVehiculoCliente {
                
             // Cerrar la conexión
             conexion.close();
-    
-            //Notificacion sobre la correcta insercion del registro
-            JOptionPane.showMessageDialog(null, "Cliente registrados correctamente en la base de datos");
         } catch (SQLException e) {
-            System.out.println("Error al registrar cliente en la base de datos: " + e.getMessage());
+            JOptionPane.showMessageDialog(null,"Error al registrar cliente en la base de datos: " + e.getMessage());
         }
     }
     
@@ -89,10 +86,9 @@ public class GestorVehiculoCliente {
             conexion.close();
             
             //Notificacion sobre la correcta insercion del registro
-            JOptionPane.showMessageDialog(null, "Vehículo registrados correctamente en la base de datos");          
-            
+            JOptionPane.showMessageDialog(null, "Cliente y Vehículo registrados correctamente en la base de datos");           
         } catch (SQLException e) {
-            System.out.println("Error al registrar vehículo en la base de datos: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Error al registrar vehículo en la base de datos: " + e.getMessage());
         }
         
     }
@@ -164,7 +160,7 @@ public class GestorVehiculoCliente {
             declaracion_vehiculo.executeUpdate();
             
             //Notificamos al usuario sobre la elminacion del producto
-            JOptionPane.showMessageDialog(null, "Cliente eliminado");
+            JOptionPane.showMessageDialog(null, "Cliente y vehiculos registrados fueron eliminados");
                
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Error al eliminar los productos de la base de datos - Error: " + e.getMessage());

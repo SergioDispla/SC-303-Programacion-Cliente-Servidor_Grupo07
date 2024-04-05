@@ -190,7 +190,8 @@ public class InterfazRegistroVehiculos extends javax.swing.JFrame {
     }//GEN-LAST:event_botonRegistrarVehiculoActionPerformed
 
     private void botonRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegresarActionPerformed
-     
+        InterfazAdministracionClienteVehiculo interfaz = new InterfazAdministracionClienteVehiculo();
+        interfaz.setVisible(true);
     }//GEN-LAST:event_botonRegresarActionPerformed
 
     /**

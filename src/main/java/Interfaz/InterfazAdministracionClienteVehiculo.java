@@ -253,6 +253,15 @@ public class InterfazAdministracionClienteVehiculo extends javax.swing.JFrame {
         interfazRegistroVehiculos.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         interfazRegistroVehiculos.setVisible(true);
         
+        //Limpiamos los textfields
+        txtCedulaCliente.setText("");
+        txtNombreCliente.setText("");
+        txtTelefonoCliente.setText("");
+        txtDireccionCliente.setText("");
+        txtCorreoElectronicoCliente.setText("");
+        calendarFechaRegistro.setDate(null);
+        
+        
     }//GEN-LAST:event_botonRegistrarClientesActionPerformed
 
     private void botonListarClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonListarClientesActionPerformed
@@ -274,15 +283,14 @@ public class InterfazAdministracionClienteVehiculo extends javax.swing.JFrame {
             //Obtenemos la cedula del cliente del item seleccionado
             String cedulaCliente = tablaClientes.getValueAt(filaSeleccionada, 0).toString();   
                 
-            //Llamamos al metodo eliminarProductos y le pasamos el codigo de producto
+            //Llamamos al metodo eliminarCliente y le pasamos la cedula de cliente
             cliente.eliminarCliente(cedulaCliente);
                 
             //Actualizamos la tabla para que refleje el nuevo contenido actualizado
             cliente.listarClientesYVehiculos();
-            tablaClientes.setModel(cliente.getClientesDefaultModel());
-                
+            tablaClientes.setModel(cliente.getClientesDefaultModel());             
         } else {
-                JOptionPane.showMessageDialog(null, "Seleccione al menos un producto");
+                JOptionPane.showMessageDialog(null, "Seleccione al menos un cliente de la tabla");
         }
     }//GEN-LAST:event_botonEliminarClientesActionPerformed
 
