@@ -17,7 +17,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 
-public class GestorVehiculoCliente {
+public class GestorAdministracionClienteVehiculo {
     
     //Atributos de GestorVehiculosCliente
     DefaultTableModel clientesDefaultModel = new DefaultTableModel();
@@ -119,7 +119,7 @@ public class GestorVehiculoCliente {
                 
                 //Se crea un array tipo objeto para guardar los resultados del query
                 Object [] resultadoConsulta = {ced_cliente,nombre_cliente,placa_vehiculo,marca_vehiculo};
-                String [] columnasTabla = {"cedula","nombre","placa","marca"};
+                String [] columnasTabla = {"Cedula","Nombre","Placa","Marca"};
                 clientesDefaultModel.setColumnIdentifiers(columnasTabla);
                 //Object [] resultadoConsulta = {ced_cliente,nombre_cliente};
                 

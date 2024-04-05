@@ -1,6 +1,6 @@
 
 package Interfaz;
-import Gestores.GestorVehiculoCliente;
+import Gestores.GestorAdministracionClienteVehiculo;
 import Persona.Cliente;
 import Vehiculo.Vehiculo;
 
@@ -37,7 +37,6 @@ public class InterfazRegistroVehiculos extends javax.swing.JFrame {
         txtYearVehiculo = new javax.swing.JTextField();
         txtKilometrajeVehiculo = new javax.swing.JTextField();
         botonRegistrarVehiculo = new javax.swing.JButton();
-        botonRegresar = new javax.swing.JButton();
         labelCedulaCliente = new javax.swing.JLabel();
         txtCedulaCliente = new javax.swing.JTextField();
 
@@ -64,14 +63,6 @@ public class InterfazRegistroVehiculos extends javax.swing.JFrame {
             }
         });
 
-        botonRegresar.setText("Regresar");
-        botonRegresar.setToolTipText("Ingresa productos manualmente");
-        botonRegresar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonRegresarActionPerformed(evt);
-            }
-        });
-
         labelCedulaCliente.setText("Ced. Cliente Asociado");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -80,9 +71,6 @@ public class InterfazRegistroVehiculos extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(botonRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -151,9 +139,7 @@ public class InterfazRegistroVehiculos extends javax.swing.JFrame {
                     .addComponent(txtCedulaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(37, 37, 37)
                 .addComponent(botonRegistrarVehiculo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 103, Short.MAX_VALUE)
-                .addComponent(botonRegresar)
-                .addGap(15, 15, 15))
+                .addContainerGap(141, Short.MAX_VALUE))
         );
 
         pack();
@@ -175,7 +161,7 @@ public class InterfazRegistroVehiculos extends javax.swing.JFrame {
         Vehiculo vehiculo = new Vehiculo(placaVehiculo,marcaVehiculo,modeloVehiculo,yearVehiculo,kilometrajeVehiculo,cedulaCliente);
 
         //Instanciacion de un objeto tipo GestorVehiculoCliente para usar el metodo registrar Vehiculo
-        GestorVehiculoCliente cliente_vehiculo = new GestorVehiculoCliente();
+        GestorAdministracionClienteVehiculo cliente_vehiculo = new GestorAdministracionClienteVehiculo();
         cliente_vehiculo.registrarVehiculo(vehiculo);
         
         //Limpiado de labels
@@ -183,16 +169,8 @@ public class InterfazRegistroVehiculos extends javax.swing.JFrame {
         txtMarcaVehiculo.setText("");
         txtModeloVehiculo.setText("");
         txtYearVehiculo.setText("");
-        txtKilometrajeVehiculo.setText("");
-        
-        
-        
+        txtKilometrajeVehiculo.setText("");    
     }//GEN-LAST:event_botonRegistrarVehiculoActionPerformed
-
-    private void botonRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegresarActionPerformed
-        InterfazAdministracionClienteVehiculo interfaz = new InterfazAdministracionClienteVehiculo();
-        interfaz.setVisible(true);
-    }//GEN-LAST:event_botonRegresarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -236,7 +214,6 @@ public class InterfazRegistroVehiculos extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonRegistrarVehiculo;
-    private javax.swing.JButton botonRegresar;
     private javax.swing.JLabel labelCedulaCliente;
     private javax.swing.JLabel labelKilometrajeVehiculo;
     private javax.swing.JLabel labelMarcaVehiculo;

@@ -1,7 +1,7 @@
 package Interfaz;
 
 import Gestores.GestorAdministracionProductos;
-import Gestores.GestorVehiculoCliente;
+import Gestores.GestorAdministracionClienteVehiculo;
 import Persona.Cliente;
 import Persona.Persona;
 import java.time.LocalDate;
@@ -241,32 +241,30 @@ public class InterfazAdministracionClienteVehiculo extends javax.swing.JFrame {
         String direccionCliente = txtDireccionCliente.getText();
         String correoCliente = txtCorreoElectronicoCliente.getText().trim();
         LocalDate fechaRegistro = convertirDatetoLocalDate(calendarFechaRegistro.getDate());
-        
+
         //Instanciacion de un objeto tipo Cliente con las variables anteriormente capturadas
         Cliente cliente = new Cliente(ced_cliente,nombreCliente,telefonoCliente,direccionCliente,correoCliente,Persona.Roles.Cliente,fechaRegistro);
-        
+
         //Instanciacion de un objeto tipo GestorVehiculoCliente para usar el metodo registrarCliente
-        GestorVehiculoCliente clienteNuevo = new GestorVehiculoCliente();
+        GestorAdministracionClienteVehiculo clienteNuevo = new GestorAdministracionClienteVehiculo();
         clienteNuevo.registrarCliente(cliente);
-        
+
         InterfazRegistroVehiculos interfazRegistroVehiculos = new InterfazRegistroVehiculos(cliente);
         interfazRegistroVehiculos.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         interfazRegistroVehiculos.setVisible(true);
-        
+
         //Limpiamos los textfields
         txtCedulaCliente.setText("");
         txtNombreCliente.setText("");
         txtTelefonoCliente.setText("");
         txtDireccionCliente.setText("");
         txtCorreoElectronicoCliente.setText("");
-        calendarFechaRegistro.setDate(null);
-        
-        
+        calendarFechaRegistro.setDate(null);  
     }//GEN-LAST:event_botonRegistrarClientesActionPerformed
 
     private void botonListarClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonListarClientesActionPerformed
         //Instanciacion de un objeto tipo GestorVehiculoCliente para usar el metodo listarClientes
-        GestorVehiculoCliente clientes = new GestorVehiculoCliente();
+        GestorAdministracionClienteVehiculo clientes = new GestorAdministracionClienteVehiculo();
         
         clientes.listarClientesYVehiculos();
         tablaClientes.setModel(clientes.getClientesDefaultModel());        
@@ -274,7 +272,7 @@ public class InterfazAdministracionClienteVehiculo extends javax.swing.JFrame {
 
     private void botonEliminarClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEliminarClientesActionPerformed
         //Instanciacion de un objeto tipo GestorAdministracionProductos para usar el metodo eliminarProductos()
-        GestorVehiculoCliente cliente = new GestorVehiculoCliente();        
+        GestorAdministracionClienteVehiculo cliente = new GestorAdministracionClienteVehiculo();        
 
         //Capturamos el item seleccionado en la tabla
         int filaSeleccionada = tablaClientes.getSelectedRow();

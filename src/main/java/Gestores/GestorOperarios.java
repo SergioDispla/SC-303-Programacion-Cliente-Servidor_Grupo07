@@ -11,12 +11,8 @@ Sugiero que esta clase utilice las siguientes clases:
  */
 package Gestores;
 
-
 import Persona.*;
-import Producto.Producto;
-import Servicio.ServicioMecanico;
 import Taller.ConectarDB;
-import Vehiculo.Vehiculo;
 import java.sql.*;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
