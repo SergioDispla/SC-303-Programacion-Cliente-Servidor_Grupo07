@@ -102,7 +102,6 @@ public class GestorAdministracionClienteVehiculo {
             
             //Consulta SQL para seleccionar todos los registros de los productos
             String consulta = "SELECT clientes.cedula,clientes.nombre,vehiculos.placa,vehiculos.marca FROM clientes JOIN vehiculos ON clientes.cedula = vehiculos.cedula";
-            //String consulta = "SELECT cedula,nombre FROM clientes";
             
             //Preparar la declaracion SQL
             PreparedStatement declaracion = conexion.prepareStatement(consulta);
@@ -160,13 +159,10 @@ public class GestorAdministracionClienteVehiculo {
             declaracion_vehiculo.executeUpdate();
             
             //Notificamos al usuario sobre la elminacion del producto
-            JOptionPane.showMessageDialog(null, "Cliente y vehiculos registrados fueron eliminados");
+            JOptionPane.showMessageDialog(null, "Registros de cliente y vehiculos fueron eliminados");
                
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Error al eliminar los productos de la base de datos - Error: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Error al eliminar los datos de la base de datos - Error: " + e.getMessage());
         }
     }
-    
-    
-    
 }

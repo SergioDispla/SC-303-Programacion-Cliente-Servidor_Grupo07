@@ -1,11 +1,13 @@
 package Interfaz;
 
+import Gestores.GestorAdministracionClienteVehiculo;
 import Gestores.GestorOperarios;
 import Persona.Operario;
 import Persona.Persona;
 import java.util.*;
 import java.time.LocalDate;
 import java.time.ZoneId;
+import javax.swing.JOptionPane;
 
 public class InterfazRegistroOperarios extends javax.swing.JFrame {
 
@@ -47,6 +49,9 @@ public class InterfazRegistroOperarios extends javax.swing.JFrame {
         calendarFechaContratacion = new com.toedter.calendar.JDateChooser();
         labelTelefonoEmpleado = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
+        botonEliminarOperario = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -86,13 +91,13 @@ public class InterfazRegistroOperarios extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Id Empleado", "Nombre"
+                "ID Operario", "Nombre"
             }
         ));
         jScrollPane2.setViewportView(tablaOperarios);
 
         botonRegistrarOperarios.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        botonRegistrarOperarios.setText("Registrar Operarios");
+        botonRegistrarOperarios.setText("Registrar Operario");
         botonRegistrarOperarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonRegistrarOperariosActionPerformed(evt);
@@ -101,18 +106,27 @@ public class InterfazRegistroOperarios extends javax.swing.JFrame {
 
         labelTelefonoEmpleado.setText("Telefono:");
 
+        botonEliminarOperario.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        botonEliminarOperario.setText("Eliminar Operario");
+        botonEliminarOperario.setActionCommand("Listar Operadores");
+        botonEliminarOperario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonEliminarOperarioActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Registrar Operario");
+
+        jLabel2.setText("Lista Operarios");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(335, 335, 335)
-                .addComponent(labelTituloVentana, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(labelSalarioEmpleado, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(labelCorreo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -123,35 +137,46 @@ public class InterfazRegistroOperarios extends javax.swing.JFrame {
                             .addComponent(labelFechaRegistro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(labelTelefonoEmpleado, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane1)
-                            .addComponent(txtCorreoElectronico, javax.swing.GroupLayout.DEFAULT_SIZE, 303, Short.MAX_VALUE)
-                            .addComponent(txtCedula, javax.swing.GroupLayout.DEFAULT_SIZE, 303, Short.MAX_VALUE)
-                            .addComponent(txtIdEmpleado, javax.swing.GroupLayout.DEFAULT_SIZE, 303, Short.MAX_VALUE)
-                            .addComponent(txtTelefono, javax.swing.GroupLayout.DEFAULT_SIZE, 303, Short.MAX_VALUE)
-                            .addComponent(txtSalario, javax.swing.GroupLayout.DEFAULT_SIZE, 303, Short.MAX_VALUE)
-                            .addComponent(calendarFechaContratacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtNombre)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(txtSalario, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtCorreoElectronico, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE)
+                            .addComponent(txtTelefono, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtIdEmpleado, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtCedula, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtNombre, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(calendarFechaContratacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(botonRegistrarOperarios))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(201, 201, 201)
-                        .addComponent(botonRegistrarOperarios)))
+                        .addComponent(botonListarOperarios)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(botonEliminarOperario)))
+                .addGap(19, 19, 19))
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(335, 335, 335)
+                        .addComponent(labelTituloVentana, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(208, 208, 208)
-                        .addComponent(botonListarOperarios)))
-                .addGap(19, 19, 19))
+                        .addGap(209, 209, 209)
+                        .addComponent(jLabel1)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addGap(215, 215, 215))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(labelTituloVentana, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
+                        .addGap(2, 2, 2)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(txtIdEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -189,26 +214,31 @@ public class InterfazRegistroOperarios extends javax.swing.JFrame {
                                 .addGap(31, 31, 31)
                                 .addComponent(calendarFechaContratacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(79, 79, 79)
+                        .addComponent(jLabel2)
+                        .addGap(18, 18, 18)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botonListarOperarios)
-                    .addComponent(botonRegistrarOperarios))
+                    .addComponent(botonRegistrarOperarios)
+                    .addComponent(botonEliminarOperario))
                 .addContainerGap(78, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //Boton para listar operarios de la base de datos
     private void botonListarOperariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonListarOperariosActionPerformed
-
         //Instanciacion de un objeto tipo GestorOperarios para usar el metodo listarOperarios()
-        GestorOperarios operario = new GestorOperarios();
+        GestorOperarios operarios = new GestorOperarios();
         
-        //Lamada del metodo listarOperarios();
+        //Lamada del metodo listarOperarios
+        operarios.listarOperarios();
+        tablaOperarios.setModel(operarios.getOperariosDefaultModel());        
     }//GEN-LAST:event_botonListarOperariosActionPerformed
 
+    //Boton para registrar operarios de la base de datos
     private void botonRegistrarOperariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarOperariosActionPerformed
         //Definicion de variables que van a capturar lo que se ingrese en los textfields
         String id_Empleado = txtIdEmpleado.getText().trim();
@@ -221,12 +251,12 @@ public class InterfazRegistroOperarios extends javax.swing.JFrame {
         LocalDate fecha_Contratacion = convertirDatetoLocalDate(calendarFechaContratacion.getDate());  
       
         //Instanciacion de un objeto tipo Operario
-        Operario nuevoOperario = new Operario(id_Empleado,ced_Empleado,nombreEmpleado,tel_Empleado,direccionEmpleado,correo_Empleado,Persona.Roles.Operario,salarioEmpleado,fecha_Contratacion);
-        
+        Operario operario = new Operario(id_Empleado,ced_Empleado,nombreEmpleado,tel_Empleado,direccionEmpleado,correo_Empleado,Persona.Roles.Operario,salarioEmpleado,fecha_Contratacion);
+        GestorOperarios nuevoOperario = new GestorOperarios();
         
         //Llamado del metodo registrarOperario()
-        
-       
+        nuevoOperario.registrarOperario(operario);
+            
         //Limpiado de labels
         txtIdEmpleado.setText("");
         txtCedula.setText("");
@@ -238,6 +268,29 @@ public class InterfazRegistroOperarios extends javax.swing.JFrame {
         calendarFechaContratacion.setDate(null);
     
     }//GEN-LAST:event_botonRegistrarOperariosActionPerformed
+
+    //Boton para eliminar operarios de la base de datos
+    private void botonEliminarOperarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEliminarOperarioActionPerformed
+        //Instanciacion de un objeto tipo GestorAdministracionProductos para usar el metodo eliminarProductos()
+        GestorOperarios operario = new GestorOperarios();        
+
+        //Capturamos el item seleccionado en la tabla
+        int filaSeleccionada = tablaOperarios.getSelectedRow();
+        
+        if (filaSeleccionada >= 0){
+            //Obtenemos la cedula del cliente del item seleccionado
+            String id_Operario = tablaOperarios.getValueAt(filaSeleccionada, 0).toString();   
+                
+            //Llamamos al metodo eliminarCliente y le pasamos la cedula de cliente
+            operario.eliminarOperario(id_Operario);
+                
+            //Actualizamos la tabla para que refleje el nuevo contenido actualizado
+            operario.listarOperarios();
+            tablaOperarios.setModel(operario.getOperariosDefaultModel());             
+        } else {
+                JOptionPane.showMessageDialog(null, "Seleccione al menos un cliente de la tabla");
+        }   
+    }//GEN-LAST:event_botonEliminarOperarioActionPerformed
     public LocalDate convertirDatetoLocalDate(Date date) {
         return date.toInstant()
         .atZone(ZoneId.systemDefault())
@@ -283,9 +336,12 @@ public class InterfazRegistroOperarios extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botonEliminarOperario;
     private javax.swing.JButton botonListarOperarios;
     private javax.swing.JButton botonRegistrarOperarios;
     private com.toedter.calendar.JDateChooser calendarFechaContratacion;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel labelCedulaEmpleado;

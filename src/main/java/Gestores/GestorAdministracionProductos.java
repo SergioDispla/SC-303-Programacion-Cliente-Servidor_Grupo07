@@ -130,6 +130,7 @@ public class GestorAdministracionProductos implements Factura {
                 float precio = resultado.getFloat("precio");
                 int cantidad_stock = resultado.getInt("cant_stock");
                 
+                //Creamos un array tipo objeto con los resultados de la consulta
                 Object [] resultadoConsulta = {cod_producto,nombre,descripcion,precio,cantidad_stock};
                 
                 //Definimos el contenido de la tabla

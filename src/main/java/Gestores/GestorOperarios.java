@@ -18,10 +18,9 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 
-
-
 public class GestorOperarios extends GestorAdministracionVehiculosTaller {
-
+    
+    //Atributos de GestorOperarios
     DefaultTableModel operariosDefaultModel = new DefaultTableModel();
 
     public DefaultTableModel getOperariosDefaultModel() {
@@ -34,7 +33,7 @@ public class GestorOperarios extends GestorAdministracionVehiculosTaller {
     
     
     // Metodo para registrar un operario en la base de datos
-    public void registrarOperarios(Operario operario) {
+    public void registrarOperario(Operario operario) {
         try {
             // Establecer conexion a la base de datos
             ConectarDB connect = new ConectarDB();
@@ -60,6 +59,7 @@ public class GestorOperarios extends GestorAdministracionVehiculosTaller {
             // Cerrar la conexion
             conexion.close();
             declaracion.close();   
+            JOptionPane.showMessageDialog(null, "Operario registrado correctamente");
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Error al ingresar el producto en la base de datos: " + e.getMessage());
         }
@@ -72,11 +72,9 @@ public class GestorOperarios extends GestorAdministracionVehiculosTaller {
             // Establecer conexion a la base de datos
             ConectarDB connect = new ConectarDB();
             Connection conexion = connect.conectarDB();
-
-            //Connection conexion = conectar();
             
             //Consulta SQL para seleccionar todos los registros de los productos
-            String consulta = "SELECT id_empleado,nombre FROM operarios";
+            String consulta = "SELECT id_operario,nombre FROM operarios";
             
             //Preparar la declaracion SQL
             PreparedStatement declaracion = conexion.prepareStatement(consulta);
@@ -86,15 +84,16 @@ public class GestorOperarios extends GestorAdministracionVehiculosTaller {
                            
             //Imprimir los resultados en la tabla
             while (resultado.next()) {
-                String id_Empleado = resultado.getString("id_empleado");
+                String id_Operario = resultado.getString("id_operario");
                 String nombre = resultado.getString("nombre");
 
                 //Creamos un array tipo objeto con los resultados de la consulta
-                Object [] resultadoConsulta = {id_Empleado,nombre};
+                Object [] resultadoConsulta = {id_Operario,nombre};
                 
                 //Definimos el contenido de la tabla
-                operariosDefaultModel.addRow(resultadoConsulta);
-                        
+                String [] columnasTabla = {"ID Operario", "Nombre"};
+                operariosDefaultModel.setColumnIdentifiers(columnasTabla);
+                operariosDefaultModel.addRow(resultadoConsulta);            
             }
             
             // Cerrar la conexión
@@ -106,5 +105,29 @@ public class GestorOperarios extends GestorAdministracionVehiculosTaller {
         }
     }    
 
+    //Metodo para eliminar productos de la base de datos
+    public void eliminarOperario(String id_operario){
+        try {
+            // Establecer conexion a la base de datos
+            ConectarDB connect = new ConectarDB();
+            Connection conexion = connect.conectarDB();
+            
+            //Consulta SQL para seleccionar todos los registros de los productos
+            String consulta = "DELETE FROM operarios WHERE id_operario = (?)";
+            
+            //Preparar la declaracion SQL #1
+            PreparedStatement  declaracion = conexion.prepareStatement(consulta);
+            declaracion.setString(1, id_operario); 
+            
+            // Ejecutar la consulta y obtener el resultado
+            declaracion.executeUpdate();
+
+            //Notificamos al usuario sobre la elminacion del producto
+            JOptionPane.showMessageDialog(null, "Registro de operario fue eliminado");
+               
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error al eliminar los datos de la base de datos - Error: " + e.getMessage());
+        }
+    } 
 }
 
