@@ -9,12 +9,12 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 import javax.swing.JOptionPane;
 
-public class InterfazRegistroOperarios extends javax.swing.JFrame {
+public class InterfazAdministracionOperarios extends javax.swing.JFrame {
 
     /**
      * Creates new form InterfazRegistroClientes
      */
-    public InterfazRegistroOperarios() {
+    public InterfazAdministracionOperarios() {
         initComponents();
     }
 
@@ -288,7 +288,7 @@ public class InterfazRegistroOperarios extends javax.swing.JFrame {
             operario.listarOperarios();
             tablaOperarios.setModel(operario.getOperariosDefaultModel());             
         } else {
-                JOptionPane.showMessageDialog(null, "Seleccione al menos un cliente de la tabla");
+                JOptionPane.showMessageDialog(null, "Seleccione al menos un operario de la tabla");
         }   
     }//GEN-LAST:event_botonEliminarOperarioActionPerformed
     public LocalDate convertirDatetoLocalDate(Date date) {
@@ -314,14 +314,18 @@ public class InterfazRegistroOperarios extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(InterfazRegistroOperarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InterfazAdministracionOperarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(InterfazRegistroOperarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InterfazAdministracionOperarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(InterfazRegistroOperarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InterfazAdministracionOperarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(InterfazRegistroOperarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InterfazAdministracionOperarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -330,7 +334,7 @@ public class InterfazRegistroOperarios extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new InterfazRegistroOperarios().setVisible(true);
+                new InterfazAdministracionOperarios().setVisible(true);
             }
         });
     }

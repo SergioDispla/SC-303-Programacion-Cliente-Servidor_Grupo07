@@ -164,7 +164,7 @@ public class InterfazMenuPrincipal extends javax.swing.JFrame {
 
     //Boton para acceder a la subinterfaz de Registro Operadores
     private void botonRegistroOperadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistroOperadoresActionPerformed
-       InterfazRegistroOperarios interfaz = new InterfazRegistroOperarios();
+       InterfazAdministracionOperarios interfaz = new InterfazAdministracionOperarios();
        interfaz.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
        interfaz.setVisible(true);
     }//GEN-LAST:event_botonRegistroOperadoresActionPerformed
