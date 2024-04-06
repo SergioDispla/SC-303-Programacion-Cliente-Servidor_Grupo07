@@ -1,8 +1,13 @@
 C:\Users\sams2\OneDrive - Universidad Fidélitas\2024\01- Programacion Cliente - Servidor\Proyecto\SC-303-Programacion-Cliente-Servidor_Grupo07\src\main\java\Gestores\GestorAdministracionVehiculosTaller.java
 C:\Users\sams2\OneDrive - Universidad Fidélitas\2024\01- Programacion Cliente - Servidor\Proyecto\SC-303-Programacion-Cliente-Servidor_Grupo07\src\main\java\Persona\Cliente.java
 C:\Users\sams2\OneDrive - Universidad Fidélitas\2024\01- Programacion Cliente - Servidor\Proyecto\SC-303-Programacion-Cliente-Servidor_Grupo07\src\main\java\Interfaz\InterfazServiciosMecanicos.java
+<<<<<<< Updated upstream
 C:\Users\sams2\OneDrive - Universidad Fidélitas\2024\01- Programacion Cliente - Servidor\Proyecto\SC-303-Programacion-Cliente-Servidor_Grupo07\src\main\java\Interfaz\InterfazAdministracionProductos.java
 C:\Users\sams2\OneDrive - Universidad Fidélitas\2024\01- Programacion Cliente - Servidor\Proyecto\SC-303-Programacion-Cliente-Servidor_Grupo07\src\main\java\Gestores\GestorReportes.java
+=======
+C:\Users\sams2\OneDrive - Universidad Fidélitas\2024\01- Programacion Cliente - Servidor\Proyecto\SC-303-Programacion-Cliente-Servidor_Grupo07\src\main\java\Gestores\GestorReportes.java
+C:\Users\sams2\OneDrive - Universidad Fidélitas\2024\01- Programacion Cliente - Servidor\Proyecto\SC-303-Programacion-Cliente-Servidor_Grupo07\src\main\java\Interfaz\InterfazRegistroProductos.java
+>>>>>>> Stashed changes
 C:\Users\sams2\OneDrive - Universidad Fidélitas\2024\01- Programacion Cliente - Servidor\Proyecto\SC-303-Programacion-Cliente-Servidor_Grupo07\src\main\java\Gestores\GestorAdministracionProductos.java
 C:\Users\sams2\OneDrive - Universidad Fidélitas\2024\01- Programacion Cliente - Servidor\Proyecto\SC-303-Programacion-Cliente-Servidor_Grupo07\src\main\java\Interfaz\InterfazMenuPrincipal.java
 C:\Users\sams2\OneDrive - Universidad Fidélitas\2024\01- Programacion Cliente - Servidor\Proyecto\SC-303-Programacion-Cliente-Servidor_Grupo07\src\main\java\Factura\Factura.java
@@ -19,6 +24,11 @@ C:\Users\sams2\OneDrive - Universidad Fidélitas\2024\01- Programacion Cliente -
 C:\Users\sams2\OneDrive - Universidad Fidélitas\2024\01- Programacion Cliente - Servidor\Proyecto\SC-303-Programacion-Cliente-Servidor_Grupo07\src\main\java\Interfaz\InterfazReportes.java
 C:\Users\sams2\OneDrive - Universidad Fidélitas\2024\01- Programacion Cliente - Servidor\Proyecto\SC-303-Programacion-Cliente-Servidor_Grupo07\src\main\java\Persona\Administrador.java
 C:\Users\sams2\OneDrive - Universidad Fidélitas\2024\01- Programacion Cliente - Servidor\Proyecto\SC-303-Programacion-Cliente-Servidor_Grupo07\src\main\java\Vehiculo\Vehiculo.java
+<<<<<<< Updated upstream
 C:\Users\sams2\OneDrive - Universidad Fidélitas\2024\01- Programacion Cliente - Servidor\Proyecto\SC-303-Programacion-Cliente-Servidor_Grupo07\src\main\java\Gestores\GestorAdministracionClienteVehiculo.java
 C:\Users\sams2\OneDrive - Universidad Fidélitas\2024\01- Programacion Cliente - Servidor\Proyecto\SC-303-Programacion-Cliente-Servidor_Grupo07\src\main\java\Interfaz\InterfazAdministracionClienteVehiculo.java
 C:\Users\sams2\OneDrive - Universidad Fidélitas\2024\01- Programacion Cliente - Servidor\Proyecto\SC-303-Programacion-Cliente-Servidor_Grupo07\src\main\java\Servicio\Mantenimiento.java
+=======
+C:\Users\sams2\OneDrive - Universidad Fidélitas\2024\01- Programacion Cliente - Servidor\Proyecto\SC-303-Programacion-Cliente-Servidor_Grupo07\src\main\java\Gestores\GestorVehiculoCliente.java
+C:\Users\sams2\OneDrive - Universidad Fidélitas\2024\01- Programacion Cliente - Servidor\Proyecto\SC-303-Programacion-Cliente-Servidor_Grupo07\src\main\java\Interfaz\InterfazRegistroClienteVehiculo.java
+>>>>>>> Stashed changes
