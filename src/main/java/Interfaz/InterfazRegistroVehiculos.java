@@ -65,6 +65,8 @@ public class InterfazRegistroVehiculos extends javax.swing.JFrame {
 
         labelCedulaCliente.setText("Ced. Cliente Asociado");
 
+        txtCedulaCliente.setEditable(false);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(

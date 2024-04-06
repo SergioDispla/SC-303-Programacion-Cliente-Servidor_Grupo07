@@ -85,8 +85,6 @@ public class InterfazVentaProductos extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tablaInfoCliente);
 
-        txtCodigoProducto.setText("1111");
-
         labelCedulaCliente.setText("Cedula Cliente");
 
         labelCodigoProducto.setText("Codigo Producto");
@@ -118,8 +116,6 @@ public class InterfazVentaProductos extends javax.swing.JFrame {
                 botonBuscarClienteActionPerformed(evt);
             }
         });
-
-        txtCedulaCliente.setText("987654321");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
