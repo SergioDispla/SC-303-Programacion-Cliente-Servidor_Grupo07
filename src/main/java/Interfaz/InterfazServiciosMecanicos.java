@@ -1,18 +1,23 @@
 package Interfaz;
 
 import Factura.Factura.TipoPago;
+import Gestores.GestorAdministracionVehiculosTaller;
 import Servicio.ServicioMecanico;
 import Taller.ConectarDB;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
  public class InterfazServiciosMecanicos extends javax.swing.JFrame {
+     String id_operario;
      TipoPago tipoPago;
      float subtotal = 0.0f;
+     ArrayList<String> serviciosFinales = new ArrayList<>();
+     
 
     /**
      * Creates new form InterfazServicioTaller
@@ -41,9 +46,9 @@ import javax.swing.JOptionPane;
         labelCedulaCliente1 = new javax.swing.JLabel();
         labelCedulaCliente2 = new javax.swing.JLabel();
         txtNombreCliente = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
+        labelOperario = new javax.swing.JLabel();
         labelNombreOperario = new javax.swing.JLabel();
-        listVehiculos = new java.awt.List();
+        listaVehiculos = new java.awt.List();
         labelInformacionCliente1 = new java.awt.Label();
         comboServicios = new javax.swing.JComboBox<>();
         botonAgregarServicio = new javax.swing.JToggleButton();
@@ -90,7 +95,7 @@ import javax.swing.JOptionPane;
 
         txtNombreCliente.setEditable(false);
 
-        jLabel1.setText("Operario: ");
+        labelOperario.setText("Operario: ");
 
         labelInformacionCliente1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         labelInformacionCliente1.setText("Información Cliente");
@@ -169,7 +174,7 @@ import javax.swing.JOptionPane;
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(labelOperario, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(23, 23, 23)
                                 .addComponent(labelNombreOperario)
                                 .addGap(110, 110, 110))
@@ -181,7 +186,7 @@ import javax.swing.JOptionPane;
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtNombreCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(listVehiculos, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(listaVehiculos, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(33, 33, 33))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(labelInformacionCliente1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -239,7 +244,7 @@ import javax.swing.JOptionPane;
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
+                            .addComponent(labelOperario)
                             .addComponent(labelNombreOperario))
                         .addGap(35, 35, 35)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -253,7 +258,7 @@ import javax.swing.JOptionPane;
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(11, 11, 11)
-                                        .addComponent(listVehiculos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(listaVehiculos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(labelCedulaCliente2)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -356,7 +361,7 @@ import javax.swing.JOptionPane;
                         String placa = resultado.getString("placa");  
                         
                         //Mostramos las placas asociadas a ese cliente como una lista
-                        listVehiculos.add(placa);
+                        listaVehiculos.add(placa);
                     }
                 }
             }  
@@ -378,7 +383,8 @@ import javax.swing.JOptionPane;
 
             //Mostramos los servicios seleccionados en una lista
             listaServicios.add(servicios.getNombre()+" - Precio: "+servicios.getPrecio());
-
+            serviciosFinales.add(servicios.getNombre());
+            
             //Sumar el precio del servicio al subtotal
             subtotal += servicios.getPrecio();
             labelSubtotalMonto.setText(String.valueOf(subtotal));
@@ -389,8 +395,20 @@ import javax.swing.JOptionPane;
         if (txtCedulaCliente.getText().isEmpty() || listaServicios.getItemCount() == 0){
             JOptionPane.showMessageDialog(null, "  Alguno de los campos necesarios esta vacío\nFavor ingresar cédula cliente o servicio mecánico");
         } else {
-            //Instanciacion de un objeto tipo 
-
+            if (listaVehiculos.getSelectedItem() == null){
+                JOptionPane.showMessageDialog(null, "Debe seleccionar al menos una placa de vehículo");
+            } else {
+                //Obtenemos los valores de los textfields
+                String cedula = txtCedulaCliente.getText();
+                String placa = listaVehiculos.getSelectedItem();
+                
+                
+                //Instanciacion de un objeto tipo GestorAdministracionVehiculosTaller para usar el metodo registrarMantenimiento
+                GestorAdministracionVehiculosTaller mantenimiento = new GestorAdministracionVehiculosTaller();
+           
+                //Lamada del metodo registarMantenimiento
+                mantenimiento.registrarMantenimiento(cedula, placa, listaServicios.getItems(), id_operario);
+            }
         }
     }//GEN-LAST:event_botonProcesarOrdenActionPerformed
 
@@ -402,7 +420,7 @@ import javax.swing.JOptionPane;
 
     private void validacionOperario(){       
         try {
-            String id_Empleado = JOptionPane.showInputDialog("Ingrese su ID de Empleado");
+            id_operario = JOptionPane.showInputDialog("Ingrese su ID de Empleado");
             
             // Establecer conexión a la base de datos
             ConectarDB connect = new ConectarDB();
@@ -413,7 +431,7 @@ import javax.swing.JOptionPane;
 
             //Preparar la declaracion SQL
             PreparedStatement declaracion = conexion.prepareStatement(consulta);
-            declaracion.setString(1, id_Empleado);
+            declaracion.setString(1, id_operario);
             
             //Ejecutar la consulta y obtener el resultado
             ResultSet resultado = declaracion.executeQuery();   
@@ -430,8 +448,8 @@ import javax.swing.JOptionPane;
                     } 
                     break;
                 }
-                id_Empleado = JOptionPane.showInputDialog("Ingrese su ID de Empleado");
-                declaracion.setString(1, id_Empleado);
+                id_operario = JOptionPane.showInputDialog("Ingrese su ID de Empleado");
+                declaracion.setString(1, id_operario);
                 resultado = declaracion.executeQuery();   
             }       
        } catch (SQLException e) {
@@ -483,7 +501,6 @@ import javax.swing.JOptionPane;
     private javax.swing.JButton botonRegistrarCliente;
     private javax.swing.JComboBox<String> comboServicios;
     private javax.swing.JComboBox<String> comboTipoPago;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
@@ -494,6 +511,7 @@ import javax.swing.JOptionPane;
     private java.awt.Label labelInformacionCliente1;
     private java.awt.Label labelIngresarCedula;
     private javax.swing.JLabel labelNombreOperario;
+    private javax.swing.JLabel labelOperario;
     private javax.swing.JLabel labelSeleccionePlaca;
     private java.awt.Label labelServiciosComprar;
     private java.awt.Label labelServiciosDisponibles;
@@ -502,8 +520,8 @@ import javax.swing.JOptionPane;
     private javax.swing.JLabel labelTiempoEstimado;
     private javax.swing.JLabel labelTipoPago;
     private java.awt.Label labelTituloVentana1;
-    private java.awt.List listVehiculos;
     private java.awt.List listaServicios;
+    private java.awt.List listaVehiculos;
     private javax.swing.JTextField txtCedulaCliente;
     private javax.swing.JTextPane txtHoraEstimada;
     private javax.swing.JTextField txtNombreCliente;

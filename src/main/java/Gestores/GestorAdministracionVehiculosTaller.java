@@ -18,6 +18,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class GestorAdministracionVehiculosTaller implements Factura {
 
@@ -84,20 +85,21 @@ public class GestorAdministracionVehiculosTaller implements Factura {
         
            }
     // Implementacion para asociar un cliente, un vehículo y un servicio mecánico al mantenimiento
-    public void registrarMantenimiento(Cliente cliente, Vehiculo vehiculo, ServicioMecanico servicio) {         
+    public void registrarMantenimiento(String cliente, String placa, String[] servicios, String operario) {         
         try {
                 // Establecer conexión a la base de datos
                 ConectarDB connect = new ConectarDB();
                 Connection conexion = connect.conectarDB();
 
                 // Consulta SQL para insertar la transaccion en la tabla de "registromantenimiento"
-                String consulta = "INSERT INTO registromantenimientos (cedula, placa, servicio, id_operario) VALUES (?, ?, ?)";
+                String consulta = "INSERT INTO registromantenimientos (cedula, placa, servicio, id_operario) VALUES (?, ?, ?, ?)";
 
                 // Se realiza el armado de la consulta
                 PreparedStatement declaracion = conexion.prepareStatement(consulta);
-                declaracion.setString(1, cliente.getNombre()); 
-                declaracion.setString(2, vehiculo.getPlaca());
-                declaracion.setString(3, servicio.toString());
+                declaracion.setString(1, cliente); 
+                declaracion.setString(2, placa);
+                declaracion.setString(3, servicios.toString());
+                declaracion.setString(4, operario);
 
                 // Ejecuta la insercion
                 declaracion.executeUpdate();

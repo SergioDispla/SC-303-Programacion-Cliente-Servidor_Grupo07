@@ -295,7 +295,7 @@ public class InterfazAdministracionOperarios extends javax.swing.JFrame {
         return date.toInstant()
         .atZone(ZoneId.systemDefault())
         .toLocalDate();
-}
+    }
     
     /**
      * @param args the command line arguments

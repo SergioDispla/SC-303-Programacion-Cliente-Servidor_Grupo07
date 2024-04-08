@@ -9,7 +9,6 @@
  */
 package Gestores;
 import Producto.Producto;
-import Persona.Cliente;
 import Factura.Factura;
 import Taller.ConectarDB;
 import java.io.BufferedReader;

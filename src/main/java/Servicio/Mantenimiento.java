@@ -5,13 +5,13 @@ import Persona.Operario;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-
 public class Mantenimiento {
     
     public enum Estados {
     Completado, En_Progreso, En_cola;
     }
     
+    private String id_mantenimiento;
     private ServicioMecanico servicios;
     private LocalDate fecha;
     private LocalDateTime horaInicio;
@@ -19,13 +19,13 @@ public class Mantenimiento {
     private Operario operarioAsignado;
     private Estados estado;
 
-    public Mantenimiento(ServicioMecanico servicios, LocalDate fecha, LocalDateTime horaInicio, LocalDateTime horaFinal, Operario operarioAsignado, Estados estado) {
-        this.servicios = servicios;
-        this.fecha = fecha;
-        this.horaInicio = horaInicio;
-        this.horaFinal = horaFinal;
-        this.operarioAsignado = operarioAsignado;
-        this.estado = estado;
+    
+    public String getId_mantenimiento() {
+        return id_mantenimiento;
+    }
+
+    public void setId_mantenimiento(String id_mantenimiento) {
+        this.id_mantenimiento = id_mantenimiento;
     }
 
     public ServicioMecanico getServicios() {
@@ -75,4 +75,5 @@ public class Mantenimiento {
     public void setEstado(Estados estado) {
         this.estado = estado;
     }  
+    
 }
