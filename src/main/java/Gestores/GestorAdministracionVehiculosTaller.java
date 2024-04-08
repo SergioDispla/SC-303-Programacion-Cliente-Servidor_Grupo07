@@ -22,7 +22,7 @@ import java.sql.SQLException;
 public class GestorAdministracionVehiculosTaller implements Factura {
 
     @Override
-    public void registroVentas(Cliente cliente, float totalPagado, TipoPago tipoPago) {
+    public void registroVentas(String cedulaCliente, float totalPagado, TipoPago tipoPago) {
         try {
             // Establecer conexión a la base de datos
             ConectarDB connect = new ConectarDB();
@@ -33,7 +33,7 @@ public class GestorAdministracionVehiculosTaller implements Factura {
             
             // Se realiza el armado de la consulta
             PreparedStatement declaracion = conexion.prepareStatement(consulta);
-            declaracion.setString(1, cliente.getCedula()); 
+            declaracion.setString(1, cedulaCliente); 
             declaracion.setFloat(2, totalPagado);
             declaracion.setString(3, tipoPago.toString());
             
@@ -43,7 +43,7 @@ public class GestorAdministracionVehiculosTaller implements Factura {
             // Cierra la conexion
             conexion.close();
             
-            System.out.println("Transacción de venta guardada en la base de datos.");
+            System.out.println("Transacción de venta realizada");
         } catch (SQLException e) {
             System.out.println("Error al guardar la transacción de venta en la base de datos: " + e.getMessage());
         }        

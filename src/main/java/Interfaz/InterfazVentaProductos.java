@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Interfaz;
+import Factura.Factura.TipoPago;
 import Gestores.GestorAdministracionProductos;
 import Taller.ConectarDB;
 import java.sql.Connection;
@@ -18,7 +19,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class InterfazVentaProductos extends javax.swing.JFrame {
     DefaultTableModel tablaCompras = new DefaultTableModel();
-    String clienteFinal;
+    TipoPago tipoPago;
     float subtotal = 0.0f;
     
     /**
@@ -129,10 +130,14 @@ public class InterfazVentaProductos extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(botonBuscarCliente)
+                        .addGap(168, 168, 168))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(14, 14, 14)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(labelCodigoProducto, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
+                            .addComponent(labelCodigoProducto, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
                             .addComponent(labelCedulaCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -141,11 +146,7 @@ public class InterfazVentaProductos extends javax.swing.JFrame {
                                 .addGap(51, 51, 51)
                                 .addComponent(botonIngresarProductos, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(txtCedulaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(66, 66, 66))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(botonBuscarCliente)
-                        .addGap(168, 168, 168)))
+                        .addGap(66, 66, 66)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelListaCompras)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -153,7 +154,7 @@ public class InterfazVentaProductos extends javax.swing.JFrame {
                         .addComponent(labelInfoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGap(0, 189, Short.MAX_VALUE)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(144, 144, 144)))
                 .addContainerGap())
@@ -164,10 +165,10 @@ public class InterfazVentaProductos extends javax.swing.JFrame {
                         .addComponent(labelTituloVentana, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(375, 375, 375))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(layout.createSequentialGroup()
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                             .addComponent(labelSubtotalCompra)
-                            .addGap(18, 18, 18)
-                            .addComponent(labelSubtotalMonto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(labelSubtotalMonto, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addContainerGap())
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -206,23 +207,22 @@ public class InterfazVentaProductos extends javax.swing.JFrame {
                         .addComponent(labelListaCompras)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(comboTipoPago, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(38, 38, 38)
-                        .addComponent(botonCompletarCompra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(15, 15, 15))
-                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel2)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(labelSubtotalCompra)
                             .addComponent(labelSubtotalMonto))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(comboTipoPago, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(49, 49, 49)
+                        .addComponent(botonCompletarCompra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(15, 15, 15))))
         );
 
         pack();
@@ -232,8 +232,8 @@ public class InterfazVentaProductos extends javax.swing.JFrame {
     private void botonIngresarProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonIngresarProductosActionPerformed
          //Variable que capturan los valores ingresados en los text fields
         String codProducto = txtCodigoProducto.getText().trim();  
-        if (txtCedulaCliente.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null, "Debe ingresar la cédula del cliente primero");
+        if (txtCedulaCliente.getText().isEmpty() || txtCodigoProducto.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "  Alguno de los campos necesarios esta vacío\nFavor ingresar cédula cliente o código de producto");            
         } else {       
             try {
                 // Establecer conexion a la base de datos
@@ -273,9 +273,6 @@ public class InterfazVentaProductos extends javax.swing.JFrame {
 
                 // Actualizar el texto de la etiqueta labelSubtotalMonto para mostrar la cantidad parcial a pagar
                 labelSubtotalMonto.setText(String.valueOf(subtotal));
-                
-                
-
             } catch (SQLException e) {
                  JOptionPane.showMessageDialog(null, "Error al conectar a la BD: " + e.getMessage());
             }
@@ -285,15 +282,26 @@ public class InterfazVentaProductos extends javax.swing.JFrame {
 
     //Boton para completar la compra
     private void botonCompletarCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCompletarCompraActionPerformed
-        //Instanciacion de un objeto tipo GestorAdministracionProductos para usar el metodo registrarVenta
-        GestorAdministracionProductos completarCompra = new GestorAdministracionProductos();
-                
-        //productos.registroVentas(cliente01, 11300, TARJETA);
-        //productos.registroVentas();
+        if (txtCedulaCliente.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "  Alguno de los campos necesarios esta vacío\nFavor ingresar cédula cliente o código de producto");
+        } else {
+            //Instanciacion de un objeto tipo GestorAdministracionProductos para usar el metodo registrarVenta
+            GestorAdministracionProductos completarCompra = new GestorAdministracionProductos();
 
-        //completarCompra.registroVentas(cliente, subtotal, rootPane);
-        //registroVentas(Cliente cliente, float totalPagado, TipoPago tipoPago)
-        
+            //Obtenemos la cedula del cliente del textfield
+            String cedulaCliente = txtCedulaCliente.getText().toString();
+
+            //Obtenemos el item seleccionado del combo box y lo mapeamos a un tipoPago
+            mapearTipoPago(comboTipoPago.getSelectedItem().toString());
+
+            //Se llama al metodo registroVentas y le pasamos todas las variables para registrar la venta en la base de datos
+            completarCompra.registroVentas(cedulaCliente, subtotal, tipoPago);
+            
+            //Limpiamos variables de la interfaz
+            tipoPago = null;
+            txtCedulaCliente.setText("");
+            labelSubtotalMonto.setText("");
+        }    
     }//GEN-LAST:event_botonCompletarCompraActionPerformed
 
     //Boton para buscar el cliente ingresado en la base de datos
@@ -316,32 +324,46 @@ public class InterfazVentaProductos extends javax.swing.JFrame {
             ResultSet resultado = declaracion.executeQuery();           
             
             //Condicional que valida si se obtuvieron resultados del SQL query (Stackoverflow solucion)
-            if (!resultado.isBeforeFirst()){ 
-                JOptionPane.showMessageDialog(null, "[!] El cliente no se encuentra registrado");
-            } else {            
-                //Imprimir los resultados en la tabla
-                while (resultado.next()) {
-                    String ced_Cliente = resultado.getString("cedula");
-                    String nombre_cliente = resultado.getString("nombre");
-                    String correo_Electro = resultado.getString("correoElectronico");  
+            if (txtCedulaCliente.getText().isEmpty()){
+                JOptionPane.showMessageDialog(null, "Debe ingresar una cédula de cliente");
+            } else {
+                if (!resultado.isBeforeFirst()){ 
+                    JOptionPane.showMessageDialog(null, "[!] El cliente no se encuentra registrado");
+                } else {            
+                    //Imprimir los resultados en la tabla
+                    while (resultado.next()) {
+                        String ced_Cliente = resultado.getString("cedula");
+                        String nombre_cliente = resultado.getString("nombre");
+                        String correo_Electro = resultado.getString("correoElectronico");  
 
-                    Object [] resultadoConsulta = {ced_Cliente,nombre_cliente, correo_Electro};
+                        Object [] resultadoConsulta = {ced_Cliente,nombre_cliente, correo_Electro};
 
-                    //Definimos el contenido de la tabla
-                    String [] columnasTabla = {"Cedula", "Nombre", "Correo Electronico"};
-                    tablaClientes.setColumnIdentifiers(columnasTabla);
-                    tablaClientes.addRow(resultadoConsulta);
-                    tablaInfoCliente.setModel(tablaClientes);
-                    clienteFinal = nombre_cliente;
-                }
-            }               
+                        //Definimos el contenido de la tabla
+                        String [] columnasTabla = {"Cedula", "Nombre", "Correo Electronico"};
+                        tablaClientes.setColumnIdentifiers(columnasTabla);
+                        tablaClientes.addRow(resultadoConsulta);
+                        tablaInfoCliente.setModel(tablaClientes);
+                    }
+                }    
+            }
+                           
         } catch (SQLException e) {
              JOptionPane.showMessageDialog(null, "Error al conectar la base de datos " + e.getMessage());
-        }
-        
-        
+        }  
     }//GEN-LAST:event_botonBuscarClienteActionPerformed
 
+    //Metodo para poder mapear el item seleccionado en el combo box
+    private TipoPago mapearTipoPago(String comboBoxItemPago){
+        if (comboTipoPago.getSelectedItem().toString() == "TARJETA") {
+            tipoPago = TipoPago.TARJETA;
+        } else if (comboTipoPago.getSelectedItem().toString() == "EFECTIVO") {
+            tipoPago = TipoPago.EFECTIVO;
+        } else {
+            tipoPago = null;
+        }
+        return tipoPago;
+    }
+    
     /**
      * @param args the command line arguments
      */

@@ -176,7 +176,7 @@ public class GestorAdministracionProductos implements Factura {
                
     //Metodo sobreescrito de la interface factura - Registra la compra en la base de datos "Taller" en la tabla "ventasproductos"
     @Override
-    public void registroVentas(Cliente cliente, float totalPagado, TipoPago tipoPago) {
+    public void registroVentas(String cedulaCliente, float totalPagado, TipoPago tipoPago) {
         try {
             // Establecer conexión a la base de datos
             ConectarDB connect = new ConectarDB();
@@ -187,23 +187,23 @@ public class GestorAdministracionProductos implements Factura {
             
             // Se realiza el armado de la consulta
             PreparedStatement declaracion = conexion.prepareStatement(consulta);
-            declaracion.setString(1, cliente.getCedula()); 
+            declaracion.setString(1, cedulaCliente); 
             declaracion.setFloat(2, totalPagado);
             declaracion.setString(3, tipoPago.toString());
             
-            // Ejecuta la insercion
+            // Ejecuta la insercion en la tabla
             declaracion.executeUpdate();
             
             // Cierra la conexion
             conexion.close();
             declaracion.close();
             
-            JOptionPane.showMessageDialog(null, "Transacción de venta guardada en la base de datos.");
+            JOptionPane.showMessageDialog(null, "Transacción de venta realizada");
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Error al guardar la transacción de venta en la base de datos - Error " + e.getMessage());
         }
     }
-
+    
     //Metodo sobreescrito de la interface factura - Lista las compras realizadas que se guardaron en la tabla "ventasproductos"
     @Override
     public void listarVentas() {
@@ -238,5 +238,7 @@ public class GestorAdministracionProductos implements Factura {
             JOptionPane.showMessageDialog(null, "Error al listar las ventas de la base de datos - Error: " + e.getMessage());
         }
     }
+    
+
  
 }
