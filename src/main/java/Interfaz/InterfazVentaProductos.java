@@ -13,10 +13,6 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author sams2
- */
 public class InterfazVentaProductos extends javax.swing.JFrame {
     DefaultTableModel tablaCompras = new DefaultTableModel();
     TipoPago tipoPago;
@@ -57,7 +53,7 @@ public class InterfazVentaProductos extends javax.swing.JFrame {
         labelSubtotalMonto = new javax.swing.JLabel();
         botonBuscarCliente = new javax.swing.JButton();
         txtCedulaCliente = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
+        labelTipoPago = new javax.swing.JLabel();
         comboTipoPago = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -120,7 +116,7 @@ public class InterfazVentaProductos extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("Tipo Pago");
+        labelTipoPago.setText("Tipo Pago");
 
         comboTipoPago.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "TARJETA", "EFECTIVO" }));
 
@@ -174,7 +170,7 @@ public class InterfazVentaProductos extends javax.swing.JFrame {
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(botonCompletarCompra)
                                 .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel1)
+                                    .addComponent(labelTipoPago)
                                     .addGap(18, 18, 18)
                                     .addComponent(comboTipoPago, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGap(14, 14, 14)))))
@@ -218,7 +214,7 @@ public class InterfazVentaProductos extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(43, 43, 43)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
+                            .addComponent(labelTipoPago)
                             .addComponent(comboTipoPago, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(49, 49, 49)
                         .addComponent(botonCompletarCompra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -270,7 +266,6 @@ public class InterfazVentaProductos extends javax.swing.JFrame {
                     //Sumar el precio del producto al subtotal
                     subtotal += precio_Prod;
                 }
-
                 // Actualizar el texto de la etiqueta labelSubtotalMonto para mostrar la cantidad parcial a pagar
                 labelSubtotalMonto.setText(String.valueOf(subtotal));
             } catch (SQLException e) {
@@ -406,7 +401,6 @@ public class InterfazVentaProductos extends javax.swing.JFrame {
     private javax.swing.JButton botonCompletarCompra;
     private javax.swing.JButton botonIngresarProductos;
     private javax.swing.JComboBox<String> comboTipoPago;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
@@ -416,6 +410,7 @@ public class InterfazVentaProductos extends javax.swing.JFrame {
     private javax.swing.JLabel labelListaCompras;
     private javax.swing.JLabel labelSubtotalCompra;
     private javax.swing.JLabel labelSubtotalMonto;
+    private javax.swing.JLabel labelTipoPago;
     private java.awt.Label labelTituloVentana;
     private javax.swing.JTable tablaInfoCliente;
     private javax.swing.JTable tablaListaCompras;

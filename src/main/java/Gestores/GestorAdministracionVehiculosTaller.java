@@ -28,7 +28,7 @@ public class GestorAdministracionVehiculosTaller implements Factura {
             ConectarDB connect = new ConectarDB();
             Connection conexion = connect.conectarDB();
             
-            // Consulta SQL para insertar la transaccion en la tabla de "registroventas"
+            // Consulta SQL para insertar la transaccion en la tabla de "ventaservicios"
             String consulta = "INSERT INTO ventaservicios (cedula, totalpagado, tipopago) VALUES (?, ?, ?)";
             
             // Se realiza el armado de la consulta
@@ -83,9 +83,8 @@ public class GestorAdministracionVehiculosTaller implements Factura {
         }        
         
            }
-    
-    public void asociarClienteVehiculoYServicio(Cliente cliente, Vehiculo vehiculo, ServicioMecanico servicio, Operario operario) {       
-        // Implementacion para asociar un cliente, un vehículo y un servicio mecánico al mantenimiento  
+     // Implementacion para asociar un cliente, un vehículo y un servicio mecánico al mantenimiento
+    public void registrarMantenimiento(Cliente cliente, Vehiculo vehiculo, ServicioMecanico servicio, Operario operario) {         
         try {
                 // Establecer conexión a la base de datos
                 ConectarDB connect = new ConectarDB();

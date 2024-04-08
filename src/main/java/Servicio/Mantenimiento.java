@@ -5,8 +5,6 @@ import Persona.Operario;
 import java.time.LocalDate;
 
 
-
-
 public class Mantenimiento {
     
     public enum Estados {
@@ -75,10 +73,5 @@ public class Mantenimiento {
 
     public void setEstado(String estado) {
         this.estado = estado;
-    }
-
-
-
-
-   
+    }  
 }

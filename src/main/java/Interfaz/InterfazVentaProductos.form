@@ -84,7 +84,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="botonCompletarCompra" min="-2" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelTipoPago" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="comboTipoPago" min="-2" max="-2" attributes="0"/>
                               </Group>
@@ -144,7 +144,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelTipoPago" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="comboTipoPago" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
@@ -312,7 +312,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtCedulaCliente">
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel1">
+    <Component class="javax.swing.JLabel" name="labelTipoPago">
       <Properties>
         <Property name="text" type="java.lang.String" value="Tipo Pago"/>
       </Properties>

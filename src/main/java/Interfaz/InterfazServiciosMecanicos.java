@@ -1,24 +1,23 @@
 package Interfaz;
 
+import Factura.Factura.TipoPago;
 import Servicio.ServicioMecanico;
 import Taller.ConectarDB;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.List;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
 
  public class InterfazServiciosMecanicos extends javax.swing.JFrame {
+     TipoPago tipoPago;
+     float subtotal = 0.0f;
 
     /**
      * Creates new form InterfazServicioTaller
      */
-     
-    //Creamos un default model para luego rellenar la tabla en los servicios seleccionados
-    DefaultTableModel serviciosDefaultModel = new DefaultTableModel();
-        
+            
     public InterfazServiciosMecanicos() {
         initComponents();
         validacionOperario();
@@ -49,8 +48,14 @@ import javax.swing.table.DefaultTableModel;
         comboServicios = new javax.swing.JComboBox<>();
         botonAgregarServicio = new javax.swing.JToggleButton();
         labelServiciosComprar = new java.awt.Label();
-        botonProcesarCompra = new javax.swing.JToggleButton();
+        botonProcesarOrden = new javax.swing.JToggleButton();
         listaServicios = new java.awt.List();
+        labelSeleccionePlaca = new javax.swing.JLabel();
+        labelSubtotalCompra = new javax.swing.JLabel();
+        labelSubtotalMonto = new javax.swing.JLabel();
+        labelTipoPago = new javax.swing.JLabel();
+        comboTipoPago = new javax.swing.JComboBox<>();
+        botonRegistrarCliente = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -61,8 +66,6 @@ import javax.swing.table.DefaultTableModel;
         labelTituloVentana1.setText("Servicios Mecánicos  ");
 
         labelCedulaCliente.setText("Cédula Cliente");
-
-        txtCedulaCliente.setText("123456789");
 
         botonBuscarCliente.setText("Buscar Cliente");
         botonBuscarCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -95,8 +98,31 @@ import javax.swing.table.DefaultTableModel;
         labelServiciosComprar.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         labelServiciosComprar.setText("Servicios a Realizar");
 
-        botonProcesarCompra.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        botonProcesarCompra.setText("Procesar Compra");
+        botonProcesarOrden.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        botonProcesarOrden.setText("Procesar Orden");
+        botonProcesarOrden.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonProcesarOrdenActionPerformed(evt);
+            }
+        });
+
+        labelSeleccionePlaca.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        labelSeleccionePlaca.setText("(Seleccione una placa)");
+
+        labelSubtotalCompra.setText("Subtotal:");
+
+        labelSubtotalMonto.setText("0");
+
+        labelTipoPago.setText("Tipo Pago");
+
+        comboTipoPago.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "TARJETA", "EFECTIVO" }));
+
+        botonRegistrarCliente.setText("Registrar Cliente");
+        botonRegistrarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonRegistrarClienteActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -108,16 +134,18 @@ import javax.swing.table.DefaultTableModel;
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
+                                .addGap(110, 110, 110)
+                                .addComponent(labelIngresarCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(labelCedulaCliente)
                                 .addGap(18, 18, 18)
-                                .addComponent(txtCedulaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(147, 147, 147)
-                                .addComponent(botonBuscarCliente))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(110, 110, 110)
-                                .addComponent(labelIngresarCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 291, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(botonBuscarCliente)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(botonRegistrarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txtCedulaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 252, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -127,7 +155,8 @@ import javax.swing.table.DefaultTableModel;
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(labelCedulaCliente1)
-                                    .addComponent(labelCedulaCliente2))
+                                    .addComponent(labelCedulaCliente2)
+                                    .addComponent(labelSeleccionePlaca))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtNombreCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -142,15 +171,31 @@ import javax.swing.table.DefaultTableModel;
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(labelServiciosComprar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(94, 94, 94))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(comboServicios, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(36, 36, 36)
+                                .addComponent(botonAgregarServicio)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(listaServicios, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(labelSubtotalCompra)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(labelSubtotalMonto, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(labelTipoPago)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(comboTipoPago, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(8, 8, 8)))
+                        .addGap(37, 37, 37))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(comboServicios, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(36, 36, 36)
-                        .addComponent(botonAgregarServicio)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(botonProcesarCompra, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(listaServicios, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(37, 37, 37))))
+                        .addGap(762, 762, 762)
+                        .addComponent(botonProcesarOrden)
+                        .addContainerGap())))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(338, 338, 338)
@@ -169,14 +214,6 @@ import javax.swing.table.DefaultTableModel;
                         .addGap(35, 35, 35)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(labelIngresarCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(25, 25, 25)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(labelCedulaCliente)
-                                    .addComponent(txtCedulaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addComponent(botonBuscarCliente))
-                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(labelInformacionCliente1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -187,27 +224,48 @@ import javax.swing.table.DefaultTableModel;
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(11, 11, 11)
                                         .addComponent(listVehiculos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(labelCedulaCliente2))))
-                        .addGap(44, 44, 44)
-                        .addComponent(labelServiciosDisponibles, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(labelCedulaCliente2)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(labelSeleccionePlaca)))
+                                .addGap(44, 44, 44)
+                                .addComponent(labelServiciosDisponibles, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(labelIngresarCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(25, 25, 25)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(labelCedulaCliente)
+                                    .addComponent(txtCedulaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(botonBuscarCliente)
+                                    .addComponent(botonRegistrarCliente)))))
                     .addComponent(labelServiciosComprar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(comboServicios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(botonAgregarServicio))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(listaServicios, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
-                        .addComponent(botonProcesarCompra)
-                        .addGap(27, 27, 27))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(comboServicios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(botonAgregarServicio))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(22, 22, 22)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(labelSubtotalCompra)
+                                .addComponent(labelSubtotalMonto))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(31, 31, 31)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(labelTipoPago)
+                                    .addComponent(comboTipoPago, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(18, 18, 18)
+                        .addComponent(botonProcesarOrden)))
+                .addContainerGap(20, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(20, 20, 20)
                     .addComponent(labelTituloVentana1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(602, Short.MAX_VALUE)))
+                    .addContainerGap(639, Short.MAX_VALUE)))
         );
 
         pack();
@@ -259,12 +317,9 @@ import javax.swing.table.DefaultTableModel;
                         
                         //Mostramos las placas asociadas a ese cliente como una lista
                         listVehiculos.add(placa);
-                        
-
                     }
                 }
-            } 
-          
+            }  
          } catch (SQLException e) {
              JOptionPane.showMessageDialog(null, "Error al conectar la base de datos " + e.getMessage());
         }
@@ -272,26 +327,38 @@ import javax.swing.table.DefaultTableModel;
     }//GEN-LAST:event_botonBuscarClienteActionPerformed
 
     private void botonAgregarServicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarServicioActionPerformed
-        //Obtenemos el item seleccionados y lo guardamos en variables
-        int servicio_numero = comboServicios.getSelectedIndex();
-          
-        //Creamos una variable de tipo ServicioMecanico que va obtener un valor del ArrayList segun la posicion pasada 
-        ServicioMecanico servicios = ServicioMecanico.getServiciosMecanicos().get(servicio_numero);
-        
-        //Mostramos los servicios seleccionados en una lista
-        listaServicios.add(servicios.getNombre()+" - Precio: "+servicios.getPrecio());
-        
-        //listaServicios.add(servicios.getNombre()+" - Precio: "+servicios.getPrecio());
-        //Creamos un array tipo objeto para guardar los items seleccionados
-        //Object [] serviciosSeleccionados = {servicios.getNombre(),servicios.getPrecio()};
-        
-        //Rellenamos el default model con los items seleccionados
-        //serviciosDefaultModel.addRow(serviciosSeleccionados);
-        
-        //Agregamos el defaultmodel a la tabla para mostrar los items seleccionados
-        //tablaServicios.setModel(serviciosDefaultModel);
-             
+        if (txtNombreCliente.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Debe ingresar un cliente primero");   
+        } else {
+            //Obtenemos el item seleccionados y lo guardamos en variables
+            int servicio_numero = comboServicios.getSelectedIndex();
+
+            //Creamos una variable de tipo ServicioMecanico que va obtener un valor del ArrayList segun la posicion pasada 
+            ServicioMecanico servicios = ServicioMecanico.getServiciosMecanicos().get(servicio_numero);
+
+            //Mostramos los servicios seleccionados en una lista
+            listaServicios.add(servicios.getNombre()+" - Precio: "+servicios.getPrecio());
+
+            //Sumar el precio del servicio al subtotal
+            subtotal += servicios.getPrecio();
+            labelSubtotalMonto.setText(String.valueOf(subtotal));
+        }    
     }//GEN-LAST:event_botonAgregarServicioActionPerformed
+
+    private void botonProcesarOrdenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonProcesarOrdenActionPerformed
+        if (txtCedulaCliente.getText().isEmpty() || listaServicios.getItemCount() == 0){
+            JOptionPane.showMessageDialog(null, "  Alguno de los campos necesarios esta vacío\nFavor ingresar cédula cliente o servicio mecánico");
+        } else {
+            //Instanciacion de un objeto tipo GestorAdministracionProductos para usar el metodo registrarVenta
+
+        }
+    }//GEN-LAST:event_botonProcesarOrdenActionPerformed
+
+    private void botonRegistrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarClienteActionPerformed
+        SubInterfazRegistrarCliente subInterfaz = new SubInterfazRegistrarCliente();
+        subInterfaz.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        subInterfaz.setVisible(true);
+    }//GEN-LAST:event_botonRegistrarClienteActionPerformed
 
     private void validacionOperario(){       
         try {
@@ -372,8 +439,10 @@ import javax.swing.table.DefaultTableModel;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton botonAgregarServicio;
     private javax.swing.JButton botonBuscarCliente;
-    private javax.swing.JToggleButton botonProcesarCompra;
+    private javax.swing.JToggleButton botonProcesarOrden;
+    private javax.swing.JButton botonRegistrarCliente;
     private javax.swing.JComboBox<String> comboServicios;
+    private javax.swing.JComboBox<String> comboTipoPago;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel labelCedulaCliente;
     private javax.swing.JLabel labelCedulaCliente1;
@@ -381,8 +450,12 @@ import javax.swing.table.DefaultTableModel;
     private java.awt.Label labelInformacionCliente1;
     private java.awt.Label labelIngresarCedula;
     private javax.swing.JLabel labelNombreOperario;
+    private javax.swing.JLabel labelSeleccionePlaca;
     private java.awt.Label labelServiciosComprar;
     private java.awt.Label labelServiciosDisponibles;
+    private javax.swing.JLabel labelSubtotalCompra;
+    private javax.swing.JLabel labelSubtotalMonto;
+    private javax.swing.JLabel labelTipoPago;
     private java.awt.Label labelTituloVentana1;
     private java.awt.List listVehiculos;
     private java.awt.List listaServicios;

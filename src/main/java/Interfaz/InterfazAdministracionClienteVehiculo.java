@@ -29,6 +29,7 @@ public class InterfazAdministracionClienteVehiculo extends javax.swing.JFrame {
     private void initComponents() {
 
         jFrame1 = new javax.swing.JFrame();
+        labelRegistro1 = new javax.swing.JLabel();
         labelTituloVentana = new java.awt.Label();
         labelCedula = new javax.swing.JLabel();
         labelNombre = new javax.swing.JLabel();
@@ -48,7 +49,6 @@ public class InterfazAdministracionClienteVehiculo extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         tablaClientes = new javax.swing.JTable();
         labelListado = new javax.swing.JLabel();
-        labelRegistro1 = new javax.swing.JLabel();
         botonEliminarClientes = new javax.swing.JButton();
 
         javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
@@ -61,6 +61,9 @@ public class InterfazAdministracionClienteVehiculo extends javax.swing.JFrame {
             jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 300, Short.MAX_VALUE)
         );
+
+        labelRegistro1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        labelRegistro1.setText("Registro");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -115,9 +118,6 @@ public class InterfazAdministracionClienteVehiculo extends javax.swing.JFrame {
         labelListado.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         labelListado.setText("Listado Clientes");
 
-        labelRegistro1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        labelRegistro1.setText("Registro");
-
         botonEliminarClientes.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         botonEliminarClientes.setText("Eliminar Cliente");
         botonEliminarClientes.addActionListener(new java.awt.event.ActionListener() {
@@ -171,11 +171,6 @@ public class InterfazAdministracionClienteVehiculo extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(labelListado)
                 .addGap(246, 246, 246))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(252, 252, 252)
-                    .addComponent(labelRegistro1)
-                    .addContainerGap(771, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -222,11 +217,6 @@ public class InterfazAdministracionClienteVehiculo extends javax.swing.JFrame {
                         .addGap(37, 37, 37)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(71, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(82, 82, 82)
-                    .addComponent(labelRegistro1)
-                    .addContainerGap(526, Short.MAX_VALUE)))
         );
 
         pack();
