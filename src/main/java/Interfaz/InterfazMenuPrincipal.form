@@ -31,21 +31,14 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="112" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="botonRegistroProductos" alignment="0" max="32767" attributes="0"/>
-                              <Component id="botonRegistroClientes" alignment="0" max="32767" attributes="0"/>
-                              <Component id="botonRegistroOperadores" alignment="0" max="32767" attributes="0"/>
-                              <Component id="labelRegistros" alignment="0" max="32767" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
-                                  <Component id="labelReportes" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="botonReporteVentas" alignment="0" min="-2" pref="177" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="botonMantenimientoVehiculo" alignment="0" max="32767" attributes="0"/>
-                              <Component id="botonVentaProductos" alignment="0" min="-2" pref="177" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="botonRegistroProductos" alignment="0" max="32767" attributes="0"/>
+                          <Component id="botonRegistroClientes" alignment="0" max="32767" attributes="0"/>
+                          <Component id="botonRegistroOperadores" alignment="0" max="32767" attributes="0"/>
+                          <Component id="labelRegistros" alignment="0" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+                              <Component id="labelReportes" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
@@ -55,6 +48,10 @@
                               <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
                               <Component id="labelVentas" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <Component id="botonRegistroProductos1" max="32767" attributes="0"/>
+                          <Component id="botonVentaProductos" alignment="0" max="32767" attributes="0"/>
+                          <Component id="botonMantenimientoVehiculo" alignment="0" max="32767" attributes="0"/>
+                          <Component id="botonReporteVentas" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -71,7 +68,9 @@
               <Component id="labelMantenimientos" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="botonMantenimientoVehiculo" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+              <Component id="botonRegistroProductos1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="labelVentas" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="botonVentaProductos" min="-2" max="-2" attributes="0"/>
@@ -127,7 +126,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="botonMantenimientoVehiculo">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Servicios Mec&#xe1;nicos"/>
+        <Property name="text" type="java.lang.String" value="Registrar Mantenimiento"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonMantenimientoVehiculoActionPerformed"/>
@@ -179,6 +178,14 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonReporteVentasActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="botonRegistroProductos1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Gesti&#xf3;n Mantenimientos"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonRegistroProductos1ActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

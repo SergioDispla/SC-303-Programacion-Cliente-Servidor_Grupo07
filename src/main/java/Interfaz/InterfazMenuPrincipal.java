@@ -39,6 +39,7 @@ public class InterfazMenuPrincipal extends javax.swing.JFrame {
         labelMantenimientos = new javax.swing.JLabel();
         labelVentas = new javax.swing.JLabel();
         botonReporteVentas = new javax.swing.JButton();
+        botonRegistroProductos1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -66,7 +67,7 @@ public class InterfazMenuPrincipal extends javax.swing.JFrame {
             }
         });
 
-        botonMantenimientoVehiculo.setText("Servicios Mecánicos");
+        botonMantenimientoVehiculo.setText("Registrar Mantenimiento");
         botonMantenimientoVehiculo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonMantenimientoVehiculoActionPerformed(evt);
@@ -99,6 +100,13 @@ public class InterfazMenuPrincipal extends javax.swing.JFrame {
             }
         });
 
+        botonRegistroProductos1.setText("Gestión Mantenimientos");
+        botonRegistroProductos1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonRegistroProductos1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -110,25 +118,24 @@ public class InterfazMenuPrincipal extends javax.swing.JFrame {
                         .addComponent(labelBienvenida))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(112, 112, 112)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(botonRegistroProductos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(botonRegistroClientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(botonRegistroOperadores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(labelRegistros, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(55, 55, 55)
-                                    .addComponent(labelReportes))
-                                .addComponent(botonReporteVentas, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(botonMantenimientoVehiculo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(botonVentaProductos, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(botonRegistroProductos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(botonRegistroClientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(botonRegistroOperadores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(labelRegistros, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(55, 55, 55)
+                                .addComponent(labelReportes))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(57, 57, 57)
                                 .addComponent(labelMantenimientos))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(67, 67, 67)
-                                .addComponent(labelVentas)))))
+                                .addComponent(labelVentas))
+                            .addComponent(botonRegistroProductos1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(botonVentaProductos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(botonMantenimientoVehiculo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(botonReporteVentas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -140,7 +147,9 @@ public class InterfazMenuPrincipal extends javax.swing.JFrame {
                 .addComponent(labelMantenimientos)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(botonMantenimientoVehiculo)
-                .addGap(48, 48, 48)
+                .addGap(7, 7, 7)
+                .addComponent(botonRegistroProductos1)
+                .addGap(18, 18, 18)
                 .addComponent(labelVentas)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(botonVentaProductos)
@@ -204,6 +213,10 @@ public class InterfazMenuPrincipal extends javax.swing.JFrame {
        interfaz.setVisible(true);
     }//GEN-LAST:event_botonReporteVentasActionPerformed
 
+    private void botonRegistroProductos1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistroProductos1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botonRegistroProductos1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -244,6 +257,7 @@ public class InterfazMenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton botonRegistroClientes;
     private javax.swing.JButton botonRegistroOperadores;
     private javax.swing.JButton botonRegistroProductos;
+    private javax.swing.JButton botonRegistroProductos1;
     private javax.swing.JButton botonReporteVentas;
     private javax.swing.JButton botonVentaProductos;
     private javax.swing.JLabel labelBienvenida;

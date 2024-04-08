@@ -3,6 +3,7 @@ package Servicio;
 
 import Persona.Operario;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 
 public class Mantenimiento {
@@ -13,12 +14,12 @@ public class Mantenimiento {
     
     private ServicioMecanico servicios;
     private LocalDate fecha;
-    private LocalDate horaInicio;
-    private LocalDate horaFinal;
+    private LocalDateTime horaInicio;
+    private LocalDateTime horaFinal;
     private Operario operarioAsignado;
-    private String estado;
+    private Estados estado;
 
-    public Mantenimiento(ServicioMecanico servicios, LocalDate fecha, LocalDate horaInicio, LocalDate horaFinal, Operario operarioAsignado, String estado) {
+    public Mantenimiento(ServicioMecanico servicios, LocalDate fecha, LocalDateTime horaInicio, LocalDateTime horaFinal, Operario operarioAsignado, Estados estado) {
         this.servicios = servicios;
         this.fecha = fecha;
         this.horaInicio = horaInicio;
@@ -43,19 +44,19 @@ public class Mantenimiento {
         this.fecha = fecha;
     }
 
-    public LocalDate getHoraInicio() {
+    public LocalDateTime getHoraInicio() {
         return horaInicio;
     }
 
-    public void setHoraInicio(LocalDate horaInicio) {
+    public void setHoraInicio(LocalDateTime horaInicio) {
         this.horaInicio = horaInicio;
     }
 
-    public LocalDate getHoraFinal() {
+    public LocalDateTime getHoraFinal() {
         return horaFinal;
     }
 
-    public void setHoraFinal(LocalDate horaFinal) {
+    public void setHoraFinal(LocalDateTime horaFinal) {
         this.horaFinal = horaFinal;
     }
 
@@ -67,11 +68,11 @@ public class Mantenimiento {
         this.operarioAsignado = operarioAsignado;
     }
 
-    public String getEstado() {
+    public Estados getEstado() {
         return estado;
     }
 
-    public void setEstado(String estado) {
+    public void setEstado(Estados estado) {
         this.estado = estado;
     }  
 }
