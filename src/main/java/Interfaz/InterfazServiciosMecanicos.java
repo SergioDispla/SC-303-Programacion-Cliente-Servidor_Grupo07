@@ -62,13 +62,6 @@ import javax.swing.JOptionPane;
         labelTipoPago = new javax.swing.JLabel();
         comboTipoPago = new javax.swing.JComboBox<>();
         botonRegistrarCliente = new javax.swing.JButton();
-        labelTiempoEstimado = new javax.swing.JLabel();
-        labelHoraEstimada = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        txtHoraEstimada = new javax.swing.JTextPane();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        txtTiempoEstimado = new javax.swing.JTextPane();
-        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -139,18 +132,6 @@ import javax.swing.JOptionPane;
             }
         });
 
-        labelTiempoEstimado.setText("Tiempo estimado mantenimiento:");
-
-        labelHoraEstimada.setText("Hora estimada de entrega: ");
-
-        txtHoraEstimada.setEditable(false);
-        jScrollPane1.setViewportView(txtHoraEstimada);
-
-        txtTiempoEstimado.setEditable(false);
-        jScrollPane2.setViewportView(txtTiempoEstimado);
-
-        jLabel2.setText("minutos");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -166,12 +147,9 @@ import javax.swing.JOptionPane;
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(labelCedulaCliente)
                                 .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(botonBuscarCliente)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(botonRegistrarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(txtCedulaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(txtCedulaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addComponent(botonBuscarCliente)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -179,16 +157,6 @@ import javax.swing.JOptionPane;
                                 .addGap(23, 23, 23)
                                 .addComponent(labelNombreOperario)
                                 .addGap(110, 110, 110))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(labelCedulaCliente1)
-                                    .addComponent(labelCedulaCliente2)
-                                    .addComponent(labelSeleccionePlaca))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtNombreCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(listaVehiculos, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(33, 33, 33))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(labelInformacionCliente1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(99, 99, 99))))
@@ -206,16 +174,7 @@ import javax.swing.JOptionPane;
                                 .addComponent(botonAgregarServicio)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(listaServicios, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(labelTiempoEstimado)
-                                    .addComponent(labelHoraEstimada))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 79, Short.MAX_VALUE)
-                                    .addComponent(jScrollPane1))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel2)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(layout.createSequentialGroup()
@@ -231,7 +190,20 @@ import javax.swing.JOptionPane;
                     .addGroup(layout.createSequentialGroup()
                         .addGap(867, 867, 867)
                         .addComponent(botonProcesarOrden)
-                        .addContainerGap())))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(151, 151, 151)
+                .addComponent(botonRegistrarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelCedulaCliente1)
+                    .addComponent(labelCedulaCliente2)
+                    .addComponent(labelSeleccionePlaca))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtNombreCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(listaVehiculos, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(33, 33, 33))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(338, 338, 338)
@@ -271,14 +243,16 @@ import javax.swing.JOptionPane;
                                 .addGap(25, 25, 25)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(labelCedulaCliente)
-                                    .addComponent(txtCedulaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(botonBuscarCliente)
-                                    .addComponent(botonRegistrarCliente)))))
+                                    .addComponent(txtCedulaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(botonBuscarCliente))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(botonRegistrarCliente))))
                     .addComponent(labelServiciosComprar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(comboServicios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(botonAgregarServicio))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(listaServicios, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(22, 22, 22)
@@ -288,24 +262,11 @@ import javax.swing.JOptionPane;
                                 .addComponent(labelSubtotalMonto))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(31, 31, 31)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(labelTipoPago)
-                                        .addComponent(comboTipoPago, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(labelHoraEstimada))))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(comboServicios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(botonAgregarServicio))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labelTiempoEstimado, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addGap(40, 40, 40)))
-                .addGap(18, 18, 18)
-                .addComponent(botonProcesarOrden)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(labelTipoPago)
+                                    .addComponent(comboTipoPago, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(18, 18, 18)
+                        .addComponent(botonProcesarOrden)))
                 .addContainerGap(20, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
@@ -403,12 +364,14 @@ import javax.swing.JOptionPane;
                 String cedula = txtCedulaCliente.getText();
                 String placa = listaVehiculos.getSelectedItem();
                 
-                
                 //Instanciacion de un objeto tipo GestorAdministracionVehiculosTaller para usar el metodo registrarMantenimiento
                 GestorAdministracionVehiculosTaller mantenimiento = new GestorAdministracionVehiculosTaller();
            
                 //Lamada del metodo registarMantenimiento
                 mantenimiento.registrarMantenimiento(cedula, placa, listaServicios.getItems(), id_operario);
+                
+                
+                
             }
         }
     }//GEN-LAST:event_botonProcesarOrdenActionPerformed
@@ -502,13 +465,9 @@ import javax.swing.JOptionPane;
     private javax.swing.JButton botonRegistrarCliente;
     private javax.swing.JComboBox<String> comboServicios;
     private javax.swing.JComboBox<String> comboTipoPago;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel labelCedulaCliente;
     private javax.swing.JLabel labelCedulaCliente1;
     private javax.swing.JLabel labelCedulaCliente2;
-    private javax.swing.JLabel labelHoraEstimada;
     private java.awt.Label labelInformacionCliente1;
     private java.awt.Label labelIngresarCedula;
     private javax.swing.JLabel labelNombreOperario;
@@ -518,14 +477,11 @@ import javax.swing.JOptionPane;
     private java.awt.Label labelServiciosDisponibles;
     private javax.swing.JLabel labelSubtotalCompra;
     private javax.swing.JLabel labelSubtotalMonto;
-    private javax.swing.JLabel labelTiempoEstimado;
     private javax.swing.JLabel labelTipoPago;
     private java.awt.Label labelTituloVentana1;
     private java.awt.List listaServicios;
     private java.awt.List listaVehiculos;
     private javax.swing.JTextField txtCedulaCliente;
-    private javax.swing.JTextPane txtHoraEstimada;
     private javax.swing.JTextField txtNombreCliente;
-    private javax.swing.JTextPane txtTiempoEstimado;
     // End of variables declaration//GEN-END:variables
 }

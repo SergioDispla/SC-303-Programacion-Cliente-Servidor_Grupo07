@@ -279,15 +279,20 @@ public class InterfazAdministracionOperarios extends javax.swing.JFrame {
         int filaSeleccionada = tablaOperarios.getSelectedRow();
         
         if (filaSeleccionada >= 0){
-            //Obtenemos la cedula del cliente del item seleccionado
-            String id_Operario = tablaOperarios.getValueAt(filaSeleccionada, 0).toString();   
-                
-            //Llamamos al metodo eliminarCliente y le pasamos la cedula de cliente
-            operario.eliminarOperario(id_Operario);
-                
-            //Actualizamos la tabla para que refleje el nuevo contenido actualizado
-            operario.listarOperarios();
-            tablaOperarios.setModel(operario.getOperariosDefaultModel());             
+            //Validacion del usuario si desea elminar el cliente 
+            int opcion = JOptionPane.showConfirmDialog(this, "Desea eliminar este operario del registro?", "Confirmación", JOptionPane.YES_NO_OPTION);
+        
+            if (opcion == JOptionPane.YES_OPTION) {
+                //Obtenemos la cedula del cliente del item seleccionado
+                String id_Operario = tablaOperarios.getValueAt(filaSeleccionada, 0).toString();   
+
+                //Llamamos al metodo eliminarCliente y le pasamos la cedula de cliente
+                operario.eliminarOperario(id_Operario);
+
+                //Actualizamos la tabla para que refleje el nuevo contenido actualizado
+                operario.listarOperarios();
+                tablaOperarios.setModel(operario.getOperariosDefaultModel());
+            }    
         } else {
                 JOptionPane.showMessageDialog(null, "Seleccione al menos un operario de la tabla");
         }   

@@ -101,7 +101,7 @@ public class InterfazAdministracionProductos extends javax.swing.JFrame {
             }
         });
 
-        botonEliminarProductos.setText("Eliminar Productos");
+        botonEliminarProductos.setText("Eliminar Producto");
         botonEliminarProductos.setToolTipText("Elimina productos de la base de datos");
         botonEliminarProductos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -253,16 +253,20 @@ public class InterfazAdministracionProductos extends javax.swing.JFrame {
         int filaSeleccionada = tablaProductos.getSelectedRow();
         
         if (filaSeleccionada >= 0){
-            //Obtenemos el codigo del producto del item seleccionado
-            int codigoProducto = (int) tablaProductos.getValueAt(filaSeleccionada, 0);   
-                
-            //Llamamos al metodo eliminarProductos y le pasamos el codigo de producto
-            productos.eliminarProductos(codigoProducto);
-                
-            //Actualizamos la tabla para que refleje el nuevo contenido actualizado
-            productos.listarProductos();
-            tablaProductos.setModel(productos.getProductosDefaultModel());
-                
+            //Validacion del usuario si desea elminar el producto 
+            int opcion = JOptionPane.showConfirmDialog(this, "Desea eliminar este producto del registro?", "Confirmación", JOptionPane.YES_NO_OPTION);
+        
+            if (opcion == JOptionPane.YES_OPTION) {        
+                //Obtenemos el codigo del producto del item seleccionado
+                int codigoProducto = (int) tablaProductos.getValueAt(filaSeleccionada, 0);   
+
+                //Llamamos al metodo eliminarProductos y le pasamos el codigo de producto
+                productos.eliminarProductos(codigoProducto);
+
+                //Actualizamos la tabla para que refleje el nuevo contenido actualizado
+                productos.listarProductos();
+                tablaProductos.setModel(productos.getProductosDefaultModel());
+            }    
         } else {
                 JOptionPane.showMessageDialog(null, "Seleccione al menos un producto");
         }  

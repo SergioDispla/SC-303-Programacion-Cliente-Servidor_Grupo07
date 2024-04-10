@@ -272,15 +272,20 @@ public class InterfazAdministracionClienteVehiculo extends javax.swing.JFrame {
         int filaSeleccionada = tablaClientes.getSelectedRow();
         
         if (filaSeleccionada >= 0){
-            //Obtenemos la cedula del cliente del item seleccionado
-            String cedulaCliente = tablaClientes.getValueAt(filaSeleccionada, 0).toString();   
+            //Validacion del usuario si desea elminar el cliente 
+            int opcion = JOptionPane.showConfirmDialog(this, "Desea eliminar este cliente del registro?", "Confirmación", JOptionPane.YES_NO_OPTION);
+        
+                 if (opcion == JOptionPane.YES_OPTION) {
+                    //Obtenemos la cedula del cliente del item seleccionado
+                    String cedulaCliente = tablaClientes.getValueAt(filaSeleccionada, 0).toString();   
+            
+                    //Llamamos al metodo eliminarCliente y le pasamos la cedula de cliente
+                    cliente.eliminarCliente(cedulaCliente);
                 
-            //Llamamos al metodo eliminarCliente y le pasamos la cedula de cliente
-            cliente.eliminarCliente(cedulaCliente);
-                
-            //Actualizamos la tabla para que refleje el nuevo contenido actualizado
-            cliente.listarClientesYVehiculos();
-            tablaClientes.setModel(cliente.getClientesDefaultModel());             
+                    //Actualizamos la tabla para que refleje el nuevo contenido actualizado
+                    cliente.listarClientesYVehiculos();
+                    tablaClientes.setModel(cliente.getClientesDefaultModel());
+                 }    
         } else {
                 JOptionPane.showMessageDialog(null, "Seleccione al menos un cliente de la tabla");
         }

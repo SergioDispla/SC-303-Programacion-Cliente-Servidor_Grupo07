@@ -35,16 +35,11 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="labelCedulaCliente" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="botonBuscarCliente" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="botonRegistrarCliente" min="-2" pref="116" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="txtCedulaCliente" min="-2" pref="276" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="txtCedulaCliente" min="-2" pref="276" max="-2" attributes="0"/>
                           </Group>
                       </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="botonBuscarCliente" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
@@ -52,19 +47,6 @@
                               <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                               <Component id="labelNombreOperario" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="110" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="labelCedulaCliente1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="labelCedulaCliente2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="labelSeleccionePlaca" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="txtNombreCliente" min="-2" pref="193" max="-2" attributes="0"/>
-                                  <Component id="listaVehiculos" alignment="0" min="-2" pref="185" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="labelInformacionCliente1" min="-2" max="-2" attributes="0"/>
@@ -88,19 +70,8 @@
                               <EmptySpace max="32767" attributes="0"/>
                               <Component id="listaServicios" min="-2" pref="309" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="labelTiempoEstimado" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="labelHoraEstimada" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jScrollPane2" pref="79" max="32767" attributes="0"/>
-                                  <Component id="jScrollPane1" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="154" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="labelSubtotalCompra" min="-2" max="-2" attributes="0"/>
@@ -121,9 +92,25 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="867" max="-2" attributes="0"/>
                       <Component id="botonProcesarOrden" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
+          </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace min="-2" pref="151" max="-2" attributes="0"/>
+              <Component id="botonRegistrarCliente" min="-2" pref="166" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="labelCedulaCliente1" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="labelCedulaCliente2" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="labelSeleccionePlaca" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="txtNombreCliente" min="-2" pref="193" max="-2" attributes="0"/>
+                  <Component id="listaVehiculos" alignment="0" min="-2" pref="185" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
           </Group>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
@@ -174,19 +161,21 @@
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="labelCedulaCliente" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="txtCedulaCliente" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="botonBuscarCliente" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="botonRegistrarCliente" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="botonRegistrarCliente" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
                   <Component id="labelServiciosComprar" min="-2" pref="39" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                      <Component id="comboServicios" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="botonAgregarServicio" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="listaServicios" min="-2" pref="205" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
@@ -197,32 +186,16 @@
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="labelTipoPago" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="comboTipoPago" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="labelHoraEstimada" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="labelTipoPago" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="comboTipoPago" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="comboServicios" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="botonAgregarServicio" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="labelTiempoEstimado" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="jScrollPane2" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel2" alignment="1" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="40" pref="40" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="botonProcesarOrden" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <Component id="botonProcesarOrden" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="20" max="32767" attributes="0"/>
           </Group>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
@@ -399,49 +372,6 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonRegistrarClienteActionPerformed"/>
       </Events>
-    </Component>
-    <Component class="javax.swing.JLabel" name="labelTiempoEstimado">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Tiempo estimado mantenimiento:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="labelHoraEstimada">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Hora estimada de entrega: "/>
-      </Properties>
-    </Component>
-    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
-      <AuxValues>
-        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-      </AuxValues>
-
-      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-      <SubComponents>
-        <Component class="javax.swing.JTextPane" name="txtHoraEstimada">
-          <Properties>
-            <Property name="editable" type="boolean" value="false"/>
-          </Properties>
-        </Component>
-      </SubComponents>
-    </Container>
-    <Container class="javax.swing.JScrollPane" name="jScrollPane2">
-      <AuxValues>
-        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-      </AuxValues>
-
-      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-      <SubComponents>
-        <Component class="javax.swing.JTextPane" name="txtTiempoEstimado">
-          <Properties>
-            <Property name="editable" type="boolean" value="false"/>
-          </Properties>
-        </Component>
-      </SubComponents>
-    </Container>
-    <Component class="javax.swing.JLabel" name="jLabel2">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="minutos"/>
-      </Properties>
     </Component>
   </SubComponents>
 </Form>

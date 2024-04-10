@@ -262,7 +262,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="botonEliminarProductos">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Eliminar Productos"/>
+        <Property name="text" type="java.lang.String" value="Eliminar Producto"/>
         <Property name="toolTipText" type="java.lang.String" value="Elimina productos de la base de datos"/>
       </Properties>
       <Events>

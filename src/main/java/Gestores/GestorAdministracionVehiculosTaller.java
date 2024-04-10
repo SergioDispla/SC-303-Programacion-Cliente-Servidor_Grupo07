@@ -9,16 +9,11 @@ Esta clase va utilizar las siguientes clases:
 */
 package Gestores;
 import Factura.Factura;
-import Vehiculo.*;
-import Persona.Cliente;
-import Persona.Operario;
-import Servicio.ServicioMecanico;
 import Taller.ConectarDB;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 public class GestorAdministracionVehiculosTaller implements Factura {
 
@@ -84,7 +79,7 @@ public class GestorAdministracionVehiculosTaller implements Factura {
         }        
         
            }
-    // Implementacion para asociar un cliente, un vehículo y un servicio mecánico al mantenimiento
+    //Metodo para asociar un cliente, un vehiculo y un servicio mecanico al mantenimiento
     public void registrarMantenimiento(String cliente, String placa, String[] servicios, String operario) {         
         try {
                 // Establecer conexión a la base de datos
@@ -94,17 +89,23 @@ public class GestorAdministracionVehiculosTaller implements Factura {
                 // Consulta SQL para insertar la transaccion en la tabla de "registromantenimiento"
                 String consulta = "INSERT INTO registromantenimientos (cedula, placa, servicio, id_operario) VALUES (?, ?, ?, ?)";
 
-                // Se realiza el armado de la consulta
+                //Codigo para guardar todos los servicios seleccionados en un solo String para la base de datos
+                String serviciosConcatenados = "";
+                for (String servicio : servicios) {
+                    serviciosConcatenados += servicio + ", ";
+                }
+                         
+                //Se realiza el armado de la consulta
                 PreparedStatement declaracion = conexion.prepareStatement(consulta);
                 declaracion.setString(1, cliente); 
                 declaracion.setString(2, placa);
-                declaracion.setString(3, servicios.toString());
+                declaracion.setString(3, serviciosConcatenados);
                 declaracion.setString(4, operario);
 
-                // Ejecuta la insercion
+                //Ejecuta la insercion
                 declaracion.executeUpdate();
 
-                // Cierra la conexion
+                //Cierra la conexion
                 conexion.close();
 
                 System.out.println("Transacción de venta guardada en la base de datos.");
