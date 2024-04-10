@@ -29,10 +29,8 @@ CREATE TABLE IF NOT EXISTS registromantenimientos (
     id INT AUTO_INCREMENT PRIMARY KEY,
 	cedula VARCHAR(20),
     placa VARCHAR(10),
-	servicio VARCHAR(255),
-	id_operario VARCHAR(10)
-	
-	
+	servicio VARCHAR(1024),
+	id_operario VARCHAR(10)	
 );
 
 #Crear tabla clientes
