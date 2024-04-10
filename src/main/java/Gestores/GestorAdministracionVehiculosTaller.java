@@ -94,6 +94,9 @@ public class GestorAdministracionVehiculosTaller implements Factura {
                 for (String servicio : servicios) {
                     serviciosConcatenados += servicio + ", ";
                 }
+                
+                //Remover la coma del final
+                serviciosConcatenados = serviciosConcatenados.substring(0, serviciosConcatenados.length() - 2);
                          
                 //Se realiza el armado de la consulta
                 PreparedStatement declaracion = conexion.prepareStatement(consulta);
