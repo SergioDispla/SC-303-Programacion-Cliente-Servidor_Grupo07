@@ -222,26 +222,31 @@ public class InterfazAdministracionProductos extends javax.swing.JFrame {
 
     //Boton para ingresar productos manualmente
     private void botonIngresarProductos1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonIngresarProductos1ActionPerformed
-        //Definicion de variables que van a capturar lo que se ingrese en los textfields
-        Integer cod_producto = Integer.parseInt(txtCodigoProducto.getText().trim());
-        String nombreProducto = txtNombreProducto.getText().trim();
-        String descripcionProducto = txtDescripcionProducto.getText().trim();
-        float precioProducto = Float.parseFloat(txtPrecioProducto.getText());
-        Integer stockProducto = Integer.parseInt(txtStockProducto.getText().trim());
-        
-        //Instanciacion de un objeto tipo GestorAdministracionProductos para usar el metodo ingresarProducto()
-        GestorAdministracionProductos productos = new GestorAdministracionProductos();
-        productos.ingresarProducto(new Producto(cod_producto,nombreProducto,descripcionProducto,precioProducto,stockProducto));
-        
-        //Notificacion de la correcta insercion de los datos
-        JOptionPane.showMessageDialog(null, "Productos ingresados correctamente en la base de datos");
-        
-        //Limpiado de labels
-        txtCodigoProducto.setText("");
-        txtNombreProducto.setText("");
-        txtDescripcionProducto.setText("");
-        txtPrecioProducto.setText("");
-        txtStockProducto.setText("");      
+        //Validacion de datos
+        if(txtCodigoProducto.getText().isEmpty() || txtDescripcionProducto.getText().isEmpty() || txtDescripcionProducto.getText().isEmpty() || txtPrecioProducto.getText().isEmpty() || txtStockProducto.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "  Alguno de los campos necesarios esta vacío\nFavor rellenar todos los campos");
+        } else {
+            //Definicion de variables que van a capturar lo que se ingrese en los textfields
+            Integer cod_producto = Integer.parseInt(txtCodigoProducto.getText().trim());
+            String nombreProducto = txtNombreProducto.getText().trim();
+            String descripcionProducto = txtDescripcionProducto.getText().trim();
+            float precioProducto = Float.parseFloat(txtPrecioProducto.getText());
+            Integer stockProducto = Integer.parseInt(txtStockProducto.getText().trim());
+
+            //Instanciacion de un objeto tipo GestorAdministracionProductos para usar el metodo ingresarProducto()
+            GestorAdministracionProductos productos = new GestorAdministracionProductos();
+            productos.ingresarProducto(new Producto(cod_producto,nombreProducto,descripcionProducto,precioProducto,stockProducto));
+
+            //Notificacion de la correcta insercion de los datos
+            JOptionPane.showMessageDialog(null, "Productos ingresados correctamente en la base de datos");
+
+            //Limpiado de labels
+            txtCodigoProducto.setText("");
+            txtNombreProducto.setText("");
+            txtDescripcionProducto.setText("");
+            txtPrecioProducto.setText("");
+            txtStockProducto.setText("");
+        }        
     }//GEN-LAST:event_botonIngresarProductos1ActionPerformed
 
     //Boton para eliminar productos manualmente

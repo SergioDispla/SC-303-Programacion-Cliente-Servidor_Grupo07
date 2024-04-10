@@ -43,8 +43,8 @@
                       <EmptySpace pref="284" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
-                              <Component id="labelOperario" min="-2" pref="71" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                              <Component id="labelOperario" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                               <Component id="labelNombreOperario" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="110" max="-2" attributes="0"/>
                           </Group>
@@ -199,9 +199,9 @@
                   </Group>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="botonProcesarOrden" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="botonSalir" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="botonSalir" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="20" max="32767" attributes="0"/>
           </Group>

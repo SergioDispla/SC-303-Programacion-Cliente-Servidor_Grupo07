@@ -9,7 +9,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -171,8 +170,8 @@ import javax.swing.JOptionPane;
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 284, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(labelOperario, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(23, 23, 23)
+                                .addComponent(labelOperario)
+                                .addGap(42, 42, 42)
                                 .addComponent(labelNombreOperario)
                                 .addGap(110, 110, 110))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -288,7 +287,7 @@ import javax.swing.JOptionPane;
                                     .addComponent(labelTipoPago)
                                     .addComponent(comboTipoPago, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(botonProcesarOrden)
                     .addComponent(botonSalir))
                 .addContainerGap(20, Short.MAX_VALUE))

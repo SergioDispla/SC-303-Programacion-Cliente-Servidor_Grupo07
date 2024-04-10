@@ -241,33 +241,37 @@ public class InterfazAdministracionOperarios extends javax.swing.JFrame {
 
     //Boton para registrar operarios de la base de datos
     private void botonRegistrarOperariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarOperariosActionPerformed
-        //Definicion de variables que van a capturar lo que se ingrese en los textfields
-        String id_Empleado = txtIdEmpleado.getText().trim();
-        String ced_Empleado = txtCedula.getText().trim();
-        String nombreEmpleado = txtNombre.getText().trim();
-        String tel_Empleado = txtTelefono.getText().trim();
-        String direccionEmpleado = txtDireccion.getText().trim();
-        String correo_Empleado = txtCorreoElectronico.getText().trim();
-        float salarioEmpleado = Float.parseFloat(txtSalario.getText().trim());
-        LocalDate fecha_Contratacion = convertirDatetoLocalDate(calendarFechaContratacion.getDate());  
-      
-        //Instanciacion de un objeto tipo Operario
-        Operario operario = new Operario(id_Empleado,ced_Empleado,nombreEmpleado,tel_Empleado,direccionEmpleado,correo_Empleado,Persona.Roles.Operario,salarioEmpleado,fecha_Contratacion);
-        GestorOperarios nuevoOperario = new GestorOperarios();
-        
-        //Llamado del metodo registrarOperario()
-        nuevoOperario.registrarOperario(operario);
-            
-        //Limpiado de labels
-        txtIdEmpleado.setText("");
-        txtCedula.setText("");
-        txtNombre.setText("");
-        txtTelefono.setText("");
-        txtDireccion.setText(""); 
-        txtCorreoElectronico.setText("");
-        txtSalario.setText("");
-        calendarFechaContratacion.setDate(null);
-    
+        //Validacion de los campos
+        if (txtIdEmpleado.getText().isEmpty() || txtCedula.getText().isEmpty() || txtNombre.getText().isEmpty() || txtTelefono.getText().isEmpty() || txtDireccion.getText().isEmpty() || txtCorreoElectronico.getText().isEmpty() || txtSalario.getText().isEmpty() || calendarFechaContratacion.getDate() == null){
+            JOptionPane.showMessageDialog(null, "  Alguno de los campos necesarios esta vacío\nFavor rellenar todos los campos");
+        } else {      
+            //Definicion de variables que van a capturar lo que se ingrese en los textfields    
+            String id_Empleado = txtIdEmpleado.getText().trim();
+            String ced_Empleado = txtCedula.getText().trim();
+            String nombreEmpleado = txtNombre.getText().trim();
+            String tel_Empleado = txtTelefono.getText().trim();
+            String direccionEmpleado = txtDireccion.getText().trim();
+            String correo_Empleado = txtCorreoElectronico.getText().trim();
+            float salarioEmpleado = Float.parseFloat(txtSalario.getText().trim());
+            LocalDate fecha_Contratacion = convertirDatetoLocalDate(calendarFechaContratacion.getDate());  
+
+            //Instanciacion de un objeto tipo Operario
+            Operario operario = new Operario(id_Empleado,ced_Empleado,nombreEmpleado,tel_Empleado,direccionEmpleado,correo_Empleado,Persona.Roles.Operario,salarioEmpleado,fecha_Contratacion);
+            GestorOperarios nuevoOperario = new GestorOperarios();
+
+            //Llamado del metodo registrarOperario()
+            nuevoOperario.registrarOperario(operario);
+
+            //Limpiado de labels
+            txtIdEmpleado.setText("");
+            txtCedula.setText("");
+            txtNombre.setText("");
+            txtTelefono.setText("");
+            txtDireccion.setText(""); 
+            txtCorreoElectronico.setText("");
+            txtSalario.setText("");
+            calendarFechaContratacion.setDate(null);
+        }
     }//GEN-LAST:event_botonRegistrarOperariosActionPerformed
 
     //Boton para eliminar operarios de la base de datos
