@@ -111,7 +111,7 @@ public class GestorAdministracionVehiculosTaller implements Factura {
                 //Cierra la conexion
                 conexion.close();
 
-                System.out.println("Transacción de venta guardada en la base de datos.");
+                System.out.println("Mantenimiento registrado en la base de datos");
             } catch (SQLException e) {
                 System.out.println("Error al guardar la transacción de venta en la base de datos: " + e.getMessage());
             }

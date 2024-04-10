@@ -6,19 +6,6 @@ import java.sql.DriverManager;
 
 
 public class ConectarDB {
-    
-    
-    /*public static Connection conectar() throws SQLException {
-        // Datos de conexión a la base de datos
-        String url = "jdbc:mysql://localhost:3306/taller";
-        String usuario = "root";
-        String contrasena = "root";
-
-        // Establecer la conexión y retornarla
-        return DriverManager.getConnection(url, usuario, contrasena);
-    }*/
-   
-    
      public Connection conectarDB(){
      Connection conexion = null; 
      try{

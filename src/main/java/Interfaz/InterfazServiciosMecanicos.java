@@ -4,6 +4,7 @@ import Factura.Factura.TipoPago;
 import Gestores.GestorAdministracionVehiculosTaller;
 import Servicio.ServicioMecanico;
 import Taller.ConectarDB;
+import Factura.Pagos;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -14,9 +15,9 @@ import javax.swing.JOptionPane;
 
  public class InterfazServiciosMecanicos extends javax.swing.JFrame {
      String id_operario;
-     TipoPago tipoPago;
+     TipoPago tipoPagoFinal;
      float subtotal = 0.0f;
-     ArrayList<String> serviciosFinales = new ArrayList<>();
+     String serviciosFinales = "";
      
 
     /**
@@ -368,7 +369,7 @@ import javax.swing.JOptionPane;
 
             //Mostramos los servicios seleccionados en una lista
             listaServicios.add(servicios.getNombre()+" - Precio: "+servicios.getPrecio());
-            serviciosFinales.add(servicios.getNombre()); //remover 
+            serviciosFinales += servicios.getNombre() + "\n";
             
             //Sumar el precio del servicio al subtotal
             subtotal += servicios.getPrecio();
@@ -392,8 +393,16 @@ import javax.swing.JOptionPane;
            
                 //Lamada del metodo registarMantenimiento
                 mantenimiento.registrarMantenimiento(cedula, placa, listaServicios.getItems(), id_operario);
+                            
+                //Mapeamos el tipo pago del combo box a un objeto tipo pago
+                Pagos tipoPago = new Pagos();
+                tipoPagoFinal = tipoPago.mapearTipoPago(comboTipoPago.getSelectedItem().toString());
+                 
+                //Lamada de metodo registroVentas
+                mantenimiento.registroVentas(cedula, subtotal, tipoPagoFinal);
                 
-                SubInterfazFacturaServicios subInterfaz = new SubInterfazFacturaServicios();
+                //Llamamos la subinterfaz de factura para mostrar el resultado de la transaccion
+                SubInterfazFacturaServicios subInterfaz = new SubInterfazFacturaServicios(cedula, placa, serviciosFinales, comboTipoPago.getSelectedItem().toString());
                 subInterfaz.setVisible(true);
             }
         }
