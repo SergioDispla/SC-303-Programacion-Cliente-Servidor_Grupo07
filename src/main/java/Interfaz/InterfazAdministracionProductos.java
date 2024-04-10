@@ -19,6 +19,7 @@ public class InterfazAdministracionProductos extends javax.swing.JFrame {
      */
     public InterfazAdministracionProductos() {
         initComponents();
+        setLocationRelativeTo(null);
 
     }
 

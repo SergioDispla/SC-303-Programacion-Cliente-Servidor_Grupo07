@@ -48,7 +48,6 @@
                               <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
                               <Component id="labelVentas" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="botonRegistroProductos1" max="32767" attributes="0"/>
                           <Component id="botonVentaProductos" alignment="0" max="32767" attributes="0"/>
                           <Component id="botonMantenimientoVehiculo" alignment="0" max="32767" attributes="0"/>
                           <Component id="botonReporteVentas" alignment="0" max="32767" attributes="0"/>
@@ -68,9 +67,7 @@
               <Component id="labelMantenimientos" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="botonMantenimientoVehiculo" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
-              <Component id="botonRegistroProductos1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
               <Component id="labelVentas" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="botonVentaProductos" min="-2" max="-2" attributes="0"/>
@@ -178,14 +175,6 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonReporteVentasActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="botonRegistroProductos1">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Gesti&#xf3;n Mantenimientos"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonRegistroProductos1ActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

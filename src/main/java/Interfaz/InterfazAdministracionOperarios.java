@@ -16,6 +16,7 @@ public class InterfazAdministracionOperarios extends javax.swing.JFrame {
      */
     public InterfazAdministracionOperarios() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**

@@ -17,6 +17,7 @@ public class InterfazAdministracionClienteVehiculo extends javax.swing.JFrame {
      */
     public InterfazAdministracionClienteVehiculo() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**

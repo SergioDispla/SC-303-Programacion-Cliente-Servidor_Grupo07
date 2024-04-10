@@ -24,6 +24,7 @@ public class InterfazVentaProductos extends javax.swing.JFrame {
        
     public InterfazVentaProductos() {
         initComponents();
+        setLocationRelativeTo(null);
 
     }
 

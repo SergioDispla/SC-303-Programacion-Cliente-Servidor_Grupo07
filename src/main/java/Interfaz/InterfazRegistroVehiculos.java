@@ -12,6 +12,7 @@ public class InterfazRegistroVehiculos extends javax.swing.JFrame {
      */
     public InterfazRegistroVehiculos(Cliente cliente) {
         initComponents();
+        setLocationRelativeTo(null);
         clienteAsociado = cliente.getCedula();
         txtCedulaCliente.setText(clienteAsociado);
     }

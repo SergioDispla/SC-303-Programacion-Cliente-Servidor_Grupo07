@@ -18,6 +18,7 @@ public class SubInterfazRegistrarCliente extends javax.swing.JFrame {
      */
     public SubInterfazRegistrarCliente() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**

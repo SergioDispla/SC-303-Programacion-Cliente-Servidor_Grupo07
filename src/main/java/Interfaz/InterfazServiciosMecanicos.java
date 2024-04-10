@@ -25,6 +25,7 @@ import javax.swing.JOptionPane;
             
     public InterfazServiciosMecanicos() {
         initComponents();
+        setLocationRelativeTo(null);
         validacionOperario();
     }
 
