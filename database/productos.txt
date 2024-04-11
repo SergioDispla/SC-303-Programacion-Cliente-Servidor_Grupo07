@@ -1,0 +1,5 @@
+1001,Producto 01,Descripcion Producto 01,10000,10
+1002,Producto 02,Descripcion Producto 02,20000,20
+1003,Producto 03,Descripcion Producto 03,30000,30
+1004,Producto 04,Descripcion Producto 04,40000,40
+1005,Producto 05,Descripcion Producto 05,50000,50
