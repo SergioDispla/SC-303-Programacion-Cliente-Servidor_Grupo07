@@ -8,7 +8,7 @@ public class SubInterfazFacturaServicios extends javax.swing.JFrame {
     /**
      * Creates new form SubInterfaz
      */
-    public SubInterfazFacturaServicios(String cedula, String placa, String servicios, String tipoPago) {
+    public SubInterfazFacturaServicios(String cedula, String placa, String servicios, String tipoPago, float totalPagado) {
         initComponents();
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -16,6 +16,7 @@ public class SubInterfazFacturaServicios extends javax.swing.JFrame {
         labelPlacaVehiculo.setText(placa);
         txtListaServicios.setText(servicios);
         labelTipoPago.setText(tipoPago);
+        labelTotalPagado.setText(String.valueOf(totalPagado));
     }
 
     /**
@@ -38,6 +39,8 @@ public class SubInterfazFacturaServicios extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtListaServicios = new javax.swing.JTextPane();
+        jLabel6 = new javax.swing.JLabel();
+        labelTotalPagado = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -58,6 +61,10 @@ public class SubInterfazFacturaServicios extends javax.swing.JFrame {
         txtListaServicios.setEditable(false);
         jScrollPane1.setViewportView(txtListaServicios);
 
+        jLabel6.setText("Total Pagado:");
+
+        labelTotalPagado.setText("j");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -70,13 +77,15 @@ public class SubInterfazFacturaServicios extends javax.swing.JFrame {
                             .addComponent(jLabel1)
                             .addComponent(jLabel2)
                             .addComponent(jLabel4)
-                            .addComponent(jLabel3))
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel6))
                         .addGap(35, 35, 35)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(labelTipoPago, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE)
                             .addComponent(labelPlacaVehiculo, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE)
                             .addComponent(labelNombreCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE)
-                            .addComponent(jScrollPane1)))
+                            .addComponent(jScrollPane1)
+                            .addComponent(labelTotalPagado, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(175, 175, 175)
                         .addComponent(labelTituloVentana1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -107,8 +116,12 @@ public class SubInterfazFacturaServicios extends javax.swing.JFrame {
                 .addGap(48, 48, 48)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(32, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(labelTotalPagado))
+                .addGap(36, 36, 36))
         );
 
         pack();
@@ -145,7 +158,7 @@ public class SubInterfazFacturaServicios extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new SubInterfazFacturaServicios("Cedula","Placa","Servicios","Tipo Pago").setVisible(true);
+                new SubInterfazFacturaServicios("Cedula","Placa","Servicios","Tipo Pago",0).setVisible(true);
             }
         });
     }
@@ -156,11 +169,13 @@ public class SubInterfazFacturaServicios extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel labelNombreCliente;
     private javax.swing.JLabel labelPlacaVehiculo;
     private javax.swing.JLabel labelTipoPago;
     private java.awt.Label labelTituloVentana1;
+    private javax.swing.JLabel labelTotalPagado;
     private javax.swing.JTextPane txtListaServicios;
     // End of variables declaration//GEN-END:variables
 }

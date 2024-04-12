@@ -66,6 +66,11 @@ import javax.swing.JOptionPane;
         botonSalir = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
 
         labelServiciosDisponibles.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         labelServiciosDisponibles.setText("Servicios Disponibles");
@@ -401,8 +406,15 @@ import javax.swing.JOptionPane;
                 mantenimiento.registroVentas(cedula, subtotal, tipoPagoFinal);
                 
                 //Llamamos la subinterfaz de factura para mostrar el resultado de la transaccion
-                SubInterfazFacturaServicios subInterfaz = new SubInterfazFacturaServicios(cedula, placa, serviciosFinales, comboTipoPago.getSelectedItem().toString());
+                SubInterfazFacturaServicios subInterfaz = new SubInterfazFacturaServicios(cedula, placa, serviciosFinales, comboTipoPago.getSelectedItem().toString(),subtotal);
                 subInterfaz.setVisible(true);
+                
+                //Limpiamos variables y textfields
+                txtCedulaCliente.setText("");
+                txtNombreCliente.setText("");
+                listaVehiculos.removeAll();
+                listaServicios.removeAll();
+                labelSubtotalMonto.setText("");              
             }
         }
     }//GEN-LAST:event_botonProcesarOrdenActionPerformed
@@ -427,6 +439,10 @@ import javax.swing.JOptionPane;
     private void botonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSalirActionPerformed
         this.dispose();
     }//GEN-LAST:event_botonSalirActionPerformed
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        System.out.println("se cerro ventana");
+    }//GEN-LAST:event_formWindowClosed
 
     private void validacionOperario(){       
         try {
