@@ -1,6 +1,8 @@
 
 package Interfaz;
 
+import javax.swing.JFrame;
+
 
 public class InterfazReportes extends javax.swing.JFrame {
 
@@ -22,11 +24,11 @@ public class InterfazReportes extends javax.swing.JFrame {
     private void initComponents() {
 
         labelTituloVentana = new java.awt.Label();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        botonReporteOperarios = new javax.swing.JButton();
+        botonReporteClienteVehiculo = new javax.swing.JButton();
+        botonReporteVentasProductos = new javax.swing.JButton();
+        botonReporteDetalladoVehiculo = new javax.swing.JButton();
+        botonReporteMantenimientos = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -34,43 +36,43 @@ public class InterfazReportes extends javax.swing.JFrame {
         labelTituloVentana.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         labelTituloVentana.setText("Administración de Reportes");
 
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jButton1.setText("Reporte Operarios");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        botonReporteOperarios.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        botonReporteOperarios.setText("Reporte Operarios");
+        botonReporteOperarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                botonReporteOperariosActionPerformed(evt);
             }
         });
 
-        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jButton2.setText("Reporte Clientes y Vehículos");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        botonReporteClienteVehiculo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        botonReporteClienteVehiculo.setText("Reporte Clientes y Vehículos");
+        botonReporteClienteVehiculo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                botonReporteClienteVehiculoActionPerformed(evt);
             }
         });
 
-        jButton3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jButton3.setText("Reporte Ventas Productos");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        botonReporteVentasProductos.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        botonReporteVentasProductos.setText("Reporte Ventas Productos");
+        botonReporteVentasProductos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                botonReporteVentasProductosActionPerformed(evt);
             }
         });
 
-        jButton4.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jButton4.setText("Reporte Detallado Vehículos");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        botonReporteDetalladoVehiculo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        botonReporteDetalladoVehiculo.setText("Reporte Detallado Vehículos");
+        botonReporteDetalladoVehiculo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                botonReporteDetalladoVehiculoActionPerformed(evt);
             }
         });
 
-        jButton5.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jButton5.setText("Reporte Mantenimientos");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        botonReporteMantenimientos.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        botonReporteMantenimientos.setText("Reporte Mantenimientos");
+        botonReporteMantenimientos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                botonReporteMantenimientosActionPerformed(evt);
             }
         });
 
@@ -85,11 +87,11 @@ public class InterfazReportes extends javax.swing.JFrame {
                         .addGap(11, 11, 11)
                         .addComponent(labelTituloVentana, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(botonReporteOperarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(botonReporteClienteVehiculo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(botonReporteDetalladoVehiculo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(botonReporteVentasProductos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(botonReporteMantenimientos, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(158, 158, 158))
         );
         layout.setVerticalGroup(
@@ -98,40 +100,42 @@ public class InterfazReportes extends javax.swing.JFrame {
                 .addGap(30, 30, 30)
                 .addComponent(labelTituloVentana, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(botonReporteOperarios, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(botonReporteClienteVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(botonReporteDetalladoVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(botonReporteVentasProductos, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(botonReporteMantenimientos, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(48, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void botonReporteOperariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonReporteOperariosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_botonReporteOperariosActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void botonReporteClienteVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonReporteClienteVehiculoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_botonReporteClienteVehiculoActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    private void botonReporteDetalladoVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonReporteDetalladoVehiculoActionPerformed
+        SubInterfazReporteDetalladoVehiculo interfaz = new SubInterfazReporteDetalladoVehiculo();
+        interfaz.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        interfaz.setVisible(true);
+    }//GEN-LAST:event_botonReporteDetalladoVehiculoActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void botonReporteVentasProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonReporteVentasProductosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_botonReporteVentasProductosActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void botonReporteMantenimientosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonReporteMantenimientosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_botonReporteMantenimientosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -169,11 +173,11 @@ public class InterfazReportes extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
+    private javax.swing.JButton botonReporteClienteVehiculo;
+    private javax.swing.JButton botonReporteDetalladoVehiculo;
+    private javax.swing.JButton botonReporteMantenimientos;
+    private javax.swing.JButton botonReporteOperarios;
+    private javax.swing.JButton botonReporteVentasProductos;
     private java.awt.Label labelTituloVentana;
     // End of variables declaration//GEN-END:variables
 }

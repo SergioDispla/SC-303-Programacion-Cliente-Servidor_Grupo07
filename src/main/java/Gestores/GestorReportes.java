@@ -9,94 +9,163 @@ Clase para crear la reporteria de los distintos modulos
 - Reporte General de mantenimientos o reparaciones realizados por la Compañía
  */
 package Gestores;
-import Persona.Operario;
-import java.util.ArrayList;
-import Persona.Cliente;
-import Producto.Producto;
-import Servicio.ServicioMecanico;
-import Vehiculo.Vehiculo;
-import java.util.List;
+import Taller.ConectarDB;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 
 public class GestorReportes {
-    // Método estático para generar el reporte de operarios
-    public static void generarReporteOperarios() {
-        // Creamos una lista para almacenar los operadores
-        ArrayList<Operario> operadores = new ArrayList<>();
+    //Default Models
+    DefaultTableModel vehiculoDetalladoVehiculos = new DefaultTableModel();
+    DefaultTableModel vehiculoDetalladoMantenimientos = new DefaultTableModel();
+    DefaultTableModel vehiculoDetalladoFacturas = new DefaultTableModel();
 
-        // Imprimimos el reporte de operarios
-        System.out.println("Reporte de Operarios:");
-        for (Operario operador : operadores) {
-            operador.informacionPersona();
-        }
+    public DefaultTableModel getVehiculoDetalladoVehiculos() {
+        return vehiculoDetalladoVehiculos;
     }
-    // Método para generar el reporte de clientes y vehículos
-    public void generarReporteClientesVehiculos(ArrayList<Cliente> clientes, ArrayList<Vehiculo> vehiculos) {
-        System.out.println("Reporte de Clientes y Vehículos:");
 
-        // Iterar sobre la lista de clientes
-        for (Cliente cliente : clientes) {
-            System.out.println("\nInformación del Cliente:");
-            cliente.informacionPersona(); // Imprimir información del cliente
+    public void setVehiculoDetalladoVehiculos(DefaultTableModel vehiculoDetalladoVehiculos) {
+        this.vehiculoDetalladoVehiculos = vehiculoDetalladoVehiculos;
+    }
+
+    public DefaultTableModel getVehiculoDetalladoMantenimientos() {
+        return vehiculoDetalladoMantenimientos;
+    }
+
+    public void setVehiculoDetalladoMantenimientos(DefaultTableModel vehiculoDetalladoMantenimientos) {
+        this.vehiculoDetalladoMantenimientos = vehiculoDetalladoMantenimientos;
+    }
+
+    public DefaultTableModel getVehiculoDetalladoFacturas() {
+        return vehiculoDetalladoFacturas;
+    }
+
+    public void setVehiculoDetalladoFacturas(DefaultTableModel vehiculoDetalladoFacturas) {
+        this.vehiculoDetalladoFacturas = vehiculoDetalladoFacturas;
+    }
+
+ 
+    
+     public void reporteDetalladoVehiculos(){
+        try {
+            // Establecer conexion a la base de datos
+            ConectarDB connect = new ConectarDB();
+            Connection conexion = connect.conectarDB();
             
-            // Buscar el vehículo asociado al cliente por su placa
-            /*Vehiculo vehiculoAsociado = buscarVehiculoPorPlaca(cliente.getPlacaVehiculo(), vehiculos);
-            if (vehiculoAsociado != null) {
-                System.out.println("\nInformación del Vehículo:");
-                vehiculoAsociado.InfoVehiculo(); // Imprimir información del vehículo asociado al cliente
-            } else {
-                System.out.println("No se encontró información del vehículo asociado al cliente.");
-            }*/
-        }
-    }
-
-    // Método para buscar un vehículo por su placa en la lista de vehículos
-    private Vehiculo buscarVehiculoPorPlaca(String placa, ArrayList<Vehiculo> vehiculos) {
-        for (Vehiculo vehiculo : vehiculos) {
-            if (vehiculo.getPlaca().equals(placa)) {
-                return vehiculo;
+            //Consulta SQL para seleccionar todos los registros de los productos
+            String consulta = "SELECT vehiculos.placa,clientes.cedula FROM clientes JOIN vehiculos ON clientes.cedula = vehiculos.cedula";
+            
+            //Preparar la declaracion SQL
+            PreparedStatement declaracion = conexion.prepareStatement(consulta);
+            
+            // Ejecutar la consulta y obtener el resultado
+            ResultSet resultado = declaracion.executeQuery();
+                           
+            //Imprimir los resultados en la tabla
+            while (resultado.next()) {
+                String placa_vehiculo = resultado.getString("placa");
+                String ced_cliente = resultado.getString("cedula");
+                
+                //Se crea un array tipo objeto para guardar los resultados del query
+                Object [] resultadoConsulta = {placa_vehiculo,ced_cliente};
+                String [] columnasTabla = {"Placa","Cedula"};
+                vehiculoDetalladoVehiculos.setColumnIdentifiers(columnasTabla);
+                
+                //Definimos el contenido de la tabla
+                vehiculoDetalladoVehiculos.addRow(resultadoConsulta);            
             }
+            
+            // Cerrar la conexión
+            conexion.close();
+            resultado.close();
+            declaracion.close();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
         }
-        return null; // Retorna null si no se encuentra el vehículo con la placa especificada
     }
-    public static void generarReporteVehiculos(ArrayList<Vehiculo> listaVehiculos) {
-        System.out.println("Reporte de Vehículos:");
-        for (Vehiculo vehiculo : listaVehiculos) {
-            System.out.println("------------------------------");
-            System.out.println("Marca: " + vehiculo.getMarca());
-            System.out.println("Modelo: " + vehiculo.getModelo());
-            System.out.println("Año: " + vehiculo.getAño());
-            System.out.println("Placa: " + vehiculo.getPlaca());
-            System.out.println("Kilometraje: " + vehiculo.getKilometraje());
+     
+     public void reporteDetalladoVehiculosMantenimientos(String placa){
+        try {
+            // Establecer conexion a la base de datos
+            ConectarDB connect = new ConectarDB();
+            Connection conexion = connect.conectarDB();
+            
+            //Consulta SQL para seleccionar todos los registros de los productos
+            String consulta = "SELECT id_operario,servicio FROM registromantenimientos where placa = (?)";
+            
+            //Preparar la declaracion SQL #1
+            PreparedStatement  declaracion = conexion.prepareStatement(consulta);
+            declaracion.setString(1, placa);
+            
+            // Ejecutar la consulta y obtener el resultado
+            ResultSet resultado = declaracion.executeQuery();
+                           
+            //Imprimir los resultados en la tabla
+            while (resultado.next()) {
+                String operario = resultado.getString("id_operario");
+                String servicios = resultado.getString("servicio");
+                
+                //Se crea un array tipo objeto para guardar los resultados del query
+                Object [] resultadoConsulta = {operario,servicios};
+                String [] columnasTabla = {"Operario ID","Servicios Realizados"};
+                vehiculoDetalladoMantenimientos.setColumnIdentifiers(columnasTabla);
+                
+                //Definimos el contenido de la tabla
+                vehiculoDetalladoMantenimientos.addRow(resultadoConsulta);            
+            }
+            
+            // Cerrar la conexión
+            conexion.close();
+            resultado.close();
+            declaracion.close();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
         }
-        System.out.println("------------------------------");
-        System.out.println("Fin del reporte");
     }
-    private ArrayList<Producto> listaProductos;
-
-    public GestorReportes(ArrayList<Producto> listaProductos) {
-        this.listaProductos = listaProductos;
-    }
-
-    public void generarReporteProductos() {
-        System.out.println("----- Reporte de Productos -----");
-        for (Producto producto : listaProductos) {
-            producto.informacionProductos();
+     
+     public void reporteDetalladoVehiculosFacturas(String cedula){
+        try {
+            // Establecer conexion a la base de datos
+            ConectarDB connect = new ConectarDB();
+            Connection conexion = connect.conectarDB();
+            
+            //Consulta SQL para seleccionar todos los registros de los productos
+            String consulta = "SELECT id,totalpagado FROM ventaservicios where cedula = (?)";
+            
+            //Preparar la declaracion SQL #1
+            PreparedStatement  declaracion = conexion.prepareStatement(consulta);
+            declaracion.setString(1, cedula);
+            
+            // Ejecutar la consulta y obtener el resultado
+            ResultSet resultado = declaracion.executeQuery();
+                           
+            //Imprimir los resultados en la tabla
+            while (resultado.next()) {
+                String id_factura = resultado.getString("id");
+                String totalpagado = resultado.getString("totalpagado");
+                
+                //Se crea un array tipo objeto para guardar los resultados del query
+                Object [] resultadoConsulta = {id_factura,totalpagado};
+                String [] columnasTabla = {"N. Factura","Total Pagado"};
+                vehiculoDetalladoFacturas.setColumnIdentifiers(columnasTabla);
+                
+                //Definimos el contenido de la tabla
+                vehiculoDetalladoFacturas.addRow(resultadoConsulta);            
+            }
+            
+            // Cerrar la conexión
+            conexion.close();
+            resultado.close();
+            declaracion.close();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
         }
-        System.out.println("--------------------------------");
     }
-    // Método para generar un reporte de los servicios realizados
-    public static String generarReporteServicios(List<ServicioMecanico> serviciosRealizados) {
-        StringBuilder reporte = new StringBuilder();
-        reporte.append("Reporte de Servicios Realizados:\n");
-        reporte.append("--------------------------------\n");
-        
-        // Iterar sobre la lista de servicios realizados y agregarlos al reporte
-        for (int i = 0; i < serviciosRealizados.size(); i++) {
-            ServicioMecanico servicio = serviciosRealizados.get(i);
-            reporte.append(i + 1).append(". ").append(servicio.getNombre()).append(": $").append(servicio.getPrecio()).append("\n");
-        }
-        
-        return reporte.toString();
-    } 
+     
+ 
 }

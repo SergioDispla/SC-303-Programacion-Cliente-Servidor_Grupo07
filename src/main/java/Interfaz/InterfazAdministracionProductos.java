@@ -91,7 +91,7 @@ public class InterfazAdministracionProductos extends javax.swing.JFrame {
         labelStockProducto.setText("Cantidad Stock");
 
         labelTituloVentana.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        labelTituloVentana.setText("Administracion de Productos");
+        labelTituloVentana.setText("Administración de Productos");
 
         botonIngresarProductos1.setText("Ingresar Productos");
         botonIngresarProductos1.setToolTipText("Ingresa productos manualmente");
@@ -153,8 +153,8 @@ public class InterfazAdministracionProductos extends javax.swing.JFrame {
                         .addComponent(botonEliminarProductos, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(54, 54, 54))
             .addGroup(layout.createSequentialGroup()
-                .addGap(275, 275, 275)
-                .addComponent(labelTituloVentana, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(282, 282, 282)
+                .addComponent(labelTituloVentana, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(

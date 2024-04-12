@@ -82,8 +82,8 @@
               <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="275" max="-2" attributes="0"/>
-              <Component id="labelTituloVentana" min="-2" pref="422" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="282" max="-2" attributes="0"/>
+              <Component id="labelTituloVentana" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -248,7 +248,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="24" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Administracion de Productos"/>
+        <Property name="text" type="java.lang.String" value="Administraci&#xf3;n de Productos"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="botonIngresarProductos1">

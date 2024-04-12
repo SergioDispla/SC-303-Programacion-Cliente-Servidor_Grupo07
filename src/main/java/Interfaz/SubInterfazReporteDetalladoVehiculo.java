@@ -1,13 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package Interfaz;
 
-/**
- *
- * @author sams2
- */
+import Gestores.GestorReportes;
+
 public class SubInterfazReporteDetalladoVehiculo extends javax.swing.JFrame {
 
     /**
@@ -15,6 +9,8 @@ public class SubInterfazReporteDetalladoVehiculo extends javax.swing.JFrame {
      */
     public SubInterfazReporteDetalladoVehiculo() {
         initComponents();
+        setLocationRelativeTo(null);
+
     }
 
     /**
@@ -26,21 +22,160 @@ public class SubInterfazReporteDetalladoVehiculo extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        labelTituloVentana = new java.awt.Label();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tablaFacturas = new javax.swing.JTable();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tablaVehiculos = new javax.swing.JTable();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tablaMantenimientos = new javax.swing.JTable();
+        botonListarVehiculos = new javax.swing.JButton();
+        botonListarMantenimientos = new javax.swing.JButton();
+        botonListarFacturas = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        labelTituloVentana.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        labelTituloVentana.setText("Reporte Detallado de Vehiculos");
+
+        jLabel1.setText("Lista de Vehiculos");
+
+        jLabel2.setText("Facturas");
+
+        jLabel3.setText("Lista de Mantenimientos");
+
+        tablaFacturas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "N. Factura", "Monto"
+            }
+        ));
+        jScrollPane1.setViewportView(tablaFacturas);
+
+        tablaVehiculos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Placa", "Ced Cliente"
+            }
+        ));
+        tablaVehiculos.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_NEXT_COLUMN);
+        jScrollPane2.setViewportView(tablaVehiculos);
+
+        tablaMantenimientos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Operario", "Servicios Realizados"
+            }
+        ));
+        jScrollPane3.setViewportView(tablaMantenimientos);
+
+        botonListarVehiculos.setText("Listar Vehiculos");
+        botonListarVehiculos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonListarVehiculosActionPerformed(evt);
+            }
+        });
+
+        botonListarMantenimientos.setText("Listar Mantenimientos");
+        botonListarMantenimientos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonListarMantenimientosActionPerformed(evt);
+            }
+        });
+
+        botonListarFacturas.setText("Listar Facturas");
+        botonListarFacturas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonListarFacturasActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(81, 81, 81)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addGap(262, 262, 262)
+                .addComponent(jLabel2)
+                .addGap(108, 108, 108))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(305, 305, 305)
+                        .addComponent(labelTituloVentana, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(62, 62, 62)
+                .addComponent(botonListarVehiculos)
+                .addGap(231, 231, 231)
+                .addComponent(botonListarMantenimientos)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(botonListarFacturas)
+                .addGap(57, 57, 57))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(labelTituloVentana, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(44, 44, 44)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel2))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(botonListarVehiculos)
+                    .addComponent(botonListarMantenimientos)
+                    .addComponent(botonListarFacturas))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void botonListarVehiculosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonListarVehiculosActionPerformed
+        GestorReportes reporte = new GestorReportes();
+        reporte.reporteDetalladoVehiculos();
+        tablaVehiculos.setModel(reporte.getVehiculoDetalladoVehiculos());
+    }//GEN-LAST:event_botonListarVehiculosActionPerformed
+
+    private void botonListarMantenimientosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonListarMantenimientosActionPerformed
+        GestorReportes reporte = new GestorReportes();
+        reporte.reporteDetalladoVehiculosMantenimientos((String) tablaVehiculos.getValueAt(tablaVehiculos.getSelectedRow(), 0));
+        tablaMantenimientos.setModel(reporte.getVehiculoDetalladoMantenimientos());
+    }//GEN-LAST:event_botonListarMantenimientosActionPerformed
+
+    private void botonListarFacturasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonListarFacturasActionPerformed
+        GestorReportes reporte = new GestorReportes();
+        reporte.reporteDetalladoVehiculosFacturas((String) tablaVehiculos.getValueAt(tablaVehiculos.getSelectedRow(), 1));
+        tablaFacturas.setModel(reporte.getVehiculoDetalladoFacturas());
+    }//GEN-LAST:event_botonListarFacturasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +213,18 @@ public class SubInterfazReporteDetalladoVehiculo extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botonListarFacturas;
+    private javax.swing.JButton botonListarMantenimientos;
+    private javax.swing.JButton botonListarVehiculos;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private java.awt.Label labelTituloVentana;
+    private javax.swing.JTable tablaFacturas;
+    private javax.swing.JTable tablaMantenimientos;
+    private javax.swing.JTable tablaVehiculos;
     // End of variables declaration//GEN-END:variables
 }
