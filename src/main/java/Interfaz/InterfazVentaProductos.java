@@ -15,6 +15,7 @@ import javax.swing.table.DefaultTableModel;
 
 public class InterfazVentaProductos extends javax.swing.JFrame {
     DefaultTableModel tablaCompras = new DefaultTableModel();
+    DefaultTableModel tablaClientes = new DefaultTableModel();
     TipoPago tipoPago;
     float subtotal = 0.0f;
     
@@ -56,6 +57,7 @@ public class InterfazVentaProductos extends javax.swing.JFrame {
         txtCedulaCliente = new javax.swing.JTextField();
         labelTipoPago = new javax.swing.JLabel();
         comboTipoPago = new javax.swing.JComboBox<>();
+        botonEliminarProducto = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(153, 255, 204));
@@ -121,6 +123,13 @@ public class InterfazVentaProductos extends javax.swing.JFrame {
 
         comboTipoPago.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "TARJETA", "EFECTIVO" }));
 
+        botonEliminarProducto.setText("Eliminar");
+        botonEliminarProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonEliminarProductoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -134,7 +143,7 @@ public class InterfazVentaProductos extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(14, 14, 14)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(labelCodigoProducto, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
+                            .addComponent(labelCodigoProducto, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE)
                             .addComponent(labelCedulaCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -151,7 +160,8 @@ public class InterfazVentaProductos extends javax.swing.JFrame {
                         .addComponent(labelInfoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 189, Short.MAX_VALUE)
+                        .addComponent(botonEliminarProducto)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 118, Short.MAX_VALUE)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(144, 144, 144)))
                 .addContainerGap())
@@ -206,20 +216,23 @@ public class InterfazVentaProductos extends javax.swing.JFrame {
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel2)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(labelSubtotalCompra)
-                            .addComponent(labelSubtotalMonto))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(43, 43, 43)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(labelTipoPago)
                             .addComponent(comboTipoPago, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(49, 49, 49)
                         .addComponent(botonCompletarCompra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(15, 15, 15))))
+                        .addGap(15, 15, 15))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(botonEliminarProducto)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(labelSubtotalCompra)
+                                    .addComponent(labelSubtotalMonto))))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
 
         pack();
@@ -297,12 +310,23 @@ public class InterfazVentaProductos extends javax.swing.JFrame {
             tipoPago = null;
             txtCedulaCliente.setText("");
             labelSubtotalMonto.setText("");
+            
+            //Limpiamos las tablas
+            tablaCompras = new DefaultTableModel();
+            String [] columnasTablaCompras = {"Cod. Producto", "Nombre", "Precio"};
+            tablaCompras.setColumnIdentifiers(columnasTablaCompras);
+            tablaListaCompras.setModel(tablaCompras);
+    
+            tablaClientes = new DefaultTableModel();
+            String [] columnasTablaClientes = {"Cedula", "Nombre", "Correo Electronico"};
+            tablaClientes.setColumnIdentifiers(columnasTablaClientes);
+            tablaInfoCliente.setModel(tablaClientes);
+            
         }    
     }//GEN-LAST:event_botonCompletarCompraActionPerformed
 
     //Boton para buscar el cliente ingresado en la base de datos
     private void botonBuscarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBuscarClienteActionPerformed
-        DefaultTableModel tablaClientes = new DefaultTableModel();
         String cedulaCliente = txtCedulaCliente.getText().trim();
         try {
             // Establecer conexión a la base de datos
@@ -347,6 +371,20 @@ public class InterfazVentaProductos extends javax.swing.JFrame {
              JOptionPane.showMessageDialog(null, "Error al conectar la base de datos " + e.getMessage());
         }  
     }//GEN-LAST:event_botonBuscarClienteActionPerformed
+
+    private void botonEliminarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEliminarProductoActionPerformed
+        //Validacion de que se haya seleccionado un item de la lista
+        if (tablaListaCompras.getSelectedRow() == -1){
+            JOptionPane.showMessageDialog(null, "Debe seleccionar un item de la lista");
+        } else {
+            //Capturamos el item seleccionado en la tabla
+            int filaSeleccionada = tablaListaCompras.getSelectedRow();
+            
+            //Eliminamos el item de la tabla y volvemos a configurar el model en la tabla
+            tablaCompras.removeRow(filaSeleccionada);
+            tablaListaCompras.setModel(tablaCompras);
+        }
+    }//GEN-LAST:event_botonEliminarProductoActionPerformed
 
     //Metodo para poder mapear el item seleccionado en el combo box
     private TipoPago mapearTipoPago(String comboBoxItemPago){
@@ -400,6 +438,7 @@ public class InterfazVentaProductos extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonBuscarCliente;
     private javax.swing.JButton botonCompletarCompra;
+    private javax.swing.JToggleButton botonEliminarProducto;
     private javax.swing.JButton botonIngresarProductos;
     private javax.swing.JComboBox<String> comboTipoPago;
     private javax.swing.JLabel jLabel2;
