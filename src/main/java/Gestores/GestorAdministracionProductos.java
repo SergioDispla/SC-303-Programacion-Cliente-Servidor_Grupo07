@@ -25,7 +25,12 @@ public class GestorAdministracionProductos implements Factura {
     
     //Atributos de GestorAdministracionProductos
     private float totalPagado;
+    private int totalNumeroVentas;
+    private float totalMontoVentas;
+    private int totalVentasEfectivo;
+    private int totalVentasTarjeta;
     DefaultTableModel productosDefaultModel = new DefaultTableModel();
+    DefaultTableModel ventasProductos = new DefaultTableModel();
     
     //Getters and Setters para leer el modelo en otras clases
     public float getTotalPagado() {
@@ -44,6 +49,48 @@ public class GestorAdministracionProductos implements Factura {
         this.productosDefaultModel = productosDefaultModel;
     }
 
+    public DefaultTableModel getVentasProductos() {
+        return ventasProductos;
+    }
+
+    public void setVentasProductos(DefaultTableModel ventasProductos) {
+        this.ventasProductos = ventasProductos;
+    }
+
+    public int getTotalNumeroVentas() {
+        return totalNumeroVentas;
+    }
+
+    public void setTotalNumeroVentas(int totalNumeroVentas) {
+        this.totalNumeroVentas = totalNumeroVentas;
+    }
+
+    public float getTotalMontoVentas() {
+        return totalMontoVentas;
+    }
+
+    public void setTotalMontoVentas(float totalMontoVentas) {
+        this.totalMontoVentas = totalMontoVentas;
+    }
+
+    public int getTotalVentasEfectivo() {
+        return totalVentasEfectivo;
+    }
+
+    public void setTotalVentasEfectivo(int totalVentasEfectivo) {
+        this.totalVentasEfectivo = totalVentasEfectivo;
+    }
+
+    public int getTotalVentasTarjeta() {
+        return totalVentasTarjeta;
+    }
+
+    public void setTotalVentasTarjeta(int totalVentasTarjeta) {
+        this.totalVentasTarjeta = totalVentasTarjeta;
+    }
+    
+    
+    
     // Metodo para ingresar un producto a la base de datos
     public void ingresarProducto(Producto producto) {
         try {
@@ -136,7 +183,7 @@ public class GestorAdministracionProductos implements Factura {
                 String [] columnasTabla = {"Cod Producto", "Nombre", "Descripcion", "Precio", "Stock"};
                 productosDefaultModel.setColumnIdentifiers(columnasTabla);
                 productosDefaultModel.addRow(resultadoConsulta);
-                        
+                          
             }
             
             // Cerrar la conexión
@@ -227,12 +274,31 @@ public class GestorAdministracionProductos implements Factura {
                 String cedula_cliente = resultado.getString("cedula");
                 float total_pagado = resultado.getFloat("totalpagado");
                 String tipo_pago = resultado.getString("tipopago");
+            
+                //Se crea un array tipo objeto para guardar los resultados del query
+                Object [] resultadoConsulta = {id,cedula_cliente,total_pagado,tipo_pago};
+                String [] columnasTabla = {"N. Factura","Cédula","Total Pagado","Tipo Pago"};
+                ventasProductos.setColumnIdentifiers(columnasTabla);
                 
-                System.out.println("ID Venta: " + id + ", Cedula: " + cedula_cliente + ", Total Pagado: " + total_pagado + ", Tipo de Pago: " + tipo_pago);
+                //Definimos el contenido de la tabla
+                ventasProductos.addRow(resultadoConsulta);   
+                
+                //Adicional de reporteria
+                totalNumeroVentas += 1;
+                totalMontoVentas += total_pagado;
+                if(tipo_pago.startsWith("EFECTIVO")){
+                    totalVentasEfectivo += 1;
+                } else if (tipo_pago.startsWith("TARJETA")){
+                    totalVentasTarjeta += 1;
+                } else {
+                    System.out.println("No se ha identificado el tipo de pago");
+                }
             }
             
             // Cerrar la conexion
             conexion.close();
+            resultado.close();
+            declaracion.close();
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Error al listar las ventas de la base de datos - Error: " + e.getMessage());
         }

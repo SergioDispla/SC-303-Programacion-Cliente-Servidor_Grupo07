@@ -130,7 +130,9 @@ public class InterfazReportes extends javax.swing.JFrame {
     }//GEN-LAST:event_botonReporteDetalladoVehiculoActionPerformed
 
     private void botonReporteVentasProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonReporteVentasProductosActionPerformed
-        // TODO add your handling code here:
+       SubInterfazReporteVentaProductos interfaz = new SubInterfazReporteVentaProductos();
+       interfaz.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+       interfaz.setVisible(true);
     }//GEN-LAST:event_botonReporteVentasProductosActionPerformed
 
     private void botonReporteMantenimientosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonReporteMantenimientosActionPerformed
