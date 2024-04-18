@@ -116,11 +116,16 @@ public class InterfazReportes extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonReporteOperariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonReporteOperariosActionPerformed
-        // TODO add your handling code here:
+        SubInterfazReporteOperarios interfaz = new SubInterfazReporteOperarios();
+        interfaz.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        interfaz.setVisible(true);
+     
     }//GEN-LAST:event_botonReporteOperariosActionPerformed
 
     private void botonReporteClienteVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonReporteClienteVehiculoActionPerformed
-        // TODO add your handling code here:
+        SubInterfazReporteClientesYVehiculos interfaz = new SubInterfazReporteClientesYVehiculos();
+        interfaz.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        interfaz.setVisible(true);
     }//GEN-LAST:event_botonReporteClienteVehiculoActionPerformed
 
     private void botonReporteDetalladoVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonReporteDetalladoVehiculoActionPerformed
