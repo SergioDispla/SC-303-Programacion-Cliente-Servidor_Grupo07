@@ -28,6 +28,9 @@ public class SubInterfazReporteOperarios extends javax.swing.JFrame {
         modeloTabla = new DefaultTableModel();
         //se asigna el modelo de tabla al jTable
         jTable1.setModel(modeloTabla);
+         //se establece las columnas de la tabla
+         String[] columnasTabla = {"ID operario", "Nombre", "Telefono", "Direccion", "Correo electronico", "Salario", "Fecha contratacion"};
+            modeloTabla.setColumnIdentifiers(columnasTabla);
         //se llama al metodo para listar operarios
         listarOperarios();
     }
@@ -96,13 +99,7 @@ public class SubInterfazReporteOperarios extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "Title 1", "Title 2", "Title 3", "Title 4"
