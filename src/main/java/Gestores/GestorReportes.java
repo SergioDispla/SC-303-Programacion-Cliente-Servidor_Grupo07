@@ -24,6 +24,7 @@ public class GestorReportes {
     DefaultTableModel vehiculoDetalladoVehiculos = new DefaultTableModel();
     DefaultTableModel vehiculoDetalladoMantenimientos = new DefaultTableModel();
     DefaultTableModel vehiculoDetalladoFacturas = new DefaultTableModel();
+    DefaultTableModel vehiculoAsociadosCliente = new DefaultTableModel();
 
     public DefaultTableModel getVehiculoDetalladoVehiculos() {
         return vehiculoDetalladoVehiculos;
@@ -49,9 +50,17 @@ public class GestorReportes {
         this.vehiculoDetalladoFacturas = vehiculoDetalladoFacturas;
     }
 
+    public DefaultTableModel getVehiculoAsociadosCliente() {
+        return vehiculoAsociadosCliente;
+    }
+
+    public void setVehiculoAsociadosCliente(DefaultTableModel vehiculoAsociadosCliente) {
+        this.vehiculoAsociadosCliente = vehiculoAsociadosCliente;
+    }
+
  
     
-     public void reporteDetalladoVehiculos(){
+    public void reporteDetalladoVehiculos(){
         try {
             // Establecer conexion a la base de datos
             ConectarDB connect = new ConectarDB();
@@ -78,6 +87,45 @@ public class GestorReportes {
                 
                 //Definimos el contenido de la tabla
                 vehiculoDetalladoVehiculos.addRow(resultadoConsulta);            
+            }
+            
+            // Cerrar la conexión
+            conexion.close();
+            resultado.close();
+            declaracion.close();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
+        }
+    }
+    
+        public void reporteVehiculoAsociadoCliente(String cedula){
+        try {
+            // Establecer conexion a la base de datos
+            ConectarDB connect = new ConectarDB();
+            Connection conexion = connect.conectarDB();
+            
+            //Consulta SQL para seleccionar todos los registros de los productos
+            String consulta = "SELECT placa,marca FROM vehiculos WHERE cedula = (?)";
+            
+            //Preparar la declaracion SQL #1
+            PreparedStatement  declaracion = conexion.prepareStatement(consulta);
+            declaracion.setString(1, cedula);
+            
+            // Ejecutar la consulta y obtener el resultado
+            ResultSet resultado = declaracion.executeQuery();
+                           
+            //Imprimir los resultados en la tabla
+            while (resultado.next()) {
+                String placa_vehiculo = resultado.getString("placa");
+                String marca_vehiculo = resultado.getString("marca");
+                
+                //Se crea un array tipo objeto para guardar los resultados del query
+                Object [] resultadoConsulta = {placa_vehiculo,marca_vehiculo};
+                String [] columnasTabla = {"Placa","Marca"};
+                vehiculoAsociadosCliente.setColumnIdentifiers(columnasTabla);
+                
+                //Definimos el contenido de la tabla
+                vehiculoAsociadosCliente.addRow(resultadoConsulta);            
             }
             
             // Cerrar la conexión

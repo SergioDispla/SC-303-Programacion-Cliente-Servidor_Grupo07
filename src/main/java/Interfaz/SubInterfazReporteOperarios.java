@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package Interfaz;
 
 import Taller.ConectarDB;
@@ -9,28 +6,21 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author sams2
- */
 public class SubInterfazReporteOperarios extends javax.swing.JFrame {
-    private DefaultTableModel modeloTabla;
+    //se crea nuevo modelo de tabla
+    private DefaultTableModel modeloTabla = new DefaultTableModel();
     /**
      * Creates new form SubInterfazReporteOperarios
      */
     public SubInterfazReporteOperarios() {
         initComponents();
         setLocationRelativeTo(null);
-         //se crea nuevo modelo de tabla
-        modeloTabla = new DefaultTableModel();
-        //se asigna el modelo de tabla al jTable
-        jTable1.setModel(modeloTabla);
-         //se establece las columnas de la tabla
-         String[] columnasTabla = {"ID operario", "Nombre", "Telefono", "Direccion", "Correo electronico", "Salario", "Fecha contratacion"};
-            modeloTabla.setColumnIdentifiers(columnasTabla);
         //se llama al metodo para listar operarios
         listarOperarios();
     }
@@ -50,9 +40,6 @@ public class SubInterfazReporteOperarios extends javax.swing.JFrame {
             // Ejecutar la consulta y obtener el resultado
             ResultSet resultado = declaracion.executeQuery();
 
-            //se establece las columnas de la tabla
-            String[] columnasTabla = {"ID operario", "Nombre", "Telefono", "Direccion", "Correo electronico", "Salario", "Fecha contratacion"};
-            modeloTabla.setColumnIdentifiers(columnasTabla);
             //Imprimir los resultados en la tabla
             while (resultado.next()) {
                 //obtener los datos 
@@ -66,14 +53,25 @@ public class SubInterfazReporteOperarios extends javax.swing.JFrame {
                 //Creamos un array tipo objeto con los resultados de la consulta
                 Object[] resultadoConsulta = {id_Operario, nombre, telefono, direccion, correoElectronico, salario, fechaContratacion};
 
+                
+                
+                //se establece las columnas de la tabla
+                String[] columnasTabla = {"ID operario", "Nombre", "Telefono", "Direccion", "Correo electronico", "Salario", "Fecha contratacion"};
+                modeloTabla.setColumnIdentifiers(columnasTabla);
+                
+                //se asigna el modelo de tabla al jTable
+                jTable1.setModel(modeloTabla);
+                
                 //se agrega fila con los datos
-                modeloTabla.addRow(new Object[]{"ID Operario", "Nombre", "Telefono", "Direccion", "Correo electronico", "Salario", "Fecha contratacion"});
+                modeloTabla.addRow(resultadoConsulta);
 
             }
             // Cerrar la conexión
             conexion.close();
             resultado.close();
             declaracion.close();
+            //Limpiamos el tableModel
+            modeloTabla = new DefaultTableModel();
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Error al listar los productos de la base de datos - Error: " + e.getMessage());
         }
@@ -92,8 +90,9 @@ public class SubInterfazReporteOperarios extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jBOperarioBuscar = new javax.swing.JButton();
-        txtFiltroOperario = new javax.swing.JTextField();
+        calendarFechaContratacion = new com.toedter.calendar.JDateChooser();
         labelTituloVentana = new java.awt.Label();
+        botonListarOperarios = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -109,7 +108,7 @@ public class SubInterfazReporteOperarios extends javax.swing.JFrame {
 
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel1.setText("Ingrese la fecha de contratacion");
+        jLabel1.setText("Filtrar por Fecha de Contratación");
 
         jBOperarioBuscar.setText("Buscar");
         jBOperarioBuscar.setToolTipText("");
@@ -119,28 +118,20 @@ public class SubInterfazReporteOperarios extends javax.swing.JFrame {
             }
         });
 
-        txtFiltroOperario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtFiltroOperarioActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(0, 48, Short.MAX_VALUE)
-                .addComponent(jLabel1)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(calendarFechaContratacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(34, 34, 34))
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(99, 99, 99)
+                .addGap(91, 91, 91)
                 .addComponent(jBOperarioBuscar)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(txtFiltroOperario, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -148,15 +139,22 @@ public class SubInterfazReporteOperarios extends javax.swing.JFrame {
                 .addGap(12, 12, 12)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtFiltroOperario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
+                .addComponent(calendarFechaContratacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jBOperarioBuscar)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
 
         labelTituloVentana.setAlignment(java.awt.Label.CENTER);
         labelTituloVentana.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         labelTituloVentana.setText("Reporte Operarios");
+
+        botonListarOperarios.setText("Listar Operarios");
+        botonListarOperarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonListarOperariosActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -172,7 +170,11 @@ public class SubInterfazReporteOperarios extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(226, 226, 226)
                         .addComponent(labelTituloVentana, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(9, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(botonListarOperarios)
+                .addGap(253, 253, 253))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -186,7 +188,9 @@ public class SubInterfazReporteOperarios extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(140, 140, 140)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(194, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(botonListarOperarios)
+                .addContainerGap(153, Short.MAX_VALUE))
         );
 
         pack();
@@ -195,10 +199,11 @@ public class SubInterfazReporteOperarios extends javax.swing.JFrame {
     private void jBOperarioBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBOperarioBuscarActionPerformed
         // TODO add your handling code here:
         //se optiene la fecha de contratacion que ingresa el usuario
-        String fechaContratacion = txtFiltroOperario.getText();
+        LocalDate fecha_Contratacion = convertirDatetoLocalDate(calendarFechaContratacion.getDate());
+        
         //se consulta sql para seleccionar los datos
         String consulta = "SELECT id_operario, nombre, telefono, direccion, correoElectronico, salario, fechaContratacion FROM operarios WHERE fechaContratacion=?";
-
+    
         //se establece conexion a la base de datos
         try {
             // Establecer conexion a la base de datos
@@ -206,11 +211,10 @@ public class SubInterfazReporteOperarios extends javax.swing.JFrame {
             Connection conexion = connect.conectarDB();
             PreparedStatement statement = conexion.prepareStatement(consulta);
             //Se establece el parametro de fecha en la consulta
-            statement.setString(1, fechaContratacion);
+            statement.setString(1, fecha_Contratacion.toString());
             //se ejecuta la consulta y se obtiene el resultado
             ResultSet resultado = statement.executeQuery();
-            //se limpia la tabla para agregar los nuevos datos
-            modeloTabla.setRowCount(0);
+
             //llena la tabla segun la consulta
             while (resultado.next()) {
                 //se optienen los datos
@@ -221,20 +225,40 @@ public class SubInterfazReporteOperarios extends javax.swing.JFrame {
                 String correo = resultado.getString("correoElectronico");
                 double salario = resultado.getDouble("salario");
                 String fecha = resultado.getString("fechaContratacion");
+                
+                
+                //se establece las columnas de la tabla
+                String[] columnasTabla = {"ID operario", "Nombre", "Telefono", "Direccion", "Correo electronico", "Salario", "Fecha contratacion"};
+                modeloTabla.setColumnIdentifiers(columnasTabla);
+                
+                //Se crea un array tipo objeto para guardar el resultado de la consulta
+                Object[] resultadoConsulta = {id_operario, nombre, telefono, direccion, correo, salario, fecha};
+                
                 //se agrega fila a tabla con los datos
-                modeloTabla.addRow(new Object[]{id_operario, nombre, telefono, direccion, correo, salario, fecha});
+                modeloTabla.addRow(resultadoConsulta);
+                
+                //se asigna el modelo de tabla al jTable
+                jTable1.setModel(modeloTabla);
             }
+            
+        //Limpiamos el tableModel
+        modeloTabla = new DefaultTableModel();    
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Error al listar los productos de la base de datos - Error: " + e.getMessage());
         }
 
     }//GEN-LAST:event_jBOperarioBuscarActionPerformed
 
-    private void txtFiltroOperarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFiltroOperarioActionPerformed
-        // TODO add your handling code here:
+    private void botonListarOperariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonListarOperariosActionPerformed
+        listarOperarios();
+    }//GEN-LAST:event_botonListarOperariosActionPerformed
 
-    }//GEN-LAST:event_txtFiltroOperarioActionPerformed
-
+    public LocalDate convertirDatetoLocalDate(Date date) {
+        return date.toInstant()
+        .atZone(ZoneId.systemDefault())
+        .toLocalDate();
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -271,12 +295,13 @@ public class SubInterfazReporteOperarios extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botonListarOperarios;
+    private com.toedter.calendar.JDateChooser calendarFechaContratacion;
     private javax.swing.JButton jBOperarioBuscar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private java.awt.Label labelTituloVentana;
-    private javax.swing.JTextField txtFiltroOperario;
     // End of variables declaration//GEN-END:variables
 }

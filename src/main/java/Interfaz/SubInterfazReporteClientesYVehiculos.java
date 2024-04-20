@@ -12,7 +12,7 @@ import javax.swing.table.DefaultTableModel;
 public class SubInterfazReporteClientesYVehiculos extends javax.swing.JFrame {
     private DefaultTableModel clientesDefaultModel;
     private DefaultTableModel vehiculosDefaultModel;
-
+    private String cedulaClienteSeleccionado;
     /**
      * Creates new form SubInterfazReporteClientesYVehiculos
      */
@@ -56,12 +56,11 @@ public class SubInterfazReporteClientesYVehiculos extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
         }
     }
-
     /**
      * Creates new form InterfazReporteVehiculos
      */
-    private String obtenerCedulaClienteSeleccionado() {
-        //se obtienw el indice de la fila seleccionada en la tabla clientes
+    public String obtenerCedulaClienteSeleccionado() {
+        //se obtiene el indice de la fila seleccionada en la tabla clientes
         int filaSeleccionada = jTableCliente.getSelectedRow();
         //se verificaque se seleccionara una fila
         if (filaSeleccionada != -1) {
@@ -83,9 +82,10 @@ public class SubInterfazReporteClientesYVehiculos extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableCliente = new javax.swing.JTable();
+        labelTituloVentana = new java.awt.Label();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTableVehiculos = new javax.swing.JTable();
-        jBBuscarVehiculo = new javax.swing.JButton();
+        botonBuscarVehiculos = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -99,6 +99,10 @@ public class SubInterfazReporteClientesYVehiculos extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTableCliente);
 
+        labelTituloVentana.setAlignment(java.awt.Label.CENTER);
+        labelTituloVentana.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        labelTituloVentana.setText("Reporte Cliente y Vehiculo");
+
         jTableVehiculos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -109,10 +113,10 @@ public class SubInterfazReporteClientesYVehiculos extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(jTableVehiculos);
 
-        jBBuscarVehiculo.setText("Buscar vehiculo");
-        jBBuscarVehiculo.addActionListener(new java.awt.event.ActionListener() {
+        botonBuscarVehiculos.setText("Buscar Vehiculos Asociados");
+        botonBuscarVehiculos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBBuscarVehiculoActionPerformed(evt);
+                botonBuscarVehiculosActionPerformed(evt);
             }
         });
 
@@ -121,34 +125,46 @@ public class SubInterfazReporteClientesYVehiculos extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24))
+                .addGap(21, 21, 21)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25))
             .addGroup(layout.createSequentialGroup()
-                .addGap(285, 285, 285)
-                .addComponent(jBBuscarVehiculo)
-                .addContainerGap(295, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(231, 231, 231)
+                        .addComponent(labelTituloVentana, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(311, 311, 311)
+                        .addComponent(botonBuscarVehiculos)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(labelTituloVentana, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 349, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
-                .addComponent(jBBuscarVehiculo)
-                .addGap(26, 26, 26))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 471, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2))
+                .addGap(18, 18, 18)
+                .addComponent(botonBuscarVehiculos)
+                .addContainerGap(13, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBBuscarVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarVehiculoActionPerformed
-        // TODO add your handling code here:
+
+
+    }//GEN-LAST:event_jBBuscarVehiculoActionPerformed
+
+    private void botonBuscarVehiculosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBuscarVehiculosActionPerformed
         //se obtiene la cedula del cliente seleccionada
-        String cedulaClienteSeleccionado = obtenerCedulaClienteSeleccionado();
+        cedulaClienteSeleccionado = obtenerCedulaClienteSeleccionado();
 
         //se verifica que se seleccione un cliente
         if (cedulaClienteSeleccionado != null) {
@@ -156,22 +172,16 @@ public class SubInterfazReporteClientesYVehiculos extends javax.swing.JFrame {
             GestorReportes reporte = new GestorReportes();
 
             //segun la cedula seleccionada se obtiene los vehiculos relacionados
-            reporte.reporteDetalladoVehiculos();
+            reporte.reporteVehiculoAsociadoCliente(cedulaClienteSeleccionado);
 
             //se establece modelo de la tabla vehiculos con los vehiculos obtenidos
-            jTableVehiculos.setModel(reporte.getVehiculoDetalladoVehiculos());
+            jTableVehiculos.setModel(reporte.getVehiculoAsociadosCliente());
 
         } else {
             JOptionPane.showMessageDialog(this, "Seleccione un cliente");
 
         }
-
-    }//GEN-LAST:event_jBBuscarVehiculoActionPerformed
-
-    private void jTableClienteMouseClicked(java.awt.event.MouseEvent evt) {
-        // TODO add your handling code here:
-
-    }
+    }//GEN-LAST:event_botonBuscarVehiculosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -209,10 +219,11 @@ public class SubInterfazReporteClientesYVehiculos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jBBuscarVehiculo;
+    private javax.swing.JButton botonBuscarVehiculos;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTableCliente;
     private javax.swing.JTable jTableVehiculos;
+    private java.awt.Label labelTituloVentana;
     // End of variables declaration//GEN-END:variables
 }
