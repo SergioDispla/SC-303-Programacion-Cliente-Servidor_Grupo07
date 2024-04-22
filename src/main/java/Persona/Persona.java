@@ -11,7 +11,6 @@ public class Persona {
     Cliente, Operario, Administrador;
     }
     
-    
     //Atributos generales que tiene una persona
     private String cedula;
     private String nombre;

@@ -1,10 +1,9 @@
-package Servicio;
-
-import java.util.ArrayList;
-
 /**
 Clase para definir los servicios mecanicos disponibles en el taller
  */
+package Servicio;
+import java.util.ArrayList;
+
 public class ServicioMecanico {
     
     //Atributos de un servicio mecanico

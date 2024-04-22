@@ -1,11 +1,12 @@
 /**
-* Clase Hija - hereda los metodos de registroCompras y listarCompras de la interface Factura
+* Clase Hija - hereda los metodos de registrarVentas y listarVentas de la interface Factura
 * Clase para la administracion de los productos que se venderan en el taller.
 * 
 * Esta clase incluye: 
 * - Registro de Productos 
 * - Registro de la compra realizada
 * - Listado de la compra realizada
+* - Carga de productos por medio de archivo txt
  */
 package Gestores;
 import Producto.Producto;

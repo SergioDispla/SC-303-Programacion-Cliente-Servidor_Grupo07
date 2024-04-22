@@ -1,9 +1,10 @@
-
+/*
+Clase para definir la conexion a la base de datos MySQL
+*/
 package Taller;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-
 
 public class ConectarDB {
      public Connection conectarDB(){

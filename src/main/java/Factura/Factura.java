@@ -3,7 +3,6 @@
  */
 package Factura;
 
-
 public interface Factura {
     
     //Lista tipo enum para definir el tipo de pago

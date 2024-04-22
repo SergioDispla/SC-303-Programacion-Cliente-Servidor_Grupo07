@@ -81,17 +81,5 @@ public class Vehiculo {
         System.out.println("Placa: " + this.placa);
         System.out.println("Kilometraje: " + this.kilometraje);
         System.out.println("Cedula Cliente asociada: " + this.cedulaCliente);
-    }   
-    
-    //Metodo para buscar la placa del vehiculo - pendiente validarlo bien xD
-    /*public Vehiculo buscarPlaca(String placa) {
-    for (Vehiculo vehiculo : this.vehiculos) {
-        if (vehiculo.getPlaca().equals(placa)) {
-            return vehiculo;
-        }
-    }
-    return null;
-    }*/ 
-    
-    
+    }     
 }

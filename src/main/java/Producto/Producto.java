@@ -1,5 +1,5 @@
 /*
-Clase para definir los productos que se venderan en el taller
+Clase para definir los atributos de los productos que se venderan en el taller
 */
 package Producto;
 

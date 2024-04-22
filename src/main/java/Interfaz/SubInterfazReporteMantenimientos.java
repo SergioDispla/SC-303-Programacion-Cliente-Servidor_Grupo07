@@ -140,8 +140,6 @@ public class SubInterfazReporteMantenimientos extends javax.swing.JFrame {
         //Obtenemos el operario seleccionado del combo box
         String operario = comboOperarios.getSelectedItem().toString().substring(0, 4);
         
-        System.out.println(operario);
-        
         //Instaciamos la clase GestorReportes para usar el metodo listarMantenimientos
         GestorReportes reporte = new GestorReportes();
         reporte.listarMantenimientos(operario);

@@ -1,4 +1,6 @@
-//Clase hija de la clase persona. Hereda todos los atributos y metodos de la clase persona
+/*
+*Clase para definir los atributos que tendra un mantenimiento
+*/
 package Servicio;
 
 import Persona.Operario;

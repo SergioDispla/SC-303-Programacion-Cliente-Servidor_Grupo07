@@ -6,7 +6,7 @@ Clase para crear la reporteria de los distintos modulos
 - Reporte de Clientes y Vehículos
 - Reporte Detallado de Vehículos
 - Reporte de Ventas de Productos
-- Reporte General de mantenimientos o reparaciones realizados por la Compañía
+- Reporte General de Mantenimientos por Operario
  */
 package Gestores;
 import Taller.ConectarDB;
@@ -14,13 +14,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 
 public class GestorReportes {
-    //Default Models
+    //Default Models para rellenar tablas en las interfaces
     DefaultTableModel vehiculoDetalladoVehiculos = new DefaultTableModel();
     DefaultTableModel vehiculoDetalladoMantenimientos = new DefaultTableModel();
     DefaultTableModel vehiculoDetalladoFacturas = new DefaultTableModel();
@@ -69,7 +68,7 @@ public class GestorReportes {
 
     
  
-    
+    //Metodo para consultar clientes y vehiculos general
     public void reporteDetalladoVehiculos(){
         try {
             // Establecer conexion a la base de datos
@@ -108,6 +107,7 @@ public class GestorReportes {
         }
     }
     
+        //Metodo para consultar un unico registro de un cliente y su vehiculo
         public void reporteVehiculoAsociadoCliente(String cedula){
         try {
             // Establecer conexion a la base de datos
@@ -147,6 +147,7 @@ public class GestorReportes {
         }
     }
      
+     //Metodo para consultar los mantenimientos realizados a un vehiculo por su placa
      public void reporteDetalladoVehiculosMantenimientos(String placa){
         try {
             // Establecer conexion a la base de datos
@@ -186,6 +187,7 @@ public class GestorReportes {
         }
     }
      
+     //Metodo para consultar las facturas realizadas a un vehiculo por mantenimientos
      public void reporteDetalladoVehiculosFacturas(String cedula){
         try {
             // Establecer conexion a la base de datos
@@ -224,9 +226,10 @@ public class GestorReportes {
             JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
         }
     }
-     
-         public void listarMantenimientos(String id_operario) {
-            try {
+    
+    //Metodo para consultar todos los mantenimientos realizados por un operario
+    public void listarMantenimientos(String id_operario) {
+        try {
             // Establecer conexion a la base de datos
             ConectarDB connect = new ConectarDB();
             Connection conexion = connect.conectarDB();
