@@ -2,7 +2,7 @@
  * Inteface que define los metodos para la facturacion del taller
  */
 package Factura;
-import Persona.Cliente;
+
 
 public interface Factura {
     

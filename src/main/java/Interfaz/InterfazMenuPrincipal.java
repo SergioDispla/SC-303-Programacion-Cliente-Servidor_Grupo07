@@ -42,6 +42,7 @@ public class InterfazMenuPrincipal extends javax.swing.JFrame {
         botonReporteVentas = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         labelBienvenida.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         labelBienvenida.setText("Bienvenido a Lubri-Fast");
