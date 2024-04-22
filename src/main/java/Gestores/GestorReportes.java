@@ -25,6 +25,7 @@ public class GestorReportes {
     DefaultTableModel vehiculoDetalladoMantenimientos = new DefaultTableModel();
     DefaultTableModel vehiculoDetalladoFacturas = new DefaultTableModel();
     DefaultTableModel vehiculoAsociadosCliente = new DefaultTableModel();
+    DefaultTableModel vehiculoRegistroMantenimientos = new DefaultTableModel();
 
     public DefaultTableModel getVehiculoDetalladoVehiculos() {
         return vehiculoDetalladoVehiculos;
@@ -58,6 +59,15 @@ public class GestorReportes {
         this.vehiculoAsociadosCliente = vehiculoAsociadosCliente;
     }
 
+    public DefaultTableModel getVehiculoRegistroMantenimientos() {
+        return vehiculoRegistroMantenimientos;
+    }
+
+    public void setVehiculoRegistroMantenimientos(DefaultTableModel vehiculoRegistroMantenimientos) {
+        this.vehiculoRegistroMantenimientos = vehiculoRegistroMantenimientos;
+    }
+
+    
  
     
     public void reporteDetalladoVehiculos(){
@@ -214,6 +224,45 @@ public class GestorReportes {
             JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
         }
     }
+     
+         public void listarMantenimientos(String id_operario) {
+            try {
+            // Establecer conexion a la base de datos
+            ConectarDB connect = new ConectarDB();
+            Connection conexion = connect.conectarDB();
+            
+            // Consulta SQL para seleccionar todos los registros de ventas
+            String consulta = "SELECT cedula,placa,servicio FROM registroMantenimientos where id_operario = (?)";
+            
+            // Preparar la declaracion SQL
+            PreparedStatement declaracion = conexion.prepareStatement(consulta);
+            declaracion.setString(1, id_operario);
+            
+            // Ejecutar la consulta y obtener el resultado
+            ResultSet resultado = declaracion.executeQuery();
+            
+            while (resultado.next()) {
+                String cedula_cliente = resultado.getString("cedula");
+                String placa = resultado.getString("placa");
+                String servicio = resultado.getString("servicio");
+                
+                
+                //Creamos un array tipo objeto con los resultados de la consulta
+                Object [] resultadoConsulta = {cedula_cliente,placa,servicio};
+                
+                //Definimos el contenido de la tabla
+                String [] columnasTabla = {"Cédula Cliente","Placa","Servicios"};
+                vehiculoRegistroMantenimientos.setColumnIdentifiers(columnasTabla);
+                vehiculoRegistroMantenimientos.addRow(resultadoConsulta);  
+            }
+            
+            // Cerrar la conexión
+            conexion.close();
+        } catch (SQLException e) {
+            System.out.println("Error al listar las ventas de la base de datos: " + e.getMessage());
+        }
+            
+    }        
      
  
 }
