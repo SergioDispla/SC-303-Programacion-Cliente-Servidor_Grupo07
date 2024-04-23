@@ -4,6 +4,11 @@ import Gestores.GestorAdministracionClienteVehiculo;
 import Gestores.GestorOperarios;
 import Persona.Operario;
 import Persona.Persona;
+import Taller.ConectarDB;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.*;
 import java.time.LocalDate;
 import java.time.ZoneId;
@@ -17,6 +22,7 @@ public class InterfazAdministracionOperarios extends javax.swing.JFrame {
     public InterfazAdministracionOperarios() {
         initComponents();
         setLocationRelativeTo(null);
+        validacionOperario();
     }
 
     /**
@@ -301,6 +307,46 @@ public class InterfazAdministracionOperarios extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Seleccione al menos un operario de la tabla");
         }   
     }//GEN-LAST:event_botonEliminarOperarioActionPerformed
+    
+    private void validacionOperario(){       
+        try {
+            String id_operario = JOptionPane.showInputDialog("Ingrese su ID de Empleado");
+            
+            // Establecer conexión a la base de datos
+            ConectarDB connect = new ConectarDB();
+            Connection conexion = connect.conectarDB();
+            
+            // Consulta SQL para insertar la transaccion en la tabla de "registromantenimiento"
+            String consulta = "SELECT nombre FROM operarios WHERE id_operario = (?)";
+
+            //Preparar la declaracion SQL
+            PreparedStatement declaracion = conexion.prepareStatement(consulta);
+            declaracion.setString(1, id_operario);
+            
+            //Ejecutar la consulta y obtener el resultado
+            ResultSet resultado = declaracion.executeQuery();   
+            
+            //Se ejecuta un bucle para que el sistema deje pasar el usuario hasta que ingrese un ID correcto
+            while(true){ 
+                if (!resultado.isBeforeFirst()){ 
+                    JOptionPane.showMessageDialog(null, "[!] El ID de Empleado no se encuentra registrado o no es válido");       
+                } else {            
+                    //Imprimir los resultados en la tabla
+                    while (resultado.next()) {
+                        String nombre = resultado.getString("nombre");
+                        
+                    } 
+                    break;
+                }
+                id_operario = JOptionPane.showInputDialog("Ingrese su ID de Empleado");
+                declaracion.setString(1, id_operario);
+                resultado = declaracion.executeQuery();   
+            }       
+       } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error al conectar la base de datos: " + e.getMessage());    
+       }
+    }
+    
     public LocalDate convertirDatetoLocalDate(Date date) {
         return date.toInstant()
         .atZone(ZoneId.systemDefault())
